@@ -36,9 +36,11 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           
-          {/* Logo sempre laranja (maior) */}
+          {/* Logo sempre laranja (responsiva, maior) */}
           <div className="flex items-center space-x-3">
-            <HenzaiLogo variant="terracota" size="lg" /> 
+            <div className="w-14 h-14 md:w-20 md:h-20">
+              <HenzaiLogo variant="terracota" />
+            </div>
           </div>
 
           {/* Menu Desktop */}
