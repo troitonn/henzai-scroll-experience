@@ -1,218 +1,209 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Phone, Mail, Clock, CheckCircle } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
-  const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    empresa: '',
-    telefone: '',
-    mensagem: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Aqui seria implementada a lógica de envio do formulário
-  };
-
-  const contactInfo = [
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Telefone",
-      content: "+55 00 0900-0900",
-      subtitle: "Seg - Sex, 8h às 18h"
-    },
-    {
-      icon: <Mail className="w-6 h-6" />,
-      title: "E-mail",
-      content: "henzaienergia.com.br",
-      subtitle: "Resposta em até 24h"
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Escritório",
-      content: "São Paulo, SP",
-      subtitle: "Atendimento nacional"
-    },
-    {
-      icon: <Clock className="w-6 h-6" />,
-      title: "Horário",
-      content: "08:00 - 18:00",
-      subtitle: "Segunda a Sexta"
-    }
-  ];
-
   return (
-    <section id="contato" className="py-20 bg-gradient-to-br from-henzai-off-white to-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6">
-            Fale com Nossos Especialistas
+    <section 
+      id="contato" 
+      className="py-20 relative overflow-hidden"
+      style={{
+        backgroundImage: `url('/lovable-uploads/5f2618e2-094e-4644-a524-958b491698d3.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      <div className="absolute inset-0 bg-[#0F2D3A] bg-opacity-85"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-libre-franklin font-bold text-white mb-6">
+            Transforme sua Empresa <span className="text-henzai-terracota">Hoje Mesmo</span>
           </h2>
-          <p className="font-gantari text-xl text-muted-foreground max-w-3xl mx-auto">
-            Pronto para transformar eficiência energética em crescimento para sua empresa? 
-            Entre em contato e descubra como podemos ajudar.
+          <p className="text-lg font-gantari text-henzai-off-white max-w-3xl mx-auto">
+            Solicite sua análise energética gratuita e descubra como economizar milhares de reais por mês
           </p>
         </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Formulário de Contato */}
-          <Card className="border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-300 animate-slide-in">
-            <CardContent className="p-8">
-              <h3 className="font-libre-franklin text-2xl font-bold text-henzai-blue mb-6">
-                Solicite uma Consultoria
-              </h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <div className="grid lg:grid-cols-3 gap-12">
+          {/* Contact Form */}
+          <div className="lg:col-span-2">
+            <Card className="bg-white/95 backdrop-blur-sm shadow-xl rounded-3xl border-0">
+              <CardContent className="p-8 lg:p-12">
+                <h3 className="text-2xl font-libre-franklin font-bold text-henzai-blue mb-8">
+                  Solicite sua Análise Gratuita
+                </h3>
+                
+                <form className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-gantari font-medium text-henzai-blue mb-2">
+                        Nome Completo *
+                      </label>
+                      <Input 
+                        placeholder="Seu nome completo"
+                        className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-3xl px-6 py-3 focus:ring-2 focus:ring-henzai-terracota"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-gantari font-medium text-henzai-blue mb-2">
+                        E-mail Corporativo *
+                      </label>
+                      <Input 
+                        placeholder="seuemail@empresa.com.br"
+                        type="email"
+                        className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-3xl px-6 py-3 focus:ring-2 focus:ring-henzai-terracota"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-gantari font-medium text-henzai-blue mb-2">
+                        Telefone/WhatsApp *
+                      </label>
+                      <Input 
+                        placeholder="(11) 99999-9999"
+                        className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-3xl px-6 py-3 focus:ring-2 focus:ring-henzai-terracota"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-gantari font-medium text-henzai-blue mb-2">
+                        Empresa *
+                      </label>
+                      <Input 
+                        placeholder="Nome da sua empresa"
+                        className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-3xl px-6 py-3 focus:ring-2 focus:ring-henzai-terracota"
+                      />
+                    </div>
+                  </div>
+                  
                   <div>
-                    <label className="block font-gantari text-sm font-medium text-henzai-blue mb-2">
-                      Nome Completo *
+                    <label className="block text-sm font-gantari font-medium text-henzai-blue mb-2">
+                      Gasto Mensal com Energia Elétrica
                     </label>
-                    <Input
-                      name="nome"
-                      value={formData.nome}
-                      onChange={handleInputChange}
-                      placeholder="Seu nome completo"
-                      className="rounded-xl border-border focus:ring-henzai-terracota focus:border-henzai-terracota"
-                      required
+                    <Input 
+                      placeholder="Ex: R$ 15.000,00"
+                      className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-3xl px-6 py-3 focus:ring-2 focus:ring-henzai-terracota"
                     />
                   </div>
+                  
                   <div>
-                    <label className="block font-gantari text-sm font-medium text-henzai-blue mb-2">
-                      E-mail *
+                    <label className="block text-sm font-gantari font-medium text-henzai-blue mb-2">
+                      Conte-nos sobre sua necessidade
                     </label>
-                    <Input
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="seu@email.com"
-                      className="rounded-xl border-border focus:ring-henzai-terracota focus:border-henzai-terracota"
-                      required
+                    <Textarea 
+                      placeholder="Descreva seu projeto, expectativas de economia, prazo desejado ou qualquer informação relevante..."
+                      className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-3xl px-6 py-4 min-h-32 focus:ring-2 focus:ring-henzai-terracota"
                     />
                   </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block font-gantari text-sm font-medium text-henzai-blue mb-2">
-                      Empresa
-                    </label>
-                    <Input
-                      name="empresa"
-                      value={formData.empresa}
-                      onChange={handleInputChange}
-                      placeholder="Nome da empresa"
-                      className="rounded-xl border-border focus:ring-henzai-terracota focus:border-henzai-terracota"
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-gantari text-sm font-medium text-henzai-blue mb-2">
-                      Telefone
-                    </label>
-                    <Input
-                      name="telefone"
-                      value={formData.telefone}
-                      onChange={handleInputChange}
-                      placeholder="(00) 00000-0000"
-                      className="rounded-xl border-border focus:ring-henzai-terracota focus:border-henzai-terracota"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block font-gantari text-sm font-medium text-henzai-blue mb-2">
-                    Mensagem *
-                  </label>
-                  <Textarea
-                    name="mensagem"
-                    value={formData.mensagem}
-                    onChange={handleInputChange}
-                    placeholder="Conte-nos sobre seu projeto e como podemos ajudar..."
-                    rows={6}
-                    className="rounded-xl border-border focus:ring-henzai-terracota focus:border-henzai-terracota resize-none"
-                    required
-                  />
-                </div>
-
-                <Button 
-                  type="submit"
-                  variant="secondary"
-                  size="lg"
-                  className="w-full font-gantari font-semibold text-lg py-4 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02]"
-                >
-                  Solicitar Consultoria Gratuita
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          {/* Informações de Contato */}
-          <div className="space-y-6 animate-slide-in" style={{ animationDelay: '0.2s' }}>
-            <div className="mb-8">
-              <h3 className="font-libre-franklin text-2xl font-bold text-henzai-blue mb-4">
-                Informações de Contato
-              </h3>
-              <p className="font-gantari text-muted-foreground">
-                Nossa equipe está pronta para atender você e desenvolver soluções 
-                personalizadas para sua empresa.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {contactInfo.map((info, index) => (
-                <Card key={index} className="border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-300 transform hover:-translate-y-1">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-henzai-terracota to-henzai-terracota/80 flex items-center justify-center text-white flex-shrink-0">
-                        {info.icon}
+                  
+                  <div className="bg-henzai-terracota/10 rounded-3xl p-6">
+                    <h4 className="font-libre-franklin font-bold text-henzai-blue mb-3">
+                      O que você receberá gratuitamente:
+                    </h4>
+                    <div className="grid md:grid-cols-2 gap-3">
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="w-5 h-5 text-henzai-terracota flex-shrink-0" />
+                        <span className="text-sm font-gantari text-henzai-black">Análise do consumo atual</span>
                       </div>
-                      <div>
-                        <h4 className="font-libre-franklin font-semibold text-henzai-blue mb-1">
-                          {info.title}
-                        </h4>
-                        <p className="font-gantari text-sm text-henzai-blue font-medium">
-                          {info.content}
-                        </p>
-                        <p className="font-gantari text-xs text-muted-foreground">
-                          {info.subtitle}
-                        </p>
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="w-5 h-5 text-henzai-terracota flex-shrink-0" />
+                        <span className="text-sm font-gantari text-henzai-black">Simulação de economia</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="w-5 h-5 text-henzai-terracota flex-shrink-0" />
+                        <span className="text-sm font-gantari text-henzai-black">Cálculo de ROI detalhado</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="w-5 h-5 text-henzai-terracota flex-shrink-0" />
+                        <span className="text-sm font-gantari text-henzai-black">Proposta personalizada</span>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            <Card className="border-0 shadow-[var(--shadow-card)] bg-gradient-to-br from-henzai-blue to-henzai-blue/90">
-              <CardContent className="p-8 text-white text-center">
-                <h4 className="font-libre-franklin text-xl font-bold mb-4">
-                  Consultoria Gratuita
+                  </div>
+                  
+                  <Button 
+                    type="submit"
+                    size="lg"
+                    className="w-full bg-henzai-terracota hover:bg-[#A34F2E] text-henzai-off-white font-gantari font-semibold py-4 rounded-3xl text-lg transition-all duration-300 hover:scale-105"
+                  >
+                    Solicitar Análise Gratuita Agora
+                  </Button>
+                  
+                  <p className="text-xs font-gantari text-henzai-black/60 text-center">
+                    Seus dados estão protegidos. Não compartilhamos informações com terceiros.
+                  </p>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+          
+          {/* Contact Information */}
+          <div className="space-y-8">
+            <Card className="bg-white/95 backdrop-blur-sm shadow-xl rounded-3xl border-0">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-libre-franklin font-bold text-henzai-blue mb-6">
+                  Fale Diretamente Conosco
+                </h3>
+                
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-henzai-terracota rounded-full flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-libre-franklin font-bold text-henzai-blue">WhatsApp</div>
+                      <div className="font-gantari text-henzai-black">+55 (11) 9 0900-0900</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-henzai-terracota rounded-full flex items-center justify-center flex-shrink-0">
+                      <Mail className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-libre-franklin font-bold text-henzai-blue">E-mail</div>
+                      <div className="font-gantari text-henzai-black">henzaienergia.com.br</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-henzai-terracota rounded-full flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-libre-franklin font-bold text-henzai-blue">Atendimento</div>
+                      <div className="font-gantari text-henzai-black">Segunda a Sexta: 8h às 18h</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-8 pt-8 border-t border-henzai-off-white">
+                  <Button 
+                    size="lg"
+                    className="w-full bg-henzai-blue hover:bg-henzai-blue/90 text-white font-gantari font-semibold py-3 rounded-3xl transition-all duration-300"
+                  >
+                    Chamar no WhatsApp
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-gradient-to-br from-henzai-terracota to-[#A34F2E] shadow-xl rounded-3xl border-0">
+              <CardContent className="p-8 text-center text-white">
+                <h4 className="text-lg font-libre-franklin font-bold mb-4">
+                  Resposta Rápida Garantida
                 </h4>
-                <p className="font-gantari mb-6 opacity-90">
-                  Agende uma análise gratuita do seu perfil energético e descubra 
-                  o potencial de economia da sua empresa.
+                <p className="font-gantari text-sm mb-4">
+                  Nossa equipe retorna em até 2 horas úteis com sua análise preliminar
                 </p>
-                <Button 
-                  variant="secondary"
-                  className="font-gantari font-semibold px-6 py-3 rounded-full"
-                >
-                  Agendar Agora
-                </Button>
+                <div className="text-2xl font-libre-franklin font-bold">
+                  ⚡ Análise Express
+                </div>
               </CardContent>
             </Card>
           </div>
