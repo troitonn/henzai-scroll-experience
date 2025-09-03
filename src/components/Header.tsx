@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
 import HenzaiLogo from './HenzaiLogo';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,14 +36,12 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           
-          {/* Logo sempre laranja */}
+          {/* Logo sempre laranja (maior) */}
           <div className="flex items-center space-x-3">
-            <HenzaiLogo variant="terracota" size="md" />
-            {/* Se quiser texto ao lado da logo */}
-            {/* <span className="text-white font-bold text-lg">Henzai</span> */}
+            <HenzaiLogo variant="terracota" size="lg" /> 
           </div>
 
-          {/* Menu Desktop sempre branco */}
+          {/* Menu Desktop */}
           <nav className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
               <a
@@ -55,18 +55,53 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Botão com contraste dinâmico */}
-          <Button 
-            variant="secondary"
-            className={`font-gantari font-semibold px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 
-              ${isScrolled 
-                ? "bg-white text-henzai-blue hover:bg-henzai-off-white" 
-                : "bg-henzai-blue text-white hover:bg-henzai-terracota"
-              }`}
-          >
-            Falar com Especialista
-          </Button>
+          {/* Botão Desktop */}
+          <div className="hidden md:block">
+            <Button 
+              variant="secondary"
+              className={`font-gantari font-semibold px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 
+                ${isScrolled 
+                  ? "bg-white text-henzai-blue hover:bg-henzai-off-white" 
+                  : "bg-henzai-blue text-white hover:bg-henzai-terracota"
+                }`}
+            >
+              Falar com Especialista
+            </Button>
+          </div>
+
+          {/* Botão Mobile */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="text-white focus:outline-none"
+            >
+              {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
+
+        {/* Menu Mobile */}
+        {mobileOpen && (
+          <div className="md:hidden mt-4 space-y-4">
+            {menuItems.map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(' ', '-')}`}
+                className="block text-white font-gantari text-lg hover:text-henzai-terracota transition-colors duration-300"
+                onClick={() => setMobileOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
+
+            <Button 
+              variant="secondary"
+              className="w-full font-gantari font-semibold px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 bg-henzai-blue text-white hover:bg-henzai-terracota"
+            >
+              Falar com Especialista
+            </Button>
+          </div>
+        )}
       </div>
     </header>
   );
