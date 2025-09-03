@@ -33,19 +33,22 @@ const HenzaiLogo: React.FC<HenzaiLogoProps> = ({
     <div className={`flex items-center ${className}`}>
       <svg 
         className={`${sizeClasses[size]} mr-3`} 
-        viewBox="0 0 64 64" 
+        viewBox="0 0 80 80" 
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Símbolo H estilizado baseado nas imagens da Henzai */}
+        {/* Logo Henzai oficial baseado nas imagens fornecidas */}
         <g className={symbolColors[variant]}>
-          {/* Parte superior esquerda */}
-          <path d="M10 8 Q14 4 22 8 Q26 10 26 16 Q26 22 22 26 Q18 28 14 26 Q10 24 10 20 Q10 16 14 12 Q18 10 22 12 Q26 14 26 18 Q26 22 22 24 Q18 22 14 20 Q10 18 10 14 Z" />
-          {/* Parte superior direita */}
-          <path d="M38 4 Q42 0 50 4 Q54 6 54 12 Q54 18 50 22 Q46 24 42 22 Q38 20 38 16 Q38 12 42 8 Q46 6 50 8 Q54 10 54 14 Q54 18 50 20 Q46 18 42 16 Q38 14 38 10 Z" />
-          {/* Parte inferior esquerda */}
-          <path d="M6 36 Q10 32 18 36 Q22 38 22 44 Q22 50 18 54 Q14 56 10 54 Q6 52 6 48 Q6 44 10 40 Q14 38 18 40 Q22 42 22 46 Q22 50 18 52 Q14 50 10 48 Q6 46 6 42 Z" />
-          {/* Parte inferior direita */}
-          <path d="M42 32 Q46 28 54 32 Q58 34 58 40 Q58 46 54 50 Q50 52 46 50 Q42 48 42 44 Q42 40 46 36 Q50 34 54 36 Q58 38 58 42 Q58 46 54 48 Q50 46 46 44 Q42 42 42 38 Z" />
+          {/* Forma 1: Retângulo vertical superior esquerdo */}
+          <rect x="8" y="8" width="16" height="30" rx="6" />
+          
+          {/* Forma 2: Paralelogramo superior direito */}
+          <path d="M35 5 L65 5 Q70 5 72 8 L70 25 Q68 30 63 30 L33 30 Q28 30 30 25 L32 8 Q34 5 35 5 Z" />
+          
+          {/* Forma 3: Forma orgânica curva inferior esquerda */}
+          <path d="M5 42 Q8 38 18 42 Q28 44 32 50 Q34 56 30 62 Q26 68 18 70 Q10 72 6 68 Q2 64 3 58 Q4 52 5 46 Q6 42 5 42 Z" />
+          
+          {/* Forma 4: Retângulo vertical inferior direita */}
+          <rect x="58" y="35" width="16" height="38" rx="6" />
         </g>
       </svg>
       <div className="flex flex-col">
