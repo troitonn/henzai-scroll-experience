@@ -11,10 +11,11 @@ const HenzaiLogo: React.FC<HenzaiLogoProps> = ({
   size = "md",
   variant = "default",
 }) => {
+  // Agora os tamanhos definem apenas o container externo
   const sizeClasses = {
-    sm: "w-8 h-8",
-    md: "w-12 h-12",
-    lg: "w-16 h-16",
+    sm: "w-12 h-12",
+    md: "w-20 h-20",
+    lg: "w-32 h-32",
   };
 
   const fillColor =
@@ -25,9 +26,11 @@ const HenzaiLogo: React.FC<HenzaiLogoProps> = ({
       : "#DE693E"; // cor original do SVG
 
   return (
-    <div className={`flex items-center ${className}`}>
+    <div
+      className={`flex items-center justify-center ${sizeClasses[size]} ${className}`}
+    >
       <svg
-        className={sizeClasses[size]}
+        className="w-full h-full"
         viewBox="0 0 1080 1080"
         xmlns="http://www.w3.org/2000/svg"
       >
