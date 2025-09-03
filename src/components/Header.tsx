@@ -28,13 +28,20 @@ const Header: React.FC = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
           ? 'bg-henzai-blue/95 backdrop-blur-md shadow-lg' 
-          : 'bg-henzai-blue'
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <HenzaiLogo variant="white" size="md" />
           
+          {/* Ajuste da logo */}
+          <div className="flex items-center space-x-3">
+            <HenzaiLogo variant="white" size="md" />
+            {/* Se quiser nome junto, descomente ↓ */}
+            {/* <span className="text-white font-bold text-lg">Henzai</span> */}
+          </div>
+
+          {/* Menu Desktop */}
           <nav className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
               <a
@@ -48,6 +55,7 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
+          {/* Botão */}
           <Button 
             variant="secondary"
             className="font-gantari font-semibold px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 bg-white text-henzai-blue hover:bg-henzai-off-white"
