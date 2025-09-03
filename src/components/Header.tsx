@@ -34,11 +34,15 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           
-          {/* Ajuste da logo */}
+          {/* Logo */}
           <div className="flex items-center space-x-3">
-            <HenzaiLogo variant="white" size="md" />
-            {/* Se quiser nome junto, descomente ↓ */}
-            {/* <span className="text-white font-bold text-lg">Henzai</span> */}
+            <HenzaiLogo 
+              variant={isScrolled ? "white" : "terracota"} 
+              size="md" 
+            />
+            {/* <span className={`${isScrolled ? "text-white" : "text-slate-800"} font-bold text-lg`}>
+              Henzai
+            </span> */}
           </div>
 
           {/* Menu Desktop */}
@@ -47,7 +51,11 @@ const Header: React.FC = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(' ', '-')}`}
-                className="relative text-white font-gantari hover:text-henzai-terracota transition-colors duration-300 group"
+                className={`relative font-gantari transition-colors duration-300 group ${
+                  isScrolled 
+                    ? "text-white hover:text-henzai-terracota" 
+                    : "text-slate-800 hover:text-henzai-terracota"
+                }`}
               >
                 {item}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-henzai-terracota transition-all duration-300 group-hover:w-full"></span>
@@ -58,7 +66,11 @@ const Header: React.FC = () => {
           {/* Botão */}
           <Button 
             variant="secondary"
-            className="font-gantari font-semibold px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 bg-white text-henzai-blue hover:bg-henzai-off-white"
+            className={`font-gantari font-semibold px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 
+              ${isScrolled 
+                ? "bg-white text-henzai-blue hover:bg-henzai-off-white" 
+                : "bg-henzai-blue text-white hover:bg-henzai-terracota"
+              }`}
           >
             Falar com Especialista
           </Button>
