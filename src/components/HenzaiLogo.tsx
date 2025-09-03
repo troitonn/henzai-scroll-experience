@@ -17,7 +17,7 @@ const HenzaiLogo: React.FC<HenzaiLogoProps> = ({
     lg: 'w-16 h-16'
   };
 
-  const fillColor = variant === 'white' ? '#FFFFFF' : '#C4704A';
+  const fillColor = variant === 'white' ? '#C4704A' : '#C4704A';
 
   return (
     <div className={`flex items-center ${className}`}>
