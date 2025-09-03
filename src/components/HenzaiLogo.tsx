@@ -29,17 +29,17 @@ const HenzaiLogo: React.FC<HenzaiLogoProps> = ({
       >
         {/* Logo symbol baseado na imagem fornecida */}
         <g fill={fillColor}>
-          {/* Forma superior esquerda - retângulo vertical arredondado */}
-          <path d="M15 10 C20 10 25 15 25 20 L25 45 C25 50 20 55 15 55 L10 55 C5 55 0 50 0 45 L0 20 C0 15 5 10 10 10 Z" />
+          {/* Forma superior esquerda - retângulo vertical arredondado inclinado */}
+          <path d="M8 15 C13 12 20 12 25 15 L32 35 C35 42 32 50 25 50 L15 47 C8 45 5 38 8 32 Z" />
           
-          {/* Forma superior direita - paralelogramo arredondado */}
-          <path d="M40 5 L80 5 C85 5 90 10 90 15 C90 20 85 25 80 25 L50 35 C45 37 40 32 40 27 L40 15 C40 10 40 5 40 5 Z" />
+          {/* Forma superior direita - paralelogramo largo */}
+          <path d="M45 8 L85 15 C90 16 95 20 95 25 C95 30 90 35 85 35 L50 28 C43 26 40 18 45 12 Z" />
           
-          {/* Forma inferior esquerda - forma orgânica */}
-          <path d="M5 50 C10 45 20 48 30 55 C35 60 38 70 30 80 C25 85 15 88 8 82 C0 75 0 65 5 55 C5 52 5 50 5 50 Z" />
+          {/* Forma inferior esquerda - forma orgânica arredondada */}
+          <path d="M5 55 C8 50 15 48 22 52 C35 58 40 68 35 78 C32 85 25 88 18 85 C8 80 2 68 5 58 Z" />
           
           {/* Forma inferior direita - retângulo vertical */}
-          <path d="M75 35 C80 35 85 40 85 45 L85 85 C85 90 80 95 75 95 L70 95 C65 95 60 90 60 85 L60 45 C60 40 65 35 70 35 Z" />
+          <path d="M70 42 C75 40 82 42 85 47 L88 80 C90 87 85 92 78 90 L72 87 C65 84 63 75 65 68 L68 47 C69 42 70 42 70 42 Z" />
         </g>
       </svg>
     </div>

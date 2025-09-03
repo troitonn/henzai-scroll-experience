@@ -50,7 +50,7 @@ const Header: React.FC = () => {
 
           <Button 
             variant="secondary"
-            className="font-gantari font-semibold px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300"
+            className="font-gantari font-semibold px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 bg-white text-henzai-blue hover:bg-henzai-off-white"
           >
             Falar com Especialista
           </Button>
