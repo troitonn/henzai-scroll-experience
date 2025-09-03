@@ -34,28 +34,20 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           
-          {/* Logo */}
+          {/* Logo sempre laranja */}
           <div className="flex items-center space-x-3">
-            <HenzaiLogo 
-              variant={isScrolled ? "white" : "terracota"} 
-              size="md" 
-            />
-            {/* <span className={`${isScrolled ? "text-white" : "text-slate-800"} font-bold text-lg`}>
-              Henzai
-            </span> */}
+            <HenzaiLogo variant="terracota" size="md" />
+            {/* Se quiser texto ao lado da logo */}
+            {/* <span className="text-white font-bold text-lg">Henzai</span> */}
           </div>
 
-          {/* Menu Desktop */}
+          {/* Menu Desktop sempre branco */}
           <nav className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(' ', '-')}`}
-                className={`relative font-gantari transition-colors duration-300 group ${
-                  isScrolled 
-                    ? "text-white hover:text-henzai-terracota" 
-                    : "text-slate-800 hover:text-henzai-terracota"
-                }`}
+                className="relative text-white font-gantari transition-colors duration-300 group hover:text-henzai-terracota"
               >
                 {item}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-henzai-terracota transition-all duration-300 group-hover:w-full"></span>
@@ -63,7 +55,7 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Botão */}
+          {/* Botão com contraste dinâmico */}
           <Button 
             variant="secondary"
             className={`font-gantari font-semibold px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 
