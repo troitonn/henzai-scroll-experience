@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-bg.jpg';
+import heroImage from '@/assets/hero-business-woman.jpg';
 
 const HeroSection: React.FC = () => {
   return (

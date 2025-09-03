@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import solarPanelsImage from '@/assets/solar-panels.jpg';
-import teamMeetingImage from '@/assets/team-meeting.jpg';
+import solarPanelsImage from '@/assets/solar-panels-modern.jpg';
+import teamMeetingImage from '@/assets/corporate-meeting.jpg';
 
 const ResultsSection: React.FC = () => {
   const results = [
