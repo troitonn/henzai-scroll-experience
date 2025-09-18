@@ -6,38 +6,38 @@ import teamMeetingImage from '@/assets/corporate-meeting.jpg';
 const ResultsSection: React.FC = () => {
   const results = [
     {
-      number: "85%",
-      label: "Redução Média nos Custos de Energia",
-      description: "Empresas parceiras alcançaram uma economia significativa em suas contas de energia elétrica"
+      number: "40%",
+      label: "Redução Média de Custos com Energia",
+      description: "Economia comprovada através de migração para o mercado livre de energia e projetos de eficiência energética"
     },
     {
-      number: "150+",
-      label: "Projetos Implementados",
-      description: "Soluções energéticas entregues com sucesso em diversos segmentos empresariais"
+      number: "500+",
+      label: "MW de Energia Gerenciados",
+      description: "Portfolio de contratos de energia no mercado livre representando grandes consumidores industriais"
     },
     {
-      number: "R$ 50M+",
-      label: "Em Capital Liberado",
-      description: "Valor total convertido de economia energética em capital de giro para crescimento"
+      number: "R$ 120M+",
+      label: "Em Economia Energética Gerada",
+      description: "Valor total economizado pelos clientes através de nossas soluções integradas de energia"
     },
     {
-      number: "98%",
-      label: "Satisfação dos Clientes",
-      description: "Índice de satisfação baseado em resultados entregues e acompanhamento contínuo"
+      number: "15+",
+      label: "Anos de Experiência no Setor",
+      description: "Expertise consolidada em regulação energética, ANEEL, ONS e transformações do mercado brasileiro"
     }
   ];
 
   const testimonials = [
     {
-      quote: "A Henzai transformou nossa visão sobre eficiência energética. Conseguimos reduzir 70% dos custos e ainda liberar capital para expandir nossa operação.",
-      author: "Maria Silva",
-      position: "CEO, TechFlow Industries",
+      quote: "A migração para o mercado livre com a Henzai resultou em 35% de economia na nossa conta de energia. O suporte técnico e regulatório foi fundamental para o sucesso.",
+      author: "Carlos Mendes",
+      position: "Diretor de Operações, Metalúrgica Brasil",
       image: teamMeetingImage
     },
     {
-      quote: "O que mais impressiona é a abordagem integrada. Não é só sobre energia, mas sobre como isso acelera o crescimento do negócio.",
-      author: "João Santos",
-      position: "Diretor Financeiro, GreenCorp",
+      quote: "Além da economia imediata, as soluções de eficiência energética implementadas pela Henzai nos permitiram reinvestir em modernização da nossa planta industrial.",
+      author: "Ana Paula Costa",
+      position: "Gerente de Sustentabilidade, QuímicaCorp",
       image: solarPanelsImage
     }
   ];
@@ -47,11 +47,11 @@ const ResultsSection: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6">
-            Resultados que Transformam
+            Performance Comprovada no Mercado
           </h2>
           <p className="font-gantari text-xl text-muted-foreground max-w-3xl mx-auto">
-            Números que comprovam o impacto da nossa abordagem inteligente em 
-            eficiência energética e crescimento empresarial
+            Resultados concretos que demonstram nossa capacidade de gerar valor 
+            através de soluções inteligentes no setor energético brasileiro
           </p>
         </div>
 

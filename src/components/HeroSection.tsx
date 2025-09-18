@@ -7,7 +7,7 @@ const HeroSection: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: `url('/lovable-uploads/866a2684-ad49-4b9f-9371-c9fa94b01c90.png')` 
+          backgroundImage: `url('/lovable-uploads/hero-energy-bg.png')` 
         }}
       >
         <div className="absolute inset-0 bg-[#0F2D3A] bg-opacity-40"></div>
@@ -17,15 +17,15 @@ const HeroSection: React.FC = () => {
         <div className="max-w-4xl">
           <div className="text-white space-y-8">
             <h1 className="text-5xl md:text-7xl font-libre-franklin font-bold leading-tight animate-fade-in">
-              Transformamos<br />
-              <span className="text-henzai-terracota">economia de energia</span><br />
-              em capital que<br />
-              acelera negócios.
+              Líderes em<br />
+              <span className="text-henzai-terracota">soluções energéticas</span><br />
+              que impulsionam<br />
+              o futuro dos negócios.
             </h1>
             
             <p className="text-xl md:text-2xl font-gantari text-henzai-off-white animate-fade-in animation-delay-300 max-w-3xl">
-              Consultoria & Representações em Eficiência Energética. 
-              A inteligência que conecta energia, capital e crescimento.
+              Especialistas em eficiência energética, representações técnicas e transformação digital. 
+              Mais de 15 anos conectando inovação, sustentabilidade e resultados para empresas brasileiras.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in animation-delay-500">

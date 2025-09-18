@@ -45,23 +45,23 @@ const HowItWorksSection: React.FC = () => {
   const steps = [
     {
       icon: <Search className="w-8 h-8" />,
-      title: "Análise Energética",
-      description: "Realizamos um diagnóstico completo do seu consumo energético, identificando oportunidades de economia e eficiência."
+      title: "Auditoria Energética",
+      description: "Diagnóstico técnico completo das suas instalações elétricas, perfil de carga e contratos de energia, identificando potencial de redução de custos."
     },
     {
       icon: <Calculator className="w-8 h-8" />,
-      title: "Estratégia Financeira",
-      description: "Desenvolvemos um plano personalizado para transformar a economia energética em capital de giro para seu negócio."
+      title: "Modelagem Financeira",
+      description: "Desenvolvimento de estratégias de migração para o mercado livre, negociação de contratos e estruturação de investimentos em eficiência."
     },
     {
       icon: <Rocket className="w-8 h-8" />,
-      title: "Implementação",
-      description: "Colocamos em prática as soluções desenvolvidas, acompanhando cada etapa do processo de otimização."
+      title: "Execução Técnica",
+      description: "Implementação de projetos de eficiência energética, representações junto aos órgãos reguladores e gestão de ativos energéticos."
     },
     {
       icon: <CheckCircle className="w-8 h-8" />,
-      title: "Resultados",
-      description: "Monitoramos os resultados e garantimos que sua empresa alcance o crescimento sustentável planejado."
+      title: "Performance Energética",
+      description: "Monitoramento contínuo dos indicadores de consumo, medição e verificação dos resultados com relatórios de desempenho energético."
     }
   ];
 
@@ -70,11 +70,11 @@ const HowItWorksSection: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6">
-            Como Funciona
+            Nossa Metodologia Energética
           </h2>
           <p className="font-gantari text-xl text-muted-foreground max-w-3xl mx-auto">
-            Um processo inteligente e estruturado para conectar eficiência energética 
-            com crescimento empresarial
+            Processo estruturado que combina expertise técnica, conhecimento regulatório 
+            e inovação digital para maximizar a eficiência energética dos seus ativos
           </p>
         </div>
 

@@ -6,30 +6,30 @@ import { Zap, Leaf, TrendingUp, Users, ArrowRight } from 'lucide-react';
 const SolutionsSection: React.FC = () => {
   const solutions = [
     {
-      title: 'Consultoria Especializada',
-      description: 'Análise completa do seu consumo energético e implementação de soluções personalizadas para máxima eficiência',
-      benefits: ['Auditoria energética completa', 'ROI transparente', 'Acompanhamento técnico'],
-      image: '/lovable-uploads/cb09bdbe-0580-4286-8074-013d36f8af7e.png',
+      title: 'Consultoria em Eficiência Energética',
+      description: 'Auditoria energética completa e implementação de soluções que reduzem até 40% dos custos operacionais com energia elétrica',
+      benefits: ['Análise técnica especializada', 'Economia comprovada em 90 dias', 'ROI superior a 300%'],
+      image: '/lovable-uploads/energy-consulting.png',
       icon: Zap
     },
     {
-      title: 'Representações Técnicas',
-      description: 'Representação especializada junto aos órgãos reguladores e implementação de projetos de eficiência energética',
-      benefits: ['Compliance garantido', 'Processo simplificado', 'Suporte regulatório'],
-      image: '/lovable-uploads/86908086-9650-4d9e-b562-0a8c81473c92.png',
+      title: 'Representações Regulatórias',
+      description: 'Representação técnica junto à ANEEL, ONS e demais órgãos do setor elétrico para aprovação de projetos energéticos',
+      benefits: ['Compliance 100% garantido', 'Aprovações em tempo recorde', 'Expertise regulatória'],
+      image: '/lovable-uploads/regulatory-energy.png',
       icon: Users
     },
     {
-      title: 'Transformação Digital',
-      description: 'Soluções tecnológicas avançadas que conectam economia de energia com crescimento empresarial inteligente',
-      benefits: ['Monitoramento em tempo real', 'Relatórios inteligentes', 'Otimização automática'],
-      image: '/lovable-uploads/99a39079-4e60-4c8f-b8bc-6829d65c162d.png',
+      title: 'Soluções Digitais para Energia',
+      description: 'Plataformas inteligentes de monitoramento e gestão energética que maximizam a performance dos seus ativos',
+      benefits: ['Monitoramento 24/7', 'IA aplicada à energia', 'Redução de 35% no consumo'],
+      image: '/lovable-uploads/digital-energy-solution.png',
       icon: TrendingUp
     },
     {
-      title: 'Sustentabilidade Corporativa',
-      description: 'Estratégias sustentáveis que posicionam sua empresa como referência em responsabilidade ambiental',
-      benefits: ['Certificações ambientais', 'Redução da pegada de carbono', 'Imagem corporativa'],
+      title: 'Transição Energética Sustentável',
+      description: 'Estratégias completas de descarbonização e migração para fontes renováveis alinhadas aos ESG corporativos',
+      benefits: ['Certificação ESG', 'Fontes 100% renováveis', 'Créditos de carbono'],
       image: '/lovable-uploads/5f2618e2-094e-4644-a524-958b491698d3.png',
       icon: Leaf
     }
@@ -40,11 +40,12 @@ const SolutionsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-libre-franklin font-bold text-henzai-blue mb-6">
-            Mais do que economia.<br />
-            <span className="text-henzai-terracota">Uma estratégia de crescimento.</span>
+            Soluções completas em<br />
+            <span className="text-henzai-terracota">energia e sustentabilidade.</span>
           </h2>
           <p className="text-lg font-gantari text-henzai-black max-w-3xl mx-auto">
-            Atuamos como consultoria, analisando, comparando e recomendando a solução certa para cada negócio
+            Portfólio integrado de serviços energéticos que conecta eficiência operacional, 
+            compliance regulatório e transição sustentável para empresas que lideram o futuro.
           </p>
         </div>
         
