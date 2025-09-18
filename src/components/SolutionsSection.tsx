@@ -16,7 +16,7 @@ const SolutionsSection: React.FC = () => {
       title: 'Representações Regulatórias',
       description: 'Representação técnica junto à ANEEL, ONS e demais órgãos do setor elétrico para aprovação de projetos energéticos',
       benefits: ['Compliance 100% garantido', 'Aprovações em tempo recorde', 'Expertise regulatória'],
-      image: '/lovable-uploads/regulatory-energy.png',
+      image: '/lovable-uploads/solar-park-regulatory.png',
       icon: Users
     },
     {
