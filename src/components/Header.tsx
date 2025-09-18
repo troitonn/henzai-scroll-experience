@@ -27,29 +27,33 @@ const Header: React.FC = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
         isScrolled 
-          ? 'bg-henzai-blue/95 backdrop-blur-md shadow-lg' 
-          : 'bg-transparent'
+          ? 'bg-white/80 backdrop-blur-xl shadow-glass border-b border-white/20' 
+          : 'bg-white/10 backdrop-blur-md'
       }`}
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           
-          {/* Logo sempre laranja (responsiva, maior) */}
+          {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-14 h-14 md:w-20 md:h-20">
+            <div className="w-12 h-12 md:w-16 md:h-16">
               <HenzaiLogo variant="terracota" />
             </div>
           </div>
 
           {/* Menu Desktop */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-10">
             {menuItems.map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(' ', '-')}`}
-                className="relative text-white font-gantari transition-colors duration-300 group hover:text-henzai-terracota"
+                className={`relative font-gantari font-medium transition-all duration-300 group ${
+                  isScrolled 
+                    ? 'text-henzai-blue/90 hover:text-henzai-terracota' 
+                    : 'text-white/90 hover:text-white'
+                }`}
               >
                 {item}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-henzai-terracota transition-all duration-300 group-hover:w-full"></span>
@@ -60,12 +64,11 @@ const Header: React.FC = () => {
           {/* Botão Desktop */}
           <div className="hidden md:block">
             <Button 
-              variant="secondary"
-              className={`font-gantari font-semibold px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 
-                ${isScrolled 
-                  ? "bg-white text-henzai-blue hover:bg-henzai-off-white" 
-                  : "bg-henzai-blue text-white hover:bg-henzai-terracota"
-                }`}
+              className={`font-gantari font-medium px-6 py-3 rounded-full transition-all duration-300 glass-button ${
+                isScrolled 
+                  ? "bg-henzai-terracota/90 text-white hover:bg-henzai-terracota backdrop-blur-md" 
+                  : "bg-white/20 text-white border border-white/30 hover:bg-white/30 backdrop-blur-md"
+              }`}
             >
               Falar com Especialista
             </Button>
@@ -75,21 +78,27 @@ const Header: React.FC = () => {
           <div className="md:hidden">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="text-white focus:outline-none"
+              className={`p-2 rounded-lg transition-all duration-300 ${
+                isScrolled 
+                  ? 'text-henzai-blue bg-white/10 hover:bg-white/20' 
+                  : 'text-white bg-white/10 hover:bg-white/20'
+              } backdrop-blur-md focus:outline-none`}
             >
-              {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
         {/* Menu Mobile */}
         {mobileOpen && (
-          <div className="md:hidden mt-4 space-y-4">
+          <div className="md:hidden mt-4 p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 space-y-4">
             {menuItems.map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(' ', '-')}`}
-                className="block text-white font-gantari text-lg hover:text-henzai-terracota transition-colors duration-300"
+                className={`block font-gantari text-lg transition-colors duration-300 ${
+                  isScrolled ? 'text-henzai-blue/90 hover:text-henzai-terracota' : 'text-white/90 hover:text-white'
+                }`}
                 onClick={() => setMobileOpen(false)}
               >
                 {item}
@@ -97,8 +106,7 @@ const Header: React.FC = () => {
             ))}
 
             <Button 
-              variant="secondary"
-              className="w-full font-gantari font-semibold px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 bg-henzai-blue text-white hover:bg-henzai-terracota"
+              className="w-full font-gantari font-medium px-6 py-3 rounded-full transition-all duration-300 bg-henzai-terracota/90 text-white hover:bg-henzai-terracota backdrop-blur-md"
             >
               Falar com Especialista
             </Button>

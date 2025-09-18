@@ -13,7 +13,7 @@ const HeroSection: React.FC = () => {
         <div className="absolute inset-0 bg-[#0F2D3A] bg-opacity-40"></div>
       </div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
         <div className="max-w-4xl">
           <div className="text-white space-y-8">
             <h1 className="text-5xl md:text-7xl font-libre-franklin font-bold leading-tight animate-fade-in">
@@ -31,7 +31,7 @@ const HeroSection: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in animation-delay-500">
               <Button 
                 size="lg"
-                className="bg-henzai-terracota hover:bg-[#A34F2E] text-henzai-off-white font-gantari font-semibold px-8 py-4 rounded-3xl text-lg transition-all duration-300 hover:scale-105"
+                className="bg-henzai-terracota/90 hover:bg-henzai-terracota text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-md"
               >
                 Falar com Especialista
               </Button>
@@ -39,7 +39,7 @@ const HeroSection: React.FC = () => {
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-2 border-henzai-terracota text-henzai-terracota hover:bg-henzai-terracota hover:text-henzai-off-white font-gantari font-semibold px-8 py-4 rounded-3xl text-lg transition-all duration-300"
+                className="border-2 border-white/30 text-white hover:bg-white/20 font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 backdrop-blur-md glass-button hover:scale-105"
               >
                 Ver Soluções
               </Button>

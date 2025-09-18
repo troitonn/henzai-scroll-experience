@@ -51,9 +51,11 @@ All colors MUST be HSL.
     --gradient-hero: linear-gradient(135deg, hsl(var(--henzai-blue)) 0%, hsl(var(--henzai-blue) / 0.9) 100%);
     --gradient-terracota: linear-gradient(135deg, hsl(var(--henzai-terracota)) 0%, hsl(var(--henzai-terracota) / 0.8) 100%);
 
-    /* Shadows */
-    --shadow-card: 0 4px 20px hsl(var(--henzai-blue) / 0.1);
-    --shadow-hover: 0 8px 30px hsl(var(--henzai-blue) / 0.15);
+    /* Shadows - Apple Style */
+    --shadow-card: 0 4px 20px hsl(var(--henzai-blue) / 0.08);
+    --shadow-hover: 0 8px 30px hsl(var(--henzai-blue) / 0.12);
+    --shadow-glass: 0 8px 32px hsl(var(--henzai-blue) / 0.12);
+    --shadow-subtle: 0 1px 3px hsl(var(--henzai-blue) / 0.05);
 
     --sidebar-background: 0 0% 98%;
 
@@ -158,5 +160,55 @@ All colors MUST be HSL.
   .fade-in-section.is-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Apple-style Glass Effects */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .glass-button {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .glass-header {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Improved Animations */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Apple-style focus states */
+  .apple-focus:focus {
+    outline: 2px solid hsl(var(--henzai-terracota));
+    outline-offset: 2px;
   }
 }

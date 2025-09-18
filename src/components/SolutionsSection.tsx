@@ -37,7 +37,7 @@ const SolutionsSection: React.FC = () => {
 
   return (
     <section id="soluções" className="py-20 bg-gradient-to-b from-henzai-off-white to-white">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-libre-franklin font-bold text-henzai-blue mb-6">
             Soluções completas em<br />
@@ -53,7 +53,7 @@ const SolutionsSection: React.FC = () => {
           {solutions.map((solution, index) => (
             <Card 
               key={index} 
-              className="group bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] rounded-3xl overflow-hidden"
+              className="group bg-white/95 border-0 shadow-glass hover:shadow-hover transition-all duration-500 hover:scale-[1.02] rounded-3xl overflow-hidden backdrop-blur-xl"
             >
               <CardContent className="p-0">
                 <div className="grid lg:grid-cols-2 gap-0">
@@ -88,7 +88,7 @@ const SolutionsSection: React.FC = () => {
                     </ul>
                     
                     <Button 
-                      className="bg-henzai-terracota hover:bg-[#A34F2E] text-henzai-off-white font-gantari font-semibold px-6 py-3 rounded-3xl self-start transition-all duration-300"
+                      className="bg-henzai-terracota/90 hover:bg-henzai-terracota text-white font-gantari font-medium px-6 py-3 rounded-full self-start transition-all duration-300 glass-button backdrop-blur-md hover:scale-105"
                     >
                       Saber Mais
                     </Button>
@@ -102,7 +102,7 @@ const SolutionsSection: React.FC = () => {
         <div className="text-center mt-16">
           <Button 
             size="lg"
-            className="bg-henzai-blue hover:bg-henzai-blue/90 text-henzai-off-white font-gantari font-semibold px-8 py-4 rounded-3xl text-lg transition-all duration-300 hover:scale-105"
+            className="bg-henzai-blue/90 hover:bg-henzai-blue text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-md"
           >
             Ver Todas as Soluções
           </Button>
