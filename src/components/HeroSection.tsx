@@ -15,34 +15,36 @@ const HeroSection: React.FC = () => {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
         <div className="max-w-4xl">
-          <div className="text-white space-y-8">
-            <h1 className="text-5xl md:text-7xl font-libre-franklin font-bold leading-tight animate-fade-in">
-              Líderes em<br />
-              <span className="text-henzai-terracota">soluções energéticas</span><br />
-              que impulsionam<br />
-              o futuro dos negócios.
-            </h1>
-            
-            <p className="text-xl md:text-2xl font-gantari text-henzai-off-white animate-fade-in animation-delay-300 max-w-3xl">
-              Especialistas em eficiência energética, representações técnicas e transformação digital. 
-              Mais de 15 anos conectando inovação, sustentabilidade e resultados para empresas brasileiras.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in animation-delay-500">
-              <Button 
-                size="lg"
-                className="bg-henzai-terracota/90 hover:bg-henzai-terracota text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-md"
-              >
-                Falar com Especialista
-              </Button>
+          <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/20 shadow-glass">
+            <div className="text-white space-y-8">
+              <h1 className="text-5xl md:text-7xl font-libre-franklin font-bold leading-tight animate-fade-in">
+                Líderes em<br />
+                <span className="text-henzai-terracota">soluções energéticas</span><br />
+                que impulsionam<br />
+                o futuro dos negócios.
+              </h1>
               
-              <Button 
-                variant="outline"
-                size="lg"
-                className="border-2 border-white/30 text-white hover:bg-white/20 font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 backdrop-blur-md glass-button hover:scale-105"
-              >
-                Ver Soluções
-              </Button>
+              <p className="text-xl md:text-2xl font-gantari text-white/90 animate-fade-in animation-delay-300 max-w-3xl">
+                Especialistas em eficiência energética, representações técnicas e transformação digital. 
+                Mais de 15 anos conectando inovação, sustentabilidade e resultados para empresas brasileiras.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in animation-delay-500">
+                <Button 
+                  size="lg"
+                  className="bg-henzai-terracota/90 hover:bg-henzai-terracota text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-md"
+                >
+                  Falar com Especialista
+                </Button>
+                
+                <Button 
+                  variant="outline"
+                  size="lg"
+                  className="border-2 border-white/30 text-white hover:bg-white/20 font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 backdrop-blur-md glass-button hover:scale-105"
+                >
+                  Ver Soluções
+                </Button>
+              </div>
             </div>
           </div>
         </div>
