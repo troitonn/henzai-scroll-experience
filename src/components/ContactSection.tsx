@@ -1,11 +1,93 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
 import { Phone, Mail, Clock, CheckCircle } from 'lucide-react';
+import { useToast } from '@/components/ui/use-toast';
 
 const ContactSection: React.FC = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    nome: '',
+    email: '',
+    telefone: '',
+    empresa: '',
+    gastoMensal: '',
+    necessidade: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validação básica
+    if (!formData.nome || !formData.email || !formData.telefone || !formData.empresa) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha todos os campos obrigatórios.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Formatar mensagem para WhatsApp
+    const mensagem = `🏢 *NOVA SOLICITAÇÃO DE ANÁLISE ENERGÉTICA*
+
+📋 *Dados do Cliente:*
+• *Nome:* ${formData.nome}
+• *Email:* ${formData.email}
+• *Telefone:* ${formData.telefone}
+• *Empresa:* ${formData.empresa}
+${formData.gastoMensal ? `• *Gasto Mensal com Energia:* ${formData.gastoMensal}` : ''}
+
+💡 *Necessidade:*
+${formData.necessidade || 'Não informada'}
+
+⚡ *Serviços Solicitados:*
+• Análise do consumo atual
+• Simulação de economia
+• Cálculo de ROI detalhado  
+• Proposta personalizada
+
+📅 *Data da Solicitação:* ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')}`;
+
+    // Número do WhatsApp da empresa (substitua pelo número real)
+    const numeroWhatsApp = "5511909000900"; // Formato: código do país + DDD + número
+    
+    // Codificar mensagem para URL
+    const mensagemCodificada = encodeURIComponent(mensagem);
+    
+    // Abrir WhatsApp Web ou app
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
+    
+    // Abrir em nova aba
+    window.open(urlWhatsApp, '_blank');
+    
+    // Mostrar toast de sucesso
+    toast({
+      title: "Redirecionando para WhatsApp",
+      description: "Sua mensagem foi formatada e você será redirecionado para o WhatsApp.",
+    });
+
+    // Limpar formulário (opcional)
+    setFormData({
+      nome: '',
+      email: '',
+      telefone: '',
+      empresa: '',
+      gastoMensal: '',
+      necessidade: ''
+    });
+  };
+
   return (
     <section 
       id="contato" 
@@ -38,15 +120,19 @@ const ContactSection: React.FC = () => {
                   Solicite sua Análise Gratuita
                 </h3>
                 
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-gantari font-medium text-henzai-blue mb-2">
                         Nome Completo *
                       </label>
                       <Input 
+                        name="nome"
+                        value={formData.nome}
+                        onChange={handleInputChange}
                         placeholder="Seu nome completo"
-                        className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-3xl px-6 py-3 focus:ring-2 focus:ring-henzai-terracota"
+                        className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-full px-6 py-3 focus:ring-2 focus:ring-henzai-terracota apple-focus"
+                        required
                       />
                     </div>
                     <div>
@@ -54,9 +140,13 @@ const ContactSection: React.FC = () => {
                         E-mail Corporativo *
                       </label>
                       <Input 
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
                         placeholder="seuemail@empresa.com.br"
                         type="email"
-                        className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-3xl px-6 py-3 focus:ring-2 focus:ring-henzai-terracota"
+                        className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-full px-6 py-3 focus:ring-2 focus:ring-henzai-terracota apple-focus"
+                        required
                       />
                     </div>
                   </div>
@@ -67,8 +157,12 @@ const ContactSection: React.FC = () => {
                         Telefone/WhatsApp *
                       </label>
                       <Input 
+                        name="telefone"
+                        value={formData.telefone}
+                        onChange={handleInputChange}
                         placeholder="(11) 99999-9999"
-                        className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-3xl px-6 py-3 focus:ring-2 focus:ring-henzai-terracota"
+                        className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-full px-6 py-3 focus:ring-2 focus:ring-henzai-terracota apple-focus"
+                        required
                       />
                     </div>
                     <div>
@@ -76,8 +170,12 @@ const ContactSection: React.FC = () => {
                         Empresa *
                       </label>
                       <Input 
+                        name="empresa"
+                        value={formData.empresa}
+                        onChange={handleInputChange}
                         placeholder="Nome da sua empresa"
-                        className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-3xl px-6 py-3 focus:ring-2 focus:ring-henzai-terracota"
+                        className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-full px-6 py-3 focus:ring-2 focus:ring-henzai-terracota apple-focus"
+                        required
                       />
                     </div>
                   </div>
@@ -87,8 +185,11 @@ const ContactSection: React.FC = () => {
                       Gasto Mensal com Energia Elétrica
                     </label>
                     <Input 
+                      name="gastoMensal"
+                      value={formData.gastoMensal}
+                      onChange={handleInputChange}
                       placeholder="Ex: R$ 15.000,00"
-                      className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-3xl px-6 py-3 focus:ring-2 focus:ring-henzai-terracota"
+                      className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-full px-6 py-3 focus:ring-2 focus:ring-henzai-terracota apple-focus"
                     />
                   </div>
                   
@@ -97,8 +198,11 @@ const ContactSection: React.FC = () => {
                       Conte-nos sobre sua necessidade
                     </label>
                     <Textarea 
+                      name="necessidade"
+                      value={formData.necessidade}
+                      onChange={handleInputChange}
                       placeholder="Descreva seu projeto, expectativas de economia, prazo desejado ou qualquer informação relevante..."
-                      className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-3xl px-6 py-4 min-h-32 focus:ring-2 focus:ring-henzai-terracota"
+                      className="bg-henzai-off-white border-0 text-henzai-black placeholder:text-henzai-black/50 rounded-3xl px-6 py-4 min-h-32 focus:ring-2 focus:ring-henzai-terracota apple-focus"
                     />
                   </div>
                   
@@ -129,9 +233,9 @@ const ContactSection: React.FC = () => {
                   <Button 
                     type="submit"
                     size="lg"
-                    className="w-full bg-henzai-terracota hover:bg-[#A34F2E] text-henzai-off-white font-gantari font-semibold py-4 rounded-3xl text-lg transition-all duration-300 hover:scale-105"
+                    className="w-full bg-henzai-terracota/90 hover:bg-henzai-terracota text-white font-gantari font-medium py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-md"
                   >
-                    Solicitar Análise Gratuita Agora
+                    Enviar para WhatsApp
                   </Button>
                   
                   <p className="text-xs font-gantari text-henzai-black/60 text-center">
@@ -184,8 +288,14 @@ const ContactSection: React.FC = () => {
                 
                 <div className="mt-8 pt-8 border-t border-henzai-off-white">
                   <Button 
+                    onClick={() => {
+                      const numeroWhatsApp = "5511909000900";
+                      const mensagem = "Olá! Gostaria de saber mais sobre as soluções energéticas da Henzai.";
+                      const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+                      window.open(urlWhatsApp, '_blank');
+                    }}
                     size="lg"
-                    className="w-full bg-henzai-blue hover:bg-henzai-blue/90 text-white font-gantari font-semibold py-3 rounded-3xl transition-all duration-300"
+                    className="w-full bg-henzai-blue/90 hover:bg-henzai-blue text-white font-gantari font-medium py-3 rounded-full transition-all duration-300 glass-button backdrop-blur-md"
                   >
                     Chamar no WhatsApp
                   </Button>
