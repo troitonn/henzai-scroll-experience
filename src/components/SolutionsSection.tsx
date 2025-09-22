@@ -1,105 +1,124 @@
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Zap, Leaf, TrendingUp, Users, ArrowRight } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Zap, Leaf, TrendingUp, Shield, Sun, Battery, BarChart3, Wrench } from 'lucide-react';
 
 const SolutionsSection: React.FC = () => {
   const solutions = [
     {
-      title: 'Consultoria em Eficiência Energética',
-      description: 'Auditoria energética completa e implementação de soluções que reduzem até 40% dos custos operacionais com energia elétrica',
-      benefits: ['Análise técnica especializada', 'Economia comprovada em 90 dias', 'ROI superior a 300%'],
-      image: '/lovable-uploads/energy-consulting.png',
-      icon: Zap
+      title: "Sistema Híbrido de Energia",
+      description: "Integra energia solar, baterias e rede/gerador, sempre priorizando a fonte mais econômica.",
+      benefits: [
+        "Operação contínua, mesmo em apagões",
+        "Redução de picos e custos",
+        "Payback acelerado e maior segurança energética"
+      ],
+      icon: <Battery className="w-12 h-12 text-henzai-terracota" />,
+      image: "/lovable-uploads/digital-energy-solution.png"
     },
     {
-      title: 'Representações Regulatórias',
-      description: 'Representação técnica junto à ANEEL, ONS e demais órgãos do setor elétrico para aprovação de projetos energéticos',
-      benefits: ['Compliance 100% garantido', 'Aprovações em tempo recorde', 'Expertise regulatória'],
-      image: '/lovable-uploads/solar-park-regulatory.png',
-      icon: Users
+      title: "Energia Fotovoltaica",
+      description: "Energia limpa e renovável para redução significativa dos custos energéticos.",
+      benefits: [
+        "Economia de até 90% na conta de energia",
+        "Retorno do investimento em 1 a 3 anos",
+        "Valorização do imóvel e sustentabilidade de longo prazo"
+      ],
+      icon: <Sun className="w-12 h-12 text-henzai-terracota" />,
+      image: "/lovable-uploads/solar-park-regulatory.png"
     },
     {
-      title: 'Soluções Digitais para Energia',
-      description: 'Plataformas inteligentes de monitoramento e gestão energética que maximizam a performance dos seus ativos',
-      benefits: ['Monitoramento 24/7', 'IA aplicada à energia', 'Redução de 35% no consumo'],
-      image: '/lovable-uploads/digital-energy-solution.png',
-      icon: TrendingUp
+      title: "Mercado Livre de Energia",
+      description: "Consultoria completa para análise regulatória, negociação e gestão de contratos.",
+      benefits: [
+        "Redução média de 40% nos custos",
+        "Consultoria completa para análise regulatória",
+        "Negociação e gestão de contratos"
+      ],
+      icon: <BarChart3 className="w-12 h-12 text-henzai-terracota" />,
+      image: "/lovable-uploads/energy-consulting.png"
     },
     {
-      title: 'Transição Energética Sustentável',
-      description: 'Estratégias completas de descarbonização e migração para fontes renováveis alinhadas aos ESG corporativos',
-      benefits: ['Certificação ESG', 'Fontes 100% renováveis', 'Créditos de carbono'],
-      image: '/lovable-uploads/5f2618e2-094e-4644-a524-958b491698d3.png',
-      icon: Leaf
+      title: "Manutenção & Monitoramento",
+      description: "Suporte contínuo, manutenção preventiva e monitoramento remoto para máxima eficiência.",
+      benefits: [
+        "Suporte contínuo 24/7",
+        "Manutenção preventiva especializada",
+        "Monitoramento remoto para máxima eficiência"
+      ],
+      icon: <Wrench className="w-12 h-12 text-henzai-terracota" />,
+      image: "/lovable-uploads/cb09bdbe-0580-4286-8074-013d36f8af7e.png"
     }
   ];
 
   return (
-    <section id="soluções" className="py-20 bg-gradient-to-b from-henzai-off-white to-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-libre-franklin font-bold text-henzai-blue mb-6">
-            Soluções completas em<br />
-            <span className="text-henzai-terracota">energia e sustentabilidade.</span>
+    <section id="soluções" className="py-20 bg-gradient-to-br from-henzai-blue/5 to-henzai-blue/10">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6">
+            Benefícios dos Produtos e <span className="text-henzai-terracota">Serviços</span>
           </h2>
-          <p className="text-lg font-gantari text-henzai-black max-w-3xl mx-auto">
-            Portfólio integrado de serviços energéticos que conecta eficiência operacional, 
-            compliance regulatório e transição sustentável para empresas que lideram o futuro.
+          <p className="font-gantari text-xl text-muted-foreground max-w-3xl mx-auto">
+            Soluções energéticas estratégicas que transformam consumo em vantagem competitiva
           </p>
         </div>
-        
-        <div className="space-y-8">
-          {solutions.map((solution, index) => (
-            <Card 
-              key={index} 
-              className="group bg-white/95 border-0 shadow-glass hover:shadow-hover transition-all duration-500 hover:scale-[1.02] rounded-3xl overflow-hidden backdrop-blur-xl"
-            >
-              <CardContent className="p-0">
-                <div className="grid lg:grid-cols-2 gap-0">
-                  <div 
-                    className="h-80 lg:h-96 bg-cover bg-center relative"
-                    style={{ backgroundImage: `url('${solution.image}')` }}
-                  >
-                    <div className="absolute inset-0 bg-henzai-blue/20"></div>
-                    <div className="absolute bottom-6 left-6">
-                      <div className="w-16 h-16 bg-henzai-terracota rounded-full flex items-center justify-center">
-                        <solution.icon className="w-8 h-8 text-white" />
+
+        {/* Carrossel de Soluções */}
+        <div className="max-w-5xl mx-auto mb-12">
+          <Carousel className="w-full">
+            <CarouselContent className="-ml-4">
+              {solutions.map((solution, index) => (
+                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/2">
+                  <Card className="group overflow-hidden border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-300 transform hover:-translate-y-1 h-full bg-white/90 backdrop-blur-sm">
+                    <div className="relative h-64 overflow-hidden">
+                      <img 
+                        src={solution.image} 
+                        alt={solution.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-henzai-blue/80 to-transparent"></div>
+                      <div className="absolute top-4 left-4 p-3 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+                        {solution.icon}
                       </div>
                     </div>
-                  </div>
-                  
-                  <div className="p-8 lg:p-12 flex flex-col justify-center">
-                    <h3 className="text-2xl font-libre-franklin font-bold text-henzai-blue mb-4">
-                      {solution.title}
-                    </h3>
                     
-                    <p className="text-henzai-black font-gantari mb-6 leading-relaxed">
-                      {solution.description}
-                    </p>
+                    <CardHeader className="pb-4">
+                      <CardTitle className="font-libre-franklin text-xl text-henzai-blue">
+                        {solution.title}
+                      </CardTitle>
+                      <CardDescription className="font-gantari text-muted-foreground">
+                        {solution.description}
+                      </CardDescription>
+                    </CardHeader>
                     
-                    <ul className="space-y-3 mb-8">
-                      {solution.benefits.map((benefit, i) => (
-                        <li key={i} className="flex items-center text-henzai-black font-gantari">
-                          <ArrowRight className="w-5 h-5 text-henzai-terracota mr-3 flex-shrink-0" />
-                          {benefit}
-                        </li>
-                      ))}
-                    </ul>
-                    
-                    <Button 
-                      className="bg-henzai-terracota/90 hover:bg-henzai-terracota text-white font-gantari font-medium px-6 py-3 rounded-full self-start transition-all duration-300 glass-button backdrop-blur-md hover:scale-105"
-                    >
-                      Saber Mais
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                    <CardContent className="pt-0">
+                      <ul className="space-y-2 mb-6">
+                        {solution.benefits.map((benefit, benefitIndex) => (
+                          <li key={benefitIndex} className="font-gantari text-sm text-muted-foreground flex items-center">
+                            <TrendingUp className="w-4 h-4 text-henzai-terracota mr-2 flex-shrink-0" />
+                            {benefit}
+                          </li>
+                        ))}
+                      </ul>
+                      
+                      <Button 
+                        variant="outline" 
+                        className="w-full font-gantari border-henzai-terracota text-henzai-terracota hover:bg-henzai-terracota hover:text-white transition-colors duration-300"
+                      >
+                        Saber Mais
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex -left-12 border-henzai-blue text-henzai-blue hover:bg-henzai-blue hover:text-white" />
+            <CarouselNext className="hidden md:flex -right-12 border-henzai-blue text-henzai-blue hover:bg-henzai-blue hover:text-white" />
+          </Carousel>
         </div>
-        
-        <div className="text-center mt-16">
+
+        <div className="text-center">
           <Button 
             size="lg"
             className="bg-henzai-blue/90 hover:bg-henzai-blue text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-md"

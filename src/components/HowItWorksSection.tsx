@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Search, Calculator, Rocket, CheckCircle } from 'lucide-react';
+import { Search, Target, Cog, BarChart } from 'lucide-react';
 
 interface StepProps {
   number: number;
@@ -44,24 +44,28 @@ const Step: React.FC<StepProps> = ({ number, icon, title, description, isLast })
 const HowItWorksSection: React.FC = () => {
   const steps = [
     {
-      icon: <Search className="w-8 h-8" />,
-      title: "Auditoria Energética",
-      description: "Diagnóstico técnico completo das suas instalações elétricas, perfil de carga e contratos de energia, identificando potencial de redução de custos."
+      number: 1,
+      title: "Diagnóstico e levantamento de consumo",
+      description: "Análise completa do perfil energético atual, identificando oportunidades de economia e otimização.",
+      icon: <Search className="w-8 h-8" />
     },
     {
-      icon: <Calculator className="w-8 h-8" />,
-      title: "Modelagem Financeira",
-      description: "Desenvolvimento de estratégias de migração para o mercado livre, negociação de contratos e estruturação de investimentos em eficiência."
+      number: 2,
+      title: "Projeto personalizado – técnico e financeiro",
+      description: "Desenvolvimento de solução sob medida com projeções financeiras detalhadas e planejamento técnico completo.",
+      icon: <Target className="w-8 h-8" />
     },
     {
-      icon: <Rocket className="w-8 h-8" />,
-      title: "Execução Técnica",
-      description: "Implementação de projetos de eficiência energética, representações junto aos órgãos reguladores e gestão de ativos energéticos."
+      number: 3,
+      title: "Implementação em modelo Turn Key 360°",
+      description: "Execução completa do projeto com gestão integral, desde licenças até comissionamento final.",
+      icon: <Cog className="w-8 h-8" />
     },
     {
-      icon: <CheckCircle className="w-8 h-8" />,
-      title: "Performance Energética",
-      description: "Monitoramento contínuo dos indicadores de consumo, medição e verificação dos resultados com relatórios de desempenho energético."
+      number: 4,
+      title: "Monitoramento e manutenção contínuos",
+      description: "Acompanhamento permanente da performance com manutenção preventiva e suporte técnico especializado.",
+      icon: <BarChart className="w-8 h-8" />
     }
   ];
 
@@ -70,11 +74,10 @@ const HowItWorksSection: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6">
-            Nossa Metodologia Energética
+            Como <span className="text-henzai-terracota">Funciona</span>
           </h2>
           <p className="font-gantari text-xl text-muted-foreground max-w-3xl mx-auto">
-            Processo estruturado que combina expertise técnica, conhecimento regulatório 
-            e inovação digital para maximizar a eficiência energética dos seus ativos
+            Processo estruturado para transformar economia de energia em estratégia de crescimento
           </p>
         </div>
 
@@ -82,7 +85,7 @@ const HowItWorksSection: React.FC = () => {
           {steps.map((step, index) => (
             <div key={index} className="animate-slide-in" style={{ animationDelay: `${index * 0.2}s` }}>
               <Step 
-                number={index + 1}
+                number={step.number}
                 icon={step.icon}
                 title={step.title}
                 description={step.description}

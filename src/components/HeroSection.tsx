@@ -17,23 +17,41 @@ const HeroSection: React.FC = () => {
         <div className="max-w-4xl">
           <div className="text-white space-y-8">
             <h1 className="text-5xl md:text-7xl font-libre-franklin font-bold leading-tight animate-fade-in">
-              Líderes em<br />
-              <span className="text-henzai-terracota">soluções energéticas</span><br />
-              que impulsionam<br />
-              o futuro dos negócios.
+              Energia não é custo.<br />
+              <span className="text-henzai-terracota">É estratégia.</span>
             </h1>
             
             <p className="text-xl md:text-2xl font-gantari text-henzai-off-white animate-fade-in animation-delay-300 max-w-3xl">
-              Especialistas em eficiência energética, representações técnicas e transformação digital. 
-              Mais de 15 anos conectando inovação, sustentabilidade e resultados para empresas brasileiras.
+              Transformamos economia de energia em capital que acelera negócios.
             </p>
+
+            {/* Destaques numéricos */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 animate-fade-in animation-delay-200">
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-libre-franklin font-bold text-henzai-terracota">
+                  +3.000
+                </div>
+                <div className="font-gantari text-sm uppercase tracking-wider text-henzai-off-white">
+                  Usinas Instaladas
+                </div>
+              </div>
+              <div className="hidden sm:block w-px h-12 bg-white/30"></div>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-libre-franklin font-bold text-henzai-terracota">
+                  +R$ 1Bi
+                </div>
+                <div className="font-gantari text-sm uppercase tracking-wider text-henzai-off-white">
+                  em Economia
+                </div>
+              </div>
+            </div>
             
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in animation-delay-500">
               <Button 
                 size="lg"
                 className="bg-henzai-terracota/90 hover:bg-henzai-terracota text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-md"
               >
-                Falar com Especialista
+                Quero minha simulação gratuita
               </Button>
               
               <Button 

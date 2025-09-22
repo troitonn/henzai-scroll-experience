@@ -4,41 +4,59 @@ import solarPanelsImage from '@/assets/solar-panels-modern.jpg';
 import teamMeetingImage from '@/assets/corporate-meeting.jpg';
 
 const ResultsSection: React.FC = () => {
-  const results = [
+  const cases = [
     {
-      number: "40%",
-      label: "Redução Média de Custos com Energia",
-      description: "Economia comprovada através de migração para o mercado livre de energia e projetos de eficiência energética"
+      title: "Gráfica em São Paulo",
+      result: "40%",
+      description: "Redução na conta de energia e aumento de R$ 12 mil/ano na margem"
     },
     {
-      number: "500+",
-      label: "MW de Energia Gerenciados",
-      description: "Portfolio de contratos de energia no mercado livre representando grandes consumidores industriais"
+      title: "Indústria Têxtil",
+      result: "100%",
+      description: "Sistema híbrido eliminou paradas durante quedas de energia"
     },
     {
-      number: "R$ 120M+",
-      label: "Em Economia Energética Gerada",
-      description: "Valor total economizado pelos clientes através de nossas soluções integradas de energia"
-    },
-    {
-      number: "15+",
-      label: "Anos de Experiência no Setor",
-      description: "Expertise consolidada em regulação energética, ANEEL, ONS e transformações do mercado brasileiro"
+      title: "Rede de Supermercados",
+      result: "35%",
+      description: "Economia média com entrada no Mercado Livre de Energia"
     }
   ];
 
   const testimonials = [
     {
-      quote: "A migração para o mercado livre com a Henzai resultou em 35% de economia na nossa conta de energia. O suporte técnico e regulatório foi fundamental para o sucesso.",
-      author: "Carlos Mendes",
-      position: "Diretor de Operações, Metalúrgica Brasil",
-      image: teamMeetingImage
+      quote: "O diferencial foi o atendimento consultivo da Diretora Mariana e sua equipe, foi um dos diferenciais para escolher a Henzai Energia ! Recebi um planejamento financeiro claro, com projeção mensal e anual, e hoje economizo cerca 80% na conta de luz! Ja expandi meu negócio, comprei mais uma Franquia com a previsibilidade financeira anual que a placas solares está me proporcionando ! Melhor escolha! Mais liberdade para meus negócios!",
+      author: "Luciana",
+      position: "Franqueada OGGI Sorvetes",
+      image: solarPanelsImage,
+      rating: 5
     },
     {
-      quote: "Além da economia imediata, as soluções de eficiência energética implementadas pela Henzai nos permitiram reinvestir em modernização da nossa planta industrial.",
-      author: "Ana Paula Costa",
-      position: "Gerente de Sustentabilidade, QuímicaCorp",
-      image: solarPanelsImage
+      quote: "O atendimento foi próximo e transparente. A equipe me mostrou exatamente quanto eu iria economizar e como essa receita voltaria para o posto. Resultado? Economia real todos os meses.",
+      author: "Alberto",
+      position: "Posto Shell",
+      image: teamMeetingImage,
+      rating: 5
+    },
+    {
+      quote: "A Mariana acompanhou cada detalhe, do projeto ao pós-venda. Me senti seguro com a consultoria dela em tempo real. Hoje a fábrica economiza e já tenho previsibilidade para os próximos anos.",
+      author: "Eraldo",
+      position: "Vó Nena, Fábrica de Cocadas",
+      image: solarPanelsImage,
+      rating: 5
+    },
+    {
+      quote: "Não foi só instalar energia solar, foi ter um plano de retorno financeiro desenhado para o meu negócio. A Henzai Energia trouxe economia, confiança e sustentabilidade para o Studio Bessa.",
+      author: "Armado Bessa",
+      position: "Studio Bessa",
+      image: teamMeetingImage,
+      rating: 5
+    },
+    {
+      quote: "O atendimento diferenciado da Mariana e Engenharia fez toda a diferença. Ela cuidou do pós-venda e garantiu que tudo fosse entregue como combinado. Hoje reduzi custos e tenho tranquilidade com a previsibilidade do meu investimento.",
+      author: "Flávio",
+      position: "Good Chickens Restaurante",
+      image: solarPanelsImage,
+      rating: 5
     }
   ];
 
@@ -47,27 +65,26 @@ const ResultsSection: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6">
-            Performance Comprovada no Mercado
+            Cases de <span className="text-henzai-terracota">Sucesso</span>
           </h2>
           <p className="font-gantari text-xl text-muted-foreground max-w-3xl mx-auto">
-            Resultados concretos que demonstram nossa capacidade de gerar valor 
-            através de soluções inteligentes no setor energético brasileiro
+            Resultados reais de clientes que transformaram energia em estratégia de crescimento
           </p>
         </div>
 
-        {/* Métricas de Resultado */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {results.map((result, index) => (
-            <Card key={index} className="text-center border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-300 transform hover:-translate-y-1 animate-slide-in" style={{ animationDelay: `${index * 0.1}s` }}>
+        {/* Cases de Sucesso */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {cases.map((caseItem, index) => (
+            <Card key={index} className="text-center border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-300 transform hover:-translate-y-1 animate-slide-in bg-gradient-to-br from-henzai-blue/5 to-henzai-blue/10" style={{ animationDelay: `${index * 0.1}s` }}>
               <CardContent className="p-8">
                 <div className="text-4xl md:text-5xl font-libre-franklin font-bold text-henzai-terracota mb-4">
-                  {result.number}
+                  {caseItem.result}
                 </div>
                 <h3 className="font-libre-franklin text-lg font-semibold text-henzai-blue mb-3">
-                  {result.label}
+                  {caseItem.title}
                 </h3>
                 <p className="font-gantari text-muted-foreground text-sm leading-relaxed">
-                  {result.description}
+                  {caseItem.description}
                 </p>
               </CardContent>
             </Card>
@@ -75,20 +92,32 @@ const ResultsSection: React.FC = () => {
         </div>
 
         {/* Depoimentos */}
+        <div className="text-center mb-12">
+          <h3 className="font-libre-franklin text-3xl font-bold text-henzai-blue mb-4">
+            Depoimentos & Google Business
+          </h3>
+          <p className="font-gantari text-lg text-muted-foreground">
+            "Avalie a Henzai no Google e conheça histórias reais de economia e crescimento."
+          </p>
+        </div>
+        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="overflow-hidden border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 0.3}s` }}>
-              <div className="flex flex-col md:flex-row">
-                <div className="md:w-1/3">
+          {testimonials.slice(0, 4).map((testimonial, index) => (
+            <Card key={index} className="overflow-hidden border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-300 animate-fade-in bg-gradient-to-br from-white to-henzai-blue/5" style={{ animationDelay: `${index * 0.2}s` }}>
+              <CardContent className="p-8">
+                <div className="flex items-center mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <span key={i} className="text-yellow-400 text-xl">⭐</span>
+                  ))}
+                </div>
+                <blockquote className="font-gantari text-base text-muted-foreground mb-6 leading-relaxed">
+                  "{testimonial.quote}"
+                </blockquote>
+                <div className="flex items-center">
                   <div 
-                    className="h-48 md:h-full bg-cover bg-center"
+                    className="w-12 h-12 bg-cover bg-center rounded-full mr-4"
                     style={{ backgroundImage: `url(${testimonial.image})` }}
                   ></div>
-                </div>
-                <CardContent className="md:w-2/3 p-8 flex flex-col justify-center">
-                  <blockquote className="font-gantari text-lg italic text-muted-foreground mb-6 leading-relaxed">
-                    "{testimonial.quote}"
-                  </blockquote>
                   <div>
                     <div className="font-libre-franklin font-semibold text-henzai-blue">
                       {testimonial.author}
@@ -97,8 +126,8 @@ const ResultsSection: React.FC = () => {
                       {testimonial.position}
                     </div>
                   </div>
-                </CardContent>
-              </div>
+                </div>
+              </CardContent>
             </Card>
           ))}
         </div>

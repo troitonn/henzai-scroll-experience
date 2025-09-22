@@ -41,10 +41,10 @@ All colors MUST be HSL.
 
     --radius: 1.5rem;
 
-    /* Custom Henzai Variables */
-    --henzai-blue: 200 25% 15%;
-    --henzai-terracota: 15 75% 60%;
-    --henzai-off-white: 25 15% 95%;
+    /* Henzai Brand Colors */
+    --henzai-blue: 210 65% 20%;      /* Azul Petróleo mais escuro (primary) */
+    --henzai-terracota: 18 85% 55%;  /* Terracota (secondary) */
+    --henzai-off-white: 45 15% 95%;  /* Off-white suave */
     --henzai-black: 0 0% 5%;
 
     /* Gradients */

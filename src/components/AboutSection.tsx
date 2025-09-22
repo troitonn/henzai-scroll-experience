@@ -30,14 +30,12 @@ const AboutSection: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center text-white animate-fade-in">
           <h2 className="font-libre-franklin text-4xl md:text-5xl font-bold mb-8">
-            A ponte entre negócios obstinados 
-            e <span className="text-henzai-terracota">crescimento inteligente</span>
+            Mais que energia. <span className="text-henzai-terracota">Uma decisão estratégica.</span>
           </h2>
           
           <p className="font-gantari text-xl leading-relaxed mb-8 text-henzai-off-white">
-            Na Henzai, acreditamos que a inteligência energética é o catalisador do crescimento empresarial. 
-            Conectamos eficiência energética com estratégias financeiras para transformar economia em capital, 
-            criando um ciclo virtuoso de sustentabilidade e prosperidade.
+            A Henzai nasceu da convicção de que energia não deve ser tratada apenas como despesa técnica — ela é estratégia de crescimento.
+            Somos uma consultoria especializada que conecta empresas às melhores soluções energéticas com visão de negócio, clareza e compromisso.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -57,13 +55,8 @@ const AboutSection: React.FC = () => {
 
           <div className="bg-henzai-blue/20 backdrop-blur-sm rounded-3xl p-8 mb-8 border border-white/10">
             <p className="font-gantari text-lg italic leading-relaxed mb-6">
-              "Estamos sempre por perto, garantindo que o sistema funcione, 
-              que a economia se confirme e que o cliente se sinta amparado."
+              "Combinamos visão estratégica, responsabilidade técnica e presença constante para transformar consumo em vantagem, despesa em capital e futuro em oportunidade."
             </p>
-            <div className="text-sm font-gantari">
-              <div className="text-henzai-terracota font-semibold">Consultoria & Representações</div>
-              <div className="text-henzai-off-white">em Eficiência Energética</div>
-            </div>
           </div>
 
           <Button 
