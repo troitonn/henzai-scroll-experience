@@ -13,11 +13,12 @@ const HeroSection: React.FC = () => {
             backgroundImage: `url('/lovable-uploads/istockphoto-1453859222-612x612.jpg')` 
           }}
         />
-        <div className="absolute inset-0 bg-[#0F2D3A]/50 backdrop-blur-sm"></div>
+        {/* Overlay atualizado para #264563 */}
+        <div className="absolute inset-0 bg-[#264563]/50 backdrop-blur-sm"></div>
 
-        {/* Formas abstratas animadas */}
-        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-gradient-to-r from-[#FF6B6B]/40 via-[#FFD93D]/30 to-[#6BCB77]/30 rounded-full filter blur-3xl animate-blob"></div>
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-tr from-[#6B5B95]/40 via-[#FF6F61]/30 to-[#88B04B]/30 rounded-full filter blur-2xl animate-blob animation-delay-2000"></div>
+        {/* Formas abstratas animadas - agora com base #264563 */}
+        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-[#264563]/40 rounded-full filter blur-3xl animate-blob"></div>
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#264563]/30 rounded-full filter blur-2xl animate-blob animation-delay-2000"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
