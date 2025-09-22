@@ -80,7 +80,7 @@ const CTAFinalSection: React.FC = () => {
             {testimonials.map((t, index) => (
               <div
                 key={index}
-                className="bg-[#003b46] p-6 rounded-xl shadow-lg animate-slide-up"
+                className="bg-[#264563] p-6 rounded-xl shadow-lg animate-slide-up"
                 style={{ animationDelay: `${0.1 * index}s` }}
               >
                 {/* 5 estrelas */}
