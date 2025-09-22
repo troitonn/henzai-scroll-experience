@@ -3,20 +3,18 @@ import { Button } from '@/components/ui/button';
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0F2D3A]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0F2D3A] to-[#1B4B6A]">
       
-      {/* Vídeo de fundo */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        src="/lovable-uploads/259949_medium.mp4"
-      />
+      {/* Fundo com elementos inovadores em azul petróleo */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fade-in-slow"
+          style={{ 
+            backgroundImage: `url('/lovable-uploads/istockphoto-1453859222-612x612.jpg')` 
+          }}
+        />
 
-      {/* Efeitos em azul petróleo */}
-      <div className="absolute inset-0 pointer-events-none">
+        {/* Dois efeitos em azul petróleo */}
         <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-[#274563]/40 rounded-full filter blur-3xl animate-blob"></div>
         <div className="absolute bottom-1/4 right-1/5 w-80 h-80 bg-[#0F4C6B]/40 rounded-full filter blur-2xl animate-blob animation-delay-2000"></div>
       </div>
@@ -60,7 +58,7 @@ const HeroSection: React.FC = () => {
               </div>
             </div>
             
-            {/* Botões simples */}
+            {/* Botões simples sem vidro */}
             <div className="flex flex-col sm:flex-row gap-4 animate-slide-up animation-delay-700">
               <Button 
                 size="lg"
@@ -72,7 +70,7 @@ const HeroSection: React.FC = () => {
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-2 border-white/30 text-white font-gantari font-medium px-8 py-4 rounded-lg text-lg transition-all duration-300 hover:bg-white/10 hover:scale-105"
+                className="border-2 border-white/30 text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:bg-white/10 hover:scale-105"
               >
                 Ver Soluções
               </Button>
