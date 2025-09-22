@@ -47,7 +47,14 @@ const DiferenciaisSection: React.FC = () => {
           {diferenciais.map((diferencial, index) => (
             <Card 
               key={index} 
-              className="group border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-300 transform hover:-translate-y-2 animate-slide-in bg-white/80 backdrop-blur-sm" 
+              className={`
+                group border-0 shadow-[var(--shadow-card)] 
+                hover:shadow-[var(--shadow-hover)] 
+                transition-all duration-300 
+                transform hover:-translate-y-2 animate-slide-in 
+                bg-white/80 backdrop-blur-sm
+                ${index % 2 === 0 ? "lg:-translate-y-4" : "lg:translate-y-4"}
+              `}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="p-8 text-center">
