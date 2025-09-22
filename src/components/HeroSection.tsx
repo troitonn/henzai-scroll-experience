@@ -13,7 +13,7 @@ const HeroSection: React.FC = () => {
             backgroundImage: `url('/lovable-uploads/istockphoto-1453859222-612x612.jpg')` 
           }}
         />
-        <div className="absolute inset-0 bg-[#0F2D3A]/50 backdrop-blur-lg"></div>
+        <div className="absolute inset-0 bg-[#0F2D3A]/50 backdrop-blur-sm"></div>
 
         {/* Formas abstratas animadas */}
         <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-gradient-to-r from-[#FF6B6B]/40 via-[#FFD93D]/30 to-[#6BCB77]/30 rounded-full filter blur-3xl animate-blob"></div>
@@ -59,11 +59,11 @@ const HeroSection: React.FC = () => {
               </div>
             </div>
             
-            {/* Botões com efeito glass reduzido */}
+            {/* Botões com efeito glass bem reduzido */}
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in animation-delay-500">
               <Button 
                 size="lg"
-                className="bg-henzai-terracota/40 hover:bg-henzai-terracota/60 text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-[4px]"
+                className="bg-henzai-terracota/30 hover:bg-henzai-terracota/45 text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-[1px]"
               >
                 Quero minha simulação gratuita
               </Button>
@@ -71,7 +71,7 @@ const HeroSection: React.FC = () => {
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-2 border-white/20 text-white hover:bg-white/10 font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 backdrop-blur-[4px] glass-button hover:scale-105"
+                className="border-2 border-white/15 text-white hover:bg-white/10 font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 backdrop-blur-[1px] glass-button hover:scale-105"
               >
                 Ver Soluções
               </Button>
