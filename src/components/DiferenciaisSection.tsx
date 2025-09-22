@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { CheckCircle, Users, Shield, Wrench, TrendingUp } from 'lucide-react';
 
 const DiferenciaisSection: React.FC = () => {
@@ -34,6 +35,7 @@ const DiferenciaisSection: React.FC = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-henzai-blue/5 to-henzai-blue/10">
       <div className="container mx-auto px-4">
+        {/* Título */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6">
             Diferenciais de <span className="text-henzai-terracota">Mercado</span>
@@ -43,36 +45,37 @@ const DiferenciaisSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {diferenciais.map((diferencial, index) => (
-            <Card 
-              key={index} 
-              className={`
-                group border-0 shadow-[var(--shadow-card)] 
-                hover:shadow-[var(--shadow-hover)] 
-                transition-all duration-300 
-                transform hover:-translate-y-2 animate-slide-in 
-                bg-white/80 backdrop-blur-sm
-                ${index % 2 === 0 ? "lg:-translate-y-4" : "lg:translate-y-4"}
-              `}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardContent className="p-8 text-center">
-                <div className="mb-6 flex justify-center">
-                  <div className="p-4 bg-henzai-blue/10 rounded-2xl group-hover:bg-henzai-blue/20 transition-colors duration-300">
-                    {diferencial.icon}
-                  </div>
-                </div>
-                <h3 className="font-libre-franklin text-xl font-semibold text-henzai-blue mb-4">
-                  {diferencial.title}
-                </h3>
-                <p className="font-gantari text-muted-foreground leading-relaxed">
-                  {diferencial.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        {/* Carrossel */}
+        <Carousel className="max-w-5xl mx-auto">
+          <CarouselContent>
+            {diferenciais.map((diferencial, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <Card
+                  className="border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] 
+                  transition-all duration-300 transform hover:-translate-y-2 bg-white/90 backdrop-blur-sm"
+                >
+                  <CardContent className="p-8 text-center">
+                    <div className="mb-6 flex justify-center">
+                      <div className="p-4 bg-henzai-blue/10 rounded-2xl group-hover:bg-henzai-blue/20 transition-colors duration-300">
+                        {diferencial.icon}
+                      </div>
+                    </div>
+                    <h3 className="font-libre-franklin text-xl font-semibold text-henzai-blue mb-4">
+                      {diferencial.title}
+                    </h3>
+                    <p className="font-gantari text-muted-foreground leading-relaxed">
+                      {diferencial.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          {/* Botões de navegação */}
+          <CarouselPrevious className="text-henzai-blue" />
+          <CarouselNext className="text-henzai-blue" />
+        </Carousel>
       </div>
     </section>
   );
