@@ -5,7 +5,7 @@ const HeroSection: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0F2D3A] to-[#1B4B6A]">
       
-      {/* Fundo com elementos inovadores */}
+      {/* Fundo com elementos inovadores em azul petróleo */}
       <div className="absolute inset-0 overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fade-in-slow"
@@ -13,33 +13,32 @@ const HeroSection: React.FC = () => {
             backgroundImage: `url('/lovable-uploads/istockphoto-1453859222-612x612.jpg')` 
           }}
         />
-        <div className="absolute inset-0 bg-[#0F2D3A]/50 backdrop-blur-lg"></div>
 
-        {/* Formas abstratas animadas */}
-        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-gradient-to-r from-[#FF6B6B]/40 via-[#FFD93D]/30 to-[#6BCB77]/30 rounded-full filter blur-3xl animate-blob"></div>
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-tr from-[#6B5B95]/40 via-[#FF6F61]/30 to-[#88B04B]/30 rounded-full filter blur-2xl animate-blob animation-delay-2000"></div>
+        {/* Dois efeitos em azul petróleo */}
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-[#274563]/40 rounded-full filter blur-3xl animate-blob"></div>
+        <div className="absolute bottom-1/4 right-1/5 w-80 h-80 bg-[#0F4C6B]/40 rounded-full filter blur-2xl animate-blob animation-delay-2000"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
         <div className="max-w-4xl">
           <div className="text-white space-y-8">
             
-            {/* Título com sombra elegante */}
-            <h1 className="text-5xl md:text-7xl font-libre-franklin font-bold leading-tight animate-fade-in" 
+            {/* Título com sombra e animação de subida */}
+            <h1 className="text-5xl md:text-7xl font-libre-franklin font-bold leading-tight animate-slide-up" 
                 style={{ textShadow: '2px 2px 8px #274563' }}>
               Energia não é custo.<br />
               <span className="text-henzai-terracota">É estratégia.</span>
             </h1>
             
-            <p className="text-xl md:text-2xl font-gantari text-henzai-off-white animate-fade-in animation-delay-300 max-w-3xl" 
+            <p className="text-xl md:text-2xl font-gantari text-henzai-off-white animate-slide-up animation-delay-300 max-w-3xl" 
                style={{ textShadow: '1px 1px 6px #274563' }}>
               Transformamos economia de energia em capital que acelera negócios.
             </p>
 
-            {/* Destaques numéricos com sombra */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 animate-fade-in animation-delay-200">
+            {/* Destaques numéricos com animação de subida */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 animate-slide-up animation-delay-500">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-libre-franklin font-bold text-henzai-terracota" 
+                <div className="text-3xl md:text-4xl font-libre-franklin font-bold text-henzai-terracota"
                      style={{ textShadow: '2px 2px 8px #274563' }}>
                   +3.000
                 </div>
@@ -59,11 +58,11 @@ const HeroSection: React.FC = () => {
               </div>
             </div>
             
-            {/* Botões com efeito glass e hover */}
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in animation-delay-500">
+            {/* Botões simples sem vidro */}
+            <div className="flex flex-col sm:flex-row gap-4 animate-slide-up animation-delay-700">
               <Button 
                 size="lg"
-                className="bg-henzai-terracota/90 hover:bg-henzai-terracota text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-md"
+                className="bg-henzai-terracota text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105"
               >
                 Quero minha simulação gratuita
               </Button>
@@ -71,7 +70,7 @@ const HeroSection: React.FC = () => {
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-2 border-white/30 text-white hover:bg-white/20 font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 backdrop-blur-md glass-button hover:scale-105"
+                className="border-2 border-white/30 text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:bg-white/10 hover:scale-105"
               >
                 Ver Soluções
               </Button>
@@ -90,9 +89,18 @@ const HeroSection: React.FC = () => {
           }
           .animate-blob { animation: blob 20s infinite; }
           .animation-delay-2000 { animation-delay: 2s; }
-          .animate-fade-in { animation: fadeIn 1.2s ease-in forwards; opacity: 0; }
-          .animate-fade-in-slow { animation: fadeIn 2s ease-in forwards; opacity: 0; }
+
+          @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+          }
+          .animate-slide-up { animation: slideUp 1s ease-out forwards; opacity: 0; }
+          .animation-delay-300 { animation-delay: 0.3s; }
+          .animation-delay-500 { animation-delay: 0.5s; }
+          .animation-delay-700 { animation-delay: 0.7s; }
+
           @keyframes fadeIn { to { opacity: 1; } }
+          .animate-fade-in-slow { animation: fadeIn 2s ease-in forwards; opacity: 0; }
         `}
       </style>
 
