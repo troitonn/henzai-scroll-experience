@@ -51,7 +51,7 @@ const CTAFinalSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-henzai-blue to-henzai-blue/80 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden bg-[#20405f]">
       {/* Background */}
       <div className="absolute inset-0 bg-[url('/lovable-uploads/hero-energy-bg.png')] bg-cover bg-center opacity-20"></div>
 
@@ -104,7 +104,7 @@ const CTAFinalSection: React.FC = () => {
                   key={index}
                   className="md:basis-1/2 lg:basis-1/3 flex"
                 >
-                  <div className="bg-[#20405f] p-6 rounded-xl shadow-lg flex flex-col justify-between w-full h-full">
+                  <div className="bg-[#20405f]/90 p-6 rounded-xl shadow-lg flex flex-col justify-between w-full h-full">
                     {/* 5 estrelas */}
                     <div className="flex gap-1 text-yellow-400 mb-3">
                       {[...Array(5)].map((_, i) => (
