@@ -11,26 +11,23 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const menuItems = [
-    'Início',
-    'Soluções', 
+    'Soluções',
     'Como Funciona',
-    'Resultados',
     'Sobre',
     'Contato'
   ];
 
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
-        isScrolled 
-          ? 'bg-white/80 backdrop-blur-xl shadow-glass border-b border-white/20' 
-          : 'bg-white/10 backdrop-blur-md'
+        isScrolled
+          ? 'bg-white shadow-md border-b border-gray-200'
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 py-4">
@@ -50,8 +47,8 @@ const Header: React.FC = () => {
                 key={item}
                 href={`#${item.toLowerCase().replace(' ', '-')}`}
                 className={`relative font-gantari font-medium transition-all duration-300 group ${
-                  isScrolled 
-                    ? 'text-henzai-blue/90 hover:text-henzai-terracota' 
+                  isScrolled
+                    ? 'text-henzai-blue/90 hover:text-henzai-terracota'
                     : 'text-white/90 hover:text-white'
                 }`}
               >
@@ -63,11 +60,11 @@ const Header: React.FC = () => {
 
           {/* Botão Desktop */}
           <div className="hidden md:block">
-            <Button 
-              className={`font-gantari font-medium px-6 py-3 rounded-full transition-all duration-300 glass-button ${
-                isScrolled 
-                  ? "bg-henzai-terracota/90 text-white hover:bg-henzai-terracota backdrop-blur-md" 
-                  : "bg-white/20 text-white border border-white/30 hover:bg-white/30 backdrop-blur-md"
+            <Button
+              className={`font-gantari font-medium px-6 py-3 rounded-full transition-all duration-300 ${
+                isScrolled
+                  ? 'bg-henzai-terracota text-white hover:bg-henzai-terracota/90'
+                  : 'bg-white/20 text-white border border-white/30 hover:bg-white/30'
               }`}
             >
               Falar com Especialista
@@ -79,10 +76,10 @@ const Header: React.FC = () => {
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className={`p-2 rounded-lg transition-all duration-300 ${
-                isScrolled 
-                  ? 'text-henzai-blue bg-white/10 hover:bg-white/20' 
-                  : 'text-white bg-white/10 hover:bg-white/20'
-              } backdrop-blur-md focus:outline-none`}
+                isScrolled
+                  ? 'text-henzai-blue bg-gray-100 hover:bg-gray-200'
+                  : 'text-white bg-white/20 hover:bg-white/30'
+              } focus:outline-none`}
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -91,13 +88,15 @@ const Header: React.FC = () => {
 
         {/* Menu Mobile */}
         {mobileOpen && (
-          <div className="md:hidden mt-4 p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 space-y-4">
+          <div className="md:hidden mt-4 p-6 rounded-2xl bg-gray-100 border border-gray-200 space-y-4">
             {menuItems.map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(' ', '-')}`}
                 className={`block font-gantari text-lg transition-colors duration-300 ${
-                  isScrolled ? 'text-henzai-blue/90 hover:text-henzai-terracota' : 'text-white/90 hover:text-white'
+                  isScrolled
+                    ? 'text-henzai-blue/90 hover:text-henzai-terracota'
+                    : 'text-white/90 hover:text-white'
                 }`}
                 onClick={() => setMobileOpen(false)}
               >
@@ -105,8 +104,8 @@ const Header: React.FC = () => {
               </a>
             ))}
 
-            <Button 
-              className="w-full font-gantari font-medium px-6 py-3 rounded-full transition-all duration-300 bg-henzai-terracota/90 text-white hover:bg-henzai-terracota backdrop-blur-md"
+            <Button
+              className="w-full font-gantari font-medium px-6 py-3 rounded-full transition-all duration-300 bg-henzai-terracota text-white hover:bg-henzai-terracota/90"
             >
               Falar com Especialista
             </Button>
