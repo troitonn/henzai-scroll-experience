@@ -15,9 +15,6 @@ const HeroSection: React.FC = () => {
         src="/lovable-uploads/259949_medium.mp4"
       />
 
-      {/* Overlay semi-transparente 30% */}
-      <div className="absolute inset-0 bg-black/30"></div>
-
       {/* Efeitos em azul petróleo */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-[#274563]/40 rounded-full filter blur-3xl animate-blob"></div>
