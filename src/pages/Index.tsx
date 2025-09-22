@@ -19,7 +19,6 @@ const Index = () => {
       <SolutionsSection />
       <DiferenciaisSection />
       <HowItWorksSection />
-      <ResultsSection />
       <CTAFinalSection />
       <ContactSection />
       <Footer />

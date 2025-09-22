@@ -28,7 +28,7 @@ const AboutSection: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center text-white animate-fade-in">
+        <div className="max-w-4xl mx-auto text-center text-white animate-fade-in backdrop-blur-md bg-white/10 rounded-3xl p-8 border border-white/20 shadow-2xl">
           <h2 className="font-libre-franklin text-4xl md:text-5xl font-bold mb-8">
             Mais que energia. <span className="text-henzai-terracota">Uma decisão estratégica.</span>
           </h2>
@@ -38,18 +38,14 @@ const AboutSection: React.FC = () => {
             Somos uma consultoria especializada que conecta empresas às melhores soluções energéticas com visão de negócio, clareza e compromisso.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div className="text-center animate-slide-in" style={{ animationDelay: '0.1s' }}>
-              <div className="text-3xl font-libre-franklin font-bold text-henzai-terracota mb-2">15+</div>
-              <div className="font-gantari text-sm uppercase tracking-wider">Anos de Experiência</div>
+              <div className="text-3xl font-libre-franklin font-bold text-henzai-terracota mb-2">+3.000</div>
+              <div className="font-gantari text-sm uppercase tracking-wider">Usinas Instaladas</div>
             </div>
             <div className="text-center animate-slide-in" style={{ animationDelay: '0.2s' }}>
-              <div className="text-3xl font-libre-franklin font-bold text-henzai-terracota mb-2">500+</div>
-              <div className="font-gantari text-sm uppercase tracking-wider">Empresas Atendidas</div>
-            </div>
-            <div className="text-center animate-slide-in" style={{ animationDelay: '0.3s' }}>
-              <div className="text-3xl font-libre-franklin font-bold text-henzai-terracota mb-2">R$ 100M+</div>
-              <div className="font-gantari text-sm uppercase tracking-wider">Capital Liberado</div>
+              <div className="text-3xl font-libre-franklin font-bold text-henzai-terracota mb-2">+R$ 1 Bilhão</div>
+              <div className="font-gantari text-sm uppercase tracking-wider">em Economia</div>
             </div>
           </div>
 
