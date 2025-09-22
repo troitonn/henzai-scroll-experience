@@ -59,11 +59,11 @@ const HeroSection: React.FC = () => {
               </div>
             </div>
             
-            {/* Botões com efeito glass e hover */}
+            {/* Botões com efeito glass reduzido */}
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in animation-delay-500">
               <Button 
                 size="lg"
-                className="bg-henzai-terracota/90 hover:bg-henzai-terracota text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-md"
+                className="bg-henzai-terracota/40 hover:bg-henzai-terracota/60 text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-[4px]"
               >
                 Quero minha simulação gratuita
               </Button>
@@ -71,7 +71,7 @@ const HeroSection: React.FC = () => {
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-2 border-white/30 text-white hover:bg-white/20 font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 backdrop-blur-md glass-button hover:scale-105"
+                className="border-2 border-white/20 text-white hover:bg-white/10 font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 backdrop-blur-[4px] glass-button hover:scale-105"
               >
                 Ver Soluções
               </Button>
