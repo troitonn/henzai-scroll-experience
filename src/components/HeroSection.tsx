@@ -72,7 +72,7 @@ const HeroSection: React.FC = () => {
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-2 border-white/15 text-white hover:bg-white/10 font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 backdrop-blur-[1px] glass-button hover:scale-105"
+              className="border-2 border-[#264563] text-[#264563] hover:bg-[#264563]/10 font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 backdrop-blur-[1px] glass-button hover:scale-105"
               >
                 Ver Soluções
               </Button>
