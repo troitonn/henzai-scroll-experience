@@ -1,72 +1,49 @@
 import React from 'react';
 import HenzaiLogo from './HenzaiLogo';
 import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  const footerLinks = [{
-    title: "Soluções",
-    links: [{
-      name: "Eficiência Energética",
-      href: "#"
-    }, {
-      name: "Consultoria Financeira",
-      href: "#"
-    }, {
-      name: "Representações",
-      href: "#"
-    }, {
-      name: "Energia Renovável",
-      href: "#"
-    }]
-  }, {
-    title: "Empresa",
-    links: [{
-      name: "Sobre Nós",
-      href: "#sobre"
-    }, {
-      name: "Como Funciona",
-      href: "#como-funciona"
-    }, {
-      name: "Resultados",
-      href: "#resultados"
-    }, {
-      name: "Blog",
-      href: "#"
-    }]
-  }, {
-    title: "Suporte",
-    links: [{
-      name: "Central de Ajuda",
-      href: "#"
-    }, {
-      name: "Contato",
-      href: "#contato"
-    }, {
-      name: "FAQ",
-      href: "#"
-    }, {
-      name: "Política de Privacidade",
-      href: "#"
-    }]
-  }];
-  const socialLinks = [{
-    icon: <Facebook className="w-5 h-5" />,
-    href: "#",
-    label: "Facebook"
-  }, {
-    icon: <Instagram className="w-5 h-5" />,
-    href: "#",
-    label: "Instagram"
-  }, {
-    icon: <Linkedin className="w-5 h-5" />,
-    href: "#",
-    label: "LinkedIn"
-  }, {
-    icon: <Twitter className="w-5 h-5" />,
-    href: "#",
-    label: "Twitter"
-  }];
-  return <footer className="bg-henzai-blue text-white">
+
+  const footerLinks = [
+    {
+      title: "Soluções",
+      links: [
+        { name: "Eficiência Energética", href: "#" },
+        { name: "Consultoria Financeira", href: "#" },
+        { name: "Representações", href: "#" },
+        { name: "Energia Renovável", href: "#" }
+      ]
+    },
+    {
+      title: "Empresa",
+      links: [
+        { name: "Sobre Nós", href: "#sobre" },
+        { name: "Como Funciona", href: "#como-funciona" },
+        { name: "Resultados", href: "#resultados" },
+        { name: "Blog", href: "#" }
+      ]
+    },
+    {
+      title: "Suporte",
+      links: [
+        { name: "Central de Ajuda", href: "#" },
+        { name: "Contato", href: "#contato" },
+        { name: "FAQ", href: "#" },
+        { name: "Política de Privacidade", href: "#" }
+      ]
+    }
+  ];
+
+  const socialLinks = [
+    { icon: <Facebook className="w-5 h-5" />, href: "#", label: "Facebook" },
+    { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" },
+    { icon: <Linkedin className="w-5 h-5" />, href: "#", label: "LinkedIn" },
+    { icon: <Twitter className="w-5 h-5" />, href: "#", label: "Twitter" }
+  ];
+
+  return (
+    <footer className="bg-[#20405f] text-white">
       <div className="container mx-auto px-4">
         {/* Seção principal do footer */}
         <div className="py-16">
@@ -78,7 +55,7 @@ const Footer: React.FC = () => {
                 Transformamos economia de energia em capital que acelera negócios. 
                 A inteligência que conecta energia, capital e crescimento.
               </p>
-              
+
               {/* Informações de contato */}
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
@@ -98,23 +75,27 @@ const Footer: React.FC = () => {
 
             {/* Links do footer */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {footerLinks.map((section, index) => <div key={index}>
+              {footerLinks.map((section, index) => (
+                <div key={index}>
                   <h3 className="font-libre-franklin text-lg font-semibold mb-4 text-henzai-terracota">
                     {section.title}
                   </h3>
                   <ul className="space-y-2">
-                    {section.links.map((link, linkIndex) => <li key={linkIndex}>
-                        <a href={link.href} className="font-gantari text-henzai-off-white hover:text-henzai-terracota transition-colors duration-300">
+                    {section.links.map((link, linkIndex) => (
+                      <li key={linkIndex}>
+                        <a
+                          href={link.href}
+                          className="font-gantari text-henzai-off-white hover:text-henzai-terracota transition-colors duration-300"
+                        >
                           {link.name}
                         </a>
-                      </li>)}
+                      </li>
+                    ))}
                   </ul>
-                </div>)}
+                </div>
+              ))}
             </div>
           </div>
-
-          {/* Newsletter */}
-          
         </div>
 
         {/* Seção inferior */}
@@ -130,13 +111,22 @@ const Footer: React.FC = () => {
             {/* Redes sociais */}
             <div className="flex items-center space-x-4">
               <span className="font-gantari text-henzai-off-white mr-4">Siga-nos:</span>
-              {socialLinks.map((social, index) => <a key={index} href={social.href} aria-label={social.label} className="w-10 h-10 rounded-full bg-white/10 hover:bg-henzai-terracota flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  aria-label={social.label}
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-henzai-terracota flex items-center justify-center transition-all duration-300 transform hover:scale-110"
+                >
                   {social.icon}
-                </a>)}
+                </a>
+              ))}
             </div>
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
