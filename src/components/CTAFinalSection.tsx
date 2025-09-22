@@ -104,7 +104,7 @@ const CTAFinalSection: React.FC = () => {
                   key={index}
                   className="md:basis-1/2 lg:basis-1/3 flex"
                 >
-                  <div className="bg-[#264563] p-6 rounded-xl shadow-lg flex flex-col justify-between w-full h-full">
+                  <div className="bg-[#20405f] p-6 rounded-xl shadow-lg flex flex-col justify-between w-full h-full">
                     {/* 5 estrelas */}
                     <div className="flex gap-1 text-yellow-400 mb-3">
                       {[...Array(5)].map((_, i) => (
