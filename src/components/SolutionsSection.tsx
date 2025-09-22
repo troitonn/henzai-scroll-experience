@@ -4,6 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Zap, Leaf, TrendingUp, Shield, Sun, Battery, BarChart3, Wrench } from 'lucide-react';
 
+// Import do plugin de autoplay
+import Autoplay from "embla-carousel-autoplay";
+
 const SolutionsSection: React.FC = () => {
   const solutions = [
     {
@@ -64,9 +67,17 @@ const SolutionsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Carrossel de Soluções */}
+        {/* Carrossel com autoplay lento */}
         <div className="max-w-5xl mx-auto mb-12">
-          <Carousel className="w-full">
+          <Carousel
+            className="w-full"
+            plugins={[
+              Autoplay({
+                delay: 5000, // 5 segundos entre slides
+                stopOnInteraction: false,
+              }),
+            ]}
+          >
             <CarouselContent className="-ml-4">
               {solutions.map((solution, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/2">
