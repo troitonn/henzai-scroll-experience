@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { TrendingUp, DollarSign, Leaf, BarChart } from 'lucide-react';
+import { TrendingUp, DollarSign, Leaf, BarChart, Star } from 'lucide-react';
 
 const CTAFinalSection: React.FC = () => {
   const benefits = [
@@ -78,8 +78,19 @@ const CTAFinalSection: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((t, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg animate-slide-up" style={{ animationDelay: `${0.1 * index}s` }}>
-                <p className="mb-4 text-lg">⭐ {t.quote}</p>
+              <div
+                key={index}
+                className="bg-[#003b46] p-6 rounded-xl shadow-lg animate-slide-up"
+                style={{ animationDelay: `${0.1 * index}s` }}
+              >
+                {/* 5 estrelas */}
+                <div className="flex gap-1 text-yellow-400 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400" />
+                  ))}
+                </div>
+
+                <p className="mb-4 text-lg">{t.quote}</p>
                 <p className="font-semibold">{t.name} – <span className="text-henzai-terracota">{t.company}</span></p>
               </div>
             ))}
