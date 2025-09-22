@@ -7,7 +7,7 @@ const HeroSection: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: `url('/lovable-uploads/digital-energy-solution.png')` 
+          backgroundImage: `url('/lovable-uploads/istockphoto-1453859222-612x612.jpg')` 
         }}
       >
         <div className="absolute inset-0 bg-[#0F2D3A] bg-opacity-40"></div>
