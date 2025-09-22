@@ -1,13 +1,16 @@
-import React from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Zap, Leaf, TrendingUp, Shield, Sun, Battery, BarChart3, Wrench } from 'lucide-react';
-
-// Import do plugin de autoplay
+import React, { useRef } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { TrendingUp, Sun, Battery, BarChart3, Wrench } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 
 const SolutionsSection: React.FC = () => {
+  // cria a referência do plugin autoplay
+  const autoplay = useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: false })
+  );
+
   const solutions = [
     {
       title: "Sistema Híbrido de Energia",
@@ -71,12 +74,7 @@ const SolutionsSection: React.FC = () => {
         <div className="max-w-5xl mx-auto mb-12">
           <Carousel
             className="w-full"
-            plugins={[
-              Autoplay({
-                delay: 5000, // 5 segundos entre slides
-                stopOnInteraction: false,
-              }),
-            ]}
+            plugins={[autoplay.current]} // aqui passa o autoplay corretamente
           >
             <CarouselContent className="-ml-4">
               {solutions.map((solution, index) => (
