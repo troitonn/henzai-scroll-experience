@@ -1,16 +1,10 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { TrendingUp, Sun, Battery, BarChart3, Wrench } from "lucide-react";
-import Autoplay from "embla-carousel-autoplay";
 
 const SolutionsSection: React.FC = () => {
-  // cria a referência do plugin autoplay
-  const autoplay = useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: false })
-  );
-
   const solutions = [
     {
       title: "Sistema Híbrido de Energia",
@@ -58,6 +52,19 @@ const SolutionsSection: React.FC = () => {
     }
   ];
 
+  // autoplay simples
+  const carouselRef = useRef<any>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        carouselRef.current.scrollNext(); // vai para o próximo card
+      }
+    }, 5000); // muda a cada 5 segundos
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="soluções" className="py-20 bg-gradient-to-br from-henzai-blue/5 to-henzai-blue/10">
       <div className="container mx-auto px-4">
@@ -70,19 +77,15 @@ const SolutionsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Carrossel com autoplay lento */}
         <div className="max-w-5xl mx-auto mb-12">
-          <Carousel
-            className="w-full"
-            plugins={[autoplay.current]} // aqui passa o autoplay corretamente
-          >
+          <Carousel ref={carouselRef} className="w-full">
             <CarouselContent className="-ml-4">
               {solutions.map((solution, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/2">
                   <Card className="group overflow-hidden border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-300 transform hover:-translate-y-1 h-full bg-white/90 backdrop-blur-sm">
                     <div className="relative h-64 overflow-hidden">
-                      <img 
-                        src={solution.image} 
+                      <img
+                        src={solution.image}
                         alt={solution.title}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                       />
@@ -91,7 +94,7 @@ const SolutionsSection: React.FC = () => {
                         {solution.icon}
                       </div>
                     </div>
-                    
+
                     <CardHeader className="pb-4">
                       <CardTitle className="font-libre-franklin text-xl text-henzai-blue">
                         {solution.title}
@@ -100,7 +103,7 @@ const SolutionsSection: React.FC = () => {
                         {solution.description}
                       </CardDescription>
                     </CardHeader>
-                    
+
                     <CardContent className="pt-0">
                       <ul className="space-y-2 mb-6">
                         {solution.benefits.map((benefit, benefitIndex) => (
@@ -110,9 +113,8 @@ const SolutionsSection: React.FC = () => {
                           </li>
                         ))}
                       </ul>
-                      
-                      <Button 
-                        variant="outline" 
+                      <Button
+                        variant="outline"
                         className="w-full font-gantari border-henzai-terracota text-henzai-terracota hover:bg-henzai-terracota hover:text-white transition-colors duration-300"
                       >
                         Saber Mais
@@ -128,7 +130,7 @@ const SolutionsSection: React.FC = () => {
         </div>
 
         <div className="text-center">
-          <Button 
+          <Button
             size="lg"
             className="bg-henzai-blue/90 hover:bg-henzai-blue text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-md"
           >
