@@ -41,8 +41,8 @@ const SolutionsSection: React.FC = () => {
       image: "/lovable-uploads/energy-consulting.png"
     },
     {
-      title: "Cabines Primárias, Entradas Exclusivas e Projetos Elétricos",
-      description: "Infraestrutura elétrica segura e atualizada, com alto desempenho, normas atendidas e confiabilidade em alta tensão.",
+      title: "Cabines Primárias",
+      description: " Entradas Exclusivas e Projetos Elétrico, infraestrutura elétrica segura e atualizada, com alto desempenho, normas atendidas e confiabilidade em alta tensão.",
       benefits: [
         "Infraestrutura elétrica segura e atualizada",
         "Alto desempenho com normas atendidas",
@@ -73,7 +73,7 @@ const SolutionsSection: React.FC = () => {
       if (carouselRef.current) {
         carouselRef.current.scrollNext(); // vai para o próximo card
       }
-    }, 15000); // muda a cada 15 segundos
+    }, 5000); // muda a cada 5 segundos
 
     return () => clearInterval(interval);
   }, []);
