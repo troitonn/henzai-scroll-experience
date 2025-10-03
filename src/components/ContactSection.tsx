@@ -239,7 +239,7 @@ ${formData.necessidade || 'Não informada'}
                 
                 <div className="mt-8 pt-8 border-t border-henzai-off-white">
                   <Button onClick={() => {
-                  const numeroWhatsApp = "55119816660190";
+                  const numeroWhatsApp = "5511981666019";
                   const mensagem = "Olá! Gostaria de saber mais sobre as soluções energéticas da Henzai.";
                   const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
                   window.open(urlWhatsApp, '_blank');
