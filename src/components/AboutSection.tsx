@@ -1,12 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import teamMeetingImage from '@/assets/corporate-meeting.jpg';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+
+// Hook para animar números
+const useCountUp = (end: number, duration: number, trigger: boolean) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!trigger) return; 
+    let start = 0;
+    const increment = end / (duration / 16);
+    const interval = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(interval);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+
+    return () => clearInterval(interval);
+  }, [end, duration, trigger]);
+
+  return count;
+};
 
 const AboutSection: React.FC = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation();
   const { ref: quoteRef, isVisible: quoteVisible } = useScrollAnimation();
+
+  // Usinas: de 0 a 3000
+  const usinas = useCountUp(3000, 2000, statsVisible);
+
+  // Economia: de 0 a 1.000.000.000
+  const economia = useCountUp(1000000000, 3000, statsVisible);
 
   return (
     <section id="sobre" className="py-20 relative overflow-hidden">
@@ -17,20 +47,6 @@ const AboutSection: React.FC = () => {
           backgroundAttachment: 'fixed'
         }}
       ></div>
-      
-      {/* Grafismos inspirados no símbolo H */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 right-10 w-32 h-32 opacity-10">
-          <svg viewBox="0 0 100 100" className="w-full h-full fill-henzai-terracota">
-            <path d="M20 15 Q25 10 35 15 Q40 17 40 25 Q40 35 35 40 Q30 42 25 40 L25 60 Q25 65 30 70 Q35 72 40 70 Q45 68 50 65 L50 85 Q45 90 35 85 Q25 82 20 75 Q15 70 15 60 L15 40 Q15 35 10 30 Q5 28 5 20 Q5 15 10 10 Q15 8 20 15 Z" />
-          </svg>
-        </div>
-        <div className="absolute bottom-20 left-10 w-24 h-24 opacity-10">
-          <svg viewBox="0 0 100 100" className="w-full h-full fill-henzai-terracota">
-            <path d="M80 15 Q75 10 65 15 Q60 17 60 25 Q60 35 65 40 Q70 42 75 40 L75 60 Q75 65 70 70 Q65 72 60 70 Q55 68 50 65 L50 85 Q55 90 65 85 Q75 82 80 75 Q85 70 85 60 L85 40 Q85 35 90 30 Q95 28 95 20 Q95 15 90 10 Q85 8 80 15 Z" />
-          </svg>
-        </div>
-      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center text-white backdrop-blur-md bg-white/10 rounded-3xl p-8 border border-white/20 shadow-2xl">
@@ -45,13 +61,21 @@ const AboutSection: React.FC = () => {
             </p>
           </div>
 
+          {/* Destaques numéricos animados */}
           <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div className={`text-center transition-all duration-700 ${statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
-              <div className="text-3xl font-libre-franklin font-bold text-henzai-terracota mb-2">+3.000</div>
+              <div className="text-3xl font-libre-franklin font-bold text-henzai-terracota mb-2">
+                +{usinas.toLocaleString('pt-BR')}
+              </div>
               <div className="font-gantari text-sm uppercase tracking-wider">Usinas Instaladas</div>
             </div>
             <div className={`text-center transition-all duration-700 delay-200 ${statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
-              <div className="text-3xl font-libre-franklin font-bold text-henzai-terracota mb-2">+R$ 1 Bilhão</div>
+              <div className="text-3xl font-libre-franklin font-bold text-henzai-terracota mb-2">
+                {/* Mostra +R$ 1 Bi quando terminar */}
+                {economia < 1000000000 
+                  ? `+R$ ${economia.toLocaleString('pt-BR')}`
+                  : '+R$ 1 Bi'}
+              </div>
               <div className="font-gantari text-sm uppercase tracking-wider">em Economia</div>
             </div>
           </div>
