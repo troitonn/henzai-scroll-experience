@@ -40,6 +40,17 @@ const SolutionsSection: React.FC = () => {
       image: "/lovable-uploads/energy-consulting.png"
     },
     {
+      title: "Cabines Primárias, Entradas Exclusivas e Projetos Elétricos",
+      description: "Infraestrutura elétrica segura e atualizada, com alto desempenho, normas atendidas e confiabilidade em alta tensão.",
+      benefits: [
+        "Infraestrutura elétrica segura e atualizada",
+        "Alto desempenho com normas atendidas",
+        "Confiabilidade em alta tensão"
+      ],
+      icon: <Battery className="w-12 h-12 text-henzai-terracota" />,
+      image: "/lovable-uploads/regulatory-energy.png"
+    },
+    {
       title: "Manutenção & Monitoramento",
       description: "Suporte contínuo, manutenção preventiva e monitoramento remoto para máxima eficiência.",
       benefits: [

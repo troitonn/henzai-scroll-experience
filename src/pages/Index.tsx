@@ -5,8 +5,9 @@ import AboutSection from '@/components/AboutSection';
 import SolutionsSection from '@/components/SolutionsSection';
 import DiferenciaisSection from '@/components/DiferenciaisSection';
 import HowItWorksSection from '@/components/HowItWorksSection';
-import ResultsSection from '@/components/ResultsSection';
+import ClientsSection from '@/components/ClientsSection';
 import CTAFinalSection from '@/components/CTAFinalSection';
+import PartnershipSection from '@/components/PartnershipSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
@@ -19,7 +20,9 @@ const Index = () => {
       <SolutionsSection />
       <DiferenciaisSection />
       <HowItWorksSection />
+      <ClientsSection />
       <CTAFinalSection />
+      <PartnershipSection />
       <ContactSection />
       <Footer />
     </div>
