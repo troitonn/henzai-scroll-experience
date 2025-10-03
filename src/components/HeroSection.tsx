@@ -6,7 +6,7 @@ const useCountUp = (end: number, duration: number) => {
 
   useEffect(() => {
     let start = 0;
-    const increment = end / (duration / 16); // duração baseada em ~60fps
+    const increment = end / (duration / 16); // ~60fps
     const interval = setInterval(() => {
       start += increment;
       if (start >= end) {
@@ -24,16 +24,16 @@ const useCountUp = (end: number, duration: number) => {
 };
 
 const HeroSection: React.FC = () => {
-  // Usinas (de 0 a 3000 em 2 segundos)
+  // Usinas: de 0 a 3000
   const usinas = useCountUp(3000, 2000);
 
-  // Economia (simulação de 0 até 1 bilhão em 3 segundos)
+  // Economia: de 0 até 1.000.000.000
   const economia = useCountUp(1000000000, 3000);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0F2D3A] to-[#1B4B6A]">
 
-      {/* Fundo com elementos inovadores */}
+      {/* Fundo */}
       <div className="absolute inset-0 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fade-in-slow"
@@ -87,7 +87,10 @@ const HeroSection: React.FC = () => {
                   className="text-3xl md:text-4xl font-libre-franklin font-bold text-henzai-terracota"
                   style={{ textShadow: '2px 2px 8px #274563' }}
                 >
-                  +R$ {economia.toLocaleString('pt-BR')}
+                  {/* Mostra +R$ 1 Bi quando chega no fim */}
+                  {economia < 1000000000
+                    ? `+R$ ${economia.toLocaleString('pt-BR')}`
+                    : '+R$ 1 Bi'}
                 </div>
                 <div className="font-gantari text-sm uppercase tracking-wider text-henzai-off-white">
                   em Economia
