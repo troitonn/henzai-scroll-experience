@@ -82,11 +82,10 @@ const PartnershipSection: React.FC = () => {
                   </div>
                 </a>
               </div>
-
               <Button
                 size="lg"
                 onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-                className="w-full mt-8 bg-henzai-terracota hover:bg-henzai-terracota/90 text-white font-gantari font-semibold py-4 rounded-full text-base md:text-lg transition-all duration-300 hover:scale-105"
+                className="w-full mt-8 bg-henzai-terracota hover:bg-henzai-terracota/90 text-white font-gantari font-semibold py-4 rounded-full text-base md:text-lg transition-all duration-300 hover:scale-105 whitespace-normal leading-snug text-center"
               >
                 Reduza custos, ganhe margem e fortaleça seu negócio!
               </Button>
