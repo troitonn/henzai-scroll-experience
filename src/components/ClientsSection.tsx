@@ -6,6 +6,7 @@ import bessaLogo from '@/assets/clients/armando-bessa.png';
 import ipirangaLogo from '@/assets/clients/ipiranga.png';
 import voNenaLogo from '@/assets/clients/vo-nena.png';
 import shellLogo from '@/assets/clients/shell.png';
+import caixaLogo from '@/assets/clients/caixa.png';
 
 const ClientsSection: React.FC = () => {
   const clients = [
@@ -16,6 +17,7 @@ const ClientsSection: React.FC = () => {
     { name: 'Ipiranga', logo: ipirangaLogo },
     { name: 'Vó Nena', logo: voNenaLogo },
     { name: 'Shell', logo: shellLogo },
+    { name: 'Caixa', logo: caixaLogo },
   ];
 
   return (
@@ -38,7 +40,7 @@ const ClientsSection: React.FC = () => {
               <img
                 src={client.logo}
                 alt={`Logo ${client.name}`}
-                className="max-h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                className="max-h-16 w-auto object-contain transition-all duration-300 hover:scale-110"
               />
             </div>
           ))}

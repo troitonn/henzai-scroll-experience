@@ -64,6 +64,7 @@ const HeroSection: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in animation-delay-500">
               <Button 
                 size="lg"
+                onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
                 className="bg-henzai-terracota/30 hover:bg-henzai-terracota/45 text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-[1px]"
               >
                 Quero minha simulação gratuita
@@ -72,6 +73,7 @@ const HeroSection: React.FC = () => {
               <Button 
                 variant="outline"
                 size="lg"
+                onClick={() => document.getElementById('soluções')?.scrollIntoView({ behavior: 'smooth' })}
               className="border-2 border-[#264563] text-[#264563] hover:bg-[#264563]/10 font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 backdrop-blur-[1px] glass-button hover:scale-105"
               >
                 Ver Soluções

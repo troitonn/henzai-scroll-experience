@@ -126,6 +126,7 @@ const SolutionsSection: React.FC = () => {
                       </ul>
                       <Button
                         variant="outline"
+                        onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
                         className="w-full font-gantari border-henzai-terracota text-henzai-terracota hover:bg-henzai-terracota hover:text-white transition-colors duration-300"
                       >
                         Saber Mais
@@ -143,6 +144,7 @@ const SolutionsSection: React.FC = () => {
         <div className="text-center">
           <Button
             size="lg"
+            onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-henzai-blue/90 hover:bg-henzai-blue text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-md"
           >
             Ver Todas as Soluções

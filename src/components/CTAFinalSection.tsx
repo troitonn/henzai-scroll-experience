@@ -84,6 +84,7 @@ const CTAFinalSection: React.FC = () => {
 
           <Button
             size="lg"
+            onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-henzai-terracota hover:bg-henzai-terracota/90 text-white font-gantari font-semibold px-12 py-6 rounded-full text-xl transition-all duration-300 hover:scale-105 glass-button backdrop-blur-md animate-fade-in"
             style={{ animationDelay: '0.4s' }}
           >
