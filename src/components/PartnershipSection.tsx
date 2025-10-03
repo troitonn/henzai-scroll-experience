@@ -1,8 +1,12 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, Globe } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const PartnershipSection: React.FC = () => {
+  const { ref: leftRef, isVisible: leftVisible } = useScrollAnimation();
+  const { ref: rightRef, isVisible: rightVisible } = useScrollAnimation();
+
   return (
     <section className="py-20 bg-henzai-blue text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/lovable-uploads/hero-energy-bg.png')] bg-cover bg-center opacity-10"></div>
@@ -11,7 +15,7 @@ const PartnershipSection: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Column */}
-            <div>
+            <div ref={leftRef} className={`transition-all duration-700 ${leftVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               <h2 className="font-libre-franklin text-3xl md:text-4xl font-bold mb-6">
                 Na Henzai, cada projeto é conduzido com
                 <span className="text-henzai-terracota"> visão de negócio, clareza e compromisso.</span>
@@ -31,7 +35,7 @@ const PartnershipSection: React.FC = () => {
             </div>
 
             {/* Right Column - Contact Info */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+            <div ref={rightRef} className={`bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 transition-all duration-700 delay-200 ${rightVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               <h3 className="font-libre-franklin text-2xl font-bold mb-8 text-center">
                 Entre em contato e saiba mais
               </h3>

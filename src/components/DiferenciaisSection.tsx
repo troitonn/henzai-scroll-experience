@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { CheckCircle, Users, Shield, Wrench, TrendingUp } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const DiferenciaisSection: React.FC = () => {
+  const carouselRef = useRef<any>(null);
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        carouselRef.current.scrollNext();
+      }
+    }, 15000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const diferenciais = [
     {
       icon: <CheckCircle className="w-8 h-8 text-henzai-terracota" />,
@@ -36,17 +50,17 @@ const DiferenciaisSection: React.FC = () => {
     <section className="py-20 bg-gradient-to-br from-henzai-blue/5 to-henzai-blue/10">
       <div className="container mx-auto px-4">
         {/* Título */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6">
+        <div ref={titleRef} className="text-center mb-16">
+          <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Diferenciais de <span className="text-henzai-terracota">Mercado</span>
           </h2>
-          <p className="font-gantari text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className={`font-gantari text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             O que nos torna únicos na entrega de soluções energéticas estratégicas
           </p>
         </div>
 
         {/* Carrossel */}
-        <Carousel className="max-w-5xl mx-auto">
+        <Carousel ref={carouselRef} className="max-w-5xl mx-auto">
           <CarouselContent>
             {diferenciais.map((diferencial, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">

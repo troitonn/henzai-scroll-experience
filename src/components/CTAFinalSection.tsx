@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { TrendingUp, DollarSign, Leaf, BarChart, Star } from 'lucide-react';
 import {
@@ -8,8 +8,23 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const CTAFinalSection: React.FC = () => {
+  const carouselRef = useRef<any>(null);
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: benefitsRef, isVisible: benefitsVisible } = useScrollAnimation();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        carouselRef.current.scrollNext();
+      }
+    }, 15000); // muda a cada 15 segundos
+
+    return () => clearInterval(interval);
+  }, []);
+
   const benefits = [
     { icon: <DollarSign className="w-6 h-6" />, text: 'Economia' },
     { icon: <TrendingUp className="w-6 h-6" />, text: '+ Crescimento' },
@@ -58,16 +73,18 @@ const CTAFinalSection: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* CTA Principal */}
         <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="font-libre-franklin text-4xl md:text-5xl font-bold mb-8 animate-fade-in">
-            Facilitamos o crescimento do seu negócio
-            <br />
-            através da{' '}
-            <span className="text-henzai-terracota">economia de energia!</span>
-          </h2>
+          <div ref={titleRef}>
+            <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold mb-8 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              Facilitamos o crescimento do seu negócio
+              <br />
+              através da{' '}
+              <span className="text-henzai-terracota">economia de energia!</span>
+            </h2>
+          </div>
 
           <div
-            className="flex flex-wrap justify-center items-center gap-8 mb-12 animate-slide-in"
-            style={{ animationDelay: '0.2s' }}
+            ref={benefitsRef}
+            className={`flex flex-wrap justify-center items-center gap-8 mb-12 transition-all duration-700 delay-200 ${benefitsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
             {benefits.map((benefit, index) => (
               <div key={index} className="flex items-center gap-2">
@@ -85,8 +102,8 @@ const CTAFinalSection: React.FC = () => {
           <Button
             size="lg"
             onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-henzai-terracota hover:bg-henzai-terracota/90 text-white font-gantari font-semibold px-12 py-6 rounded-full text-xl transition-all duration-300 hover:scale-105 glass-button backdrop-blur-md animate-fade-in"
-            style={{ animationDelay: '0.4s' }}
+            className={`bg-henzai-terracota hover:bg-henzai-terracota/90 text-white font-gantari font-semibold px-12 py-6 rounded-full text-xl transition-all duration-700 hover:scale-105 glass-button backdrop-blur-md ${benefitsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}
+            style={{ transitionDelay: '400ms' }}
           >
             Solicitar proposta personalizada
           </Button>
@@ -98,7 +115,7 @@ const CTAFinalSection: React.FC = () => {
             O que nossos clientes dizem
           </h3>
 
-          <Carousel className="w-full">
+          <Carousel ref={carouselRef} className="w-full">
             <CarouselContent>
               {testimonials.map((t, index) => (
                 <CarouselItem

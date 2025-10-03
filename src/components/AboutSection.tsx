@@ -1,8 +1,13 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import teamMeetingImage from '@/assets/corporate-meeting.jpg';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const AboutSection: React.FC = () => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation();
+  const { ref: quoteRef, isVisible: quoteVisible } = useScrollAnimation();
+
   return (
     <section id="sobre" className="py-20 relative overflow-hidden">
       <div 
@@ -28,28 +33,30 @@ const AboutSection: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center text-white animate-fade-in backdrop-blur-md bg-white/10 rounded-3xl p-8 border border-white/20 shadow-2xl">
-          <h2 className="font-libre-franklin text-4xl md:text-5xl font-bold mb-8">
-            Mais que energia. <span className="text-henzai-terracota">Uma decisão estratégica.</span>
-          </h2>
-          
-          <p className="font-gantari text-xl leading-relaxed mb-8 text-henzai-off-white">
-            A Henzai nasceu da convicção de que energia não deve ser tratada apenas como despesa técnica — ela é estratégia de crescimento.
-            Somos uma consultoria especializada que conecta empresas às melhores soluções energéticas com visão de negócio, clareza e compromisso.
-          </p>
+        <div className="max-w-4xl mx-auto text-center text-white backdrop-blur-md bg-white/10 rounded-3xl p-8 border border-white/20 shadow-2xl">
+          <div ref={titleRef}>
+            <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold mb-8 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              Mais que energia. <span className="text-henzai-terracota">Uma decisão estratégica.</span>
+            </h2>
+            
+            <p className={`font-gantari text-xl leading-relaxed mb-8 text-henzai-off-white transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              A Henzai nasceu da convicção de que energia não deve ser tratada apenas como despesa técnica — ela é estratégia de crescimento.
+              Somos uma consultoria especializada que conecta empresas às melhores soluções energéticas com visão de negócio, clareza e compromisso.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div className="text-center animate-slide-in" style={{ animationDelay: '0.1s' }}>
+          <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className={`text-center transition-all duration-700 ${statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
               <div className="text-3xl font-libre-franklin font-bold text-henzai-terracota mb-2">+3.000</div>
               <div className="font-gantari text-sm uppercase tracking-wider">Usinas Instaladas</div>
             </div>
-            <div className="text-center animate-slide-in" style={{ animationDelay: '0.2s' }}>
+            <div className={`text-center transition-all duration-700 delay-200 ${statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
               <div className="text-3xl font-libre-franklin font-bold text-henzai-terracota mb-2">+R$ 1 Bilhão</div>
               <div className="font-gantari text-sm uppercase tracking-wider">em Economia</div>
             </div>
           </div>
 
-          <div className="bg-henzai-blue/20 backdrop-blur-sm rounded-3xl p-8 mb-8 border border-white/10">
+          <div ref={quoteRef} className={`bg-henzai-blue/20 backdrop-blur-sm rounded-3xl p-8 mb-8 border border-white/10 transition-all duration-700 ${quoteVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <p className="font-gantari text-lg italic leading-relaxed mb-6">
               "Combinamos visão estratégica, responsabilidade técnica e presença constante para transformar consumo em vantagem, despesa em capital e futuro em oportunidade."
             </p>

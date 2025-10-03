@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Search, Target, Cog, BarChart } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 interface StepProps {
   number: number;
@@ -42,6 +43,9 @@ const Step: React.FC<StepProps> = ({ number, icon, title, description, isLast })
 );
 
 const HowItWorksSection: React.FC = () => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: stepsRef, isVisible: stepsVisible } = useScrollAnimation();
+
   const steps = [
     {
       number: 1,
@@ -72,18 +76,22 @@ const HowItWorksSection: React.FC = () => {
   return (
     <section id="como-funciona" className="py-20 bg-gradient-to-br from-henzai-off-white to-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6">
+        <div ref={titleRef} className="text-center mb-16">
+          <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Como <span className="text-henzai-terracota">Funciona</span>
           </h2>
-          <p className="font-gantari text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className={`font-gantari text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Processo estruturado para transformar economia de energia em estratégia de crescimento
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
+        <div ref={stepsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
           {steps.map((step, index) => (
-            <div key={index} className="animate-slide-in" style={{ animationDelay: `${index * 0.2}s` }}>
+            <div 
+              key={index} 
+              className={`transition-all duration-700 ${stepsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
               <Step 
                 number={step.number}
                 icon={step.icon}
