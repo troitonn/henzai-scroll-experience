@@ -52,12 +52,17 @@ const AboutSection: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-white backdrop-blur-md bg-white/10 rounded-3xl p-8 border border-white/20 shadow-2xl">
-            {/* Título e Imagem lado a lado */}
+            {/* Título, Texto e Imagem lado a lado */}
             <div ref={titleRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-8">
               <div>
-                <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                   Mais que energia. <span className="text-henzai-terracota">Uma decisão estratégica.</span>
                 </h2>
+                
+                <p className={`font-gantari text-xl leading-relaxed text-henzai-off-white transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                  A Henzai nasceu da convicção de que energia não deve ser tratada apenas como despesa técnica — ela é estratégia de crescimento.
+                  Somos uma consultoria especializada que conecta empresas às melhores soluções energéticas com visão de negócio, clareza e compromisso.
+                </p>
               </div>
               
               {/* CEO Image */}
@@ -68,15 +73,6 @@ const AboutSection: React.FC = () => {
                   className="w-full h-auto rounded-3xl shadow-2xl"
                 />
               </div>
-            </div>
-
-            {/* Conteúdo */}
-            <div ref={titleRef}>
-                
-                <p className={`font-gantari text-xl leading-relaxed mb-8 text-henzai-off-white transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  A Henzai nasceu da convicção de que energia não deve ser tratada apenas como despesa técnica — ela é estratégia de crescimento.
-                  Somos uma consultoria especializada que conecta empresas às melhores soluções energéticas com visão de negócio, clareza e compromisso.
-                </p>
             </div>
 
             {/* Destaques numéricos animados */}
