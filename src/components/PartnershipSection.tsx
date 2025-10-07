@@ -93,7 +93,7 @@ const PartnershipSection: React.FC = () => {
                              whitespace-normal leading-snug text-center 
                              tracking-wide shadow-lg"
                 >
-                  Reduza custos, ganhe margem e fortaleça seu negócio!
+                  Reduza custos e ganhe margem!
                 </Button>
             </div>
           </div>
