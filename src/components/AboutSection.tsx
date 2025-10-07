@@ -51,10 +51,17 @@ const AboutSection: React.FC = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="relative lg:grid lg:grid-cols-12 gap-8 items-center">
-            {/* CEO Image */}
-            <div ref={titleRef} className={`lg:col-span-5 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-              <div className="relative lg:absolute lg:-right-12 lg:top-0 z-20">
+          <div className="text-white backdrop-blur-md bg-white/10 rounded-3xl p-8 border border-white/20 shadow-2xl">
+            {/* Título e Imagem lado a lado */}
+            <div ref={titleRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-8">
+              <div>
+                <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                  Mais que energia. <span className="text-henzai-terracota">Uma decisão estratégica.</span>
+                </h2>
+              </div>
+              
+              {/* CEO Image */}
+              <div className={`transition-all duration-700 ${titleVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
                 <img 
                   src={ceoPhoto} 
                   alt="CEO da Henzai" 
@@ -63,21 +70,17 @@ const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Content */}
-            <div className="lg:col-span-7 text-white backdrop-blur-md bg-white/10 rounded-3xl p-8 lg:pl-16 border border-white/20 shadow-2xl relative z-10 mt-8 lg:mt-0">
-              <div ref={titleRef}>
-                <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold mb-8 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                  Mais que energia. <span className="text-henzai-terracota">Uma decisão estratégica.</span>
-                </h2>
+            {/* Conteúdo */}
+            <div ref={titleRef}>
                 
                 <p className={`font-gantari text-xl leading-relaxed mb-8 text-henzai-off-white transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                   A Henzai nasceu da convicção de que energia não deve ser tratada apenas como despesa técnica — ela é estratégia de crescimento.
                   Somos uma consultoria especializada que conecta empresas às melhores soluções energéticas com visão de negócio, clareza e compromisso.
                 </p>
-              </div>
+            </div>
 
-              {/* Destaques numéricos animados */}
-              <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {/* Destaques numéricos animados */}
+            <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                 <div className={`text-center transition-all duration-700 ${statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
                   <div className="text-3xl font-libre-franklin font-bold text-henzai-terracota mb-2">
                     +{usinas.toLocaleString('pt-BR')}
@@ -99,17 +102,16 @@ const AboutSection: React.FC = () => {
                 <p className="font-gantari text-lg italic leading-relaxed mb-6">
                   "Combinamos visão estratégica, responsabilidade técnica e presença constante para transformar consumo em vantagem, despesa em capital e futuro em oportunidade."
                 </p>
-              </div>
-
-              <Button 
-                variant="secondary"
-                size="lg"
-                className="font-gantari font-semibold text-lg px-8 py-4 rounded-full hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Conheça Nossa História
-              </Button>
             </div>
+
+            <Button 
+              variant="secondary"
+              size="lg"
+              className="font-gantari font-semibold text-lg px-8 py-4 rounded-full hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Conheça Nossa História
+            </Button>
           </div>
         </div>
       </div>
