@@ -36,7 +36,7 @@ const HeroSection: React.FC = () => {
       {/* Fundo */}
       <div className="absolute inset-0 overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fade-in-slow"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('/lovable-uploads/istockphoto-1453859222-612x612.jpg')`
           }}
@@ -52,7 +52,7 @@ const HeroSection: React.FC = () => {
 
             {/* Título */}
             <h1
-              className="text-5xl md:text-7xl font-libre-franklin font-bold leading-tight animate-fade-in"
+              className="text-5xl md:text-7xl font-libre-franklin font-bold leading-tight"
               style={{ textShadow: '2px 2px 8px #274563' }}
             >
               Energia não é custo.<br />
@@ -60,14 +60,14 @@ const HeroSection: React.FC = () => {
             </h1>
 
             <p
-              className="text-xl md:text-2xl font-gantari text-henzai-off-white animate-fade-in animation-delay-300 max-w-3xl"
+              className="text-xl md:text-2xl font-gantari text-henzai-off-white max-w-3xl"
               style={{ textShadow: '1px 1px 6px #274563' }}
             >
               Transformamos economia de energia em capital que acelera negócios.
             </p>
 
             {/* Destaques numéricos animados */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 animate-fade-in animation-delay-200">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
               <div className="text-center">
                 <div
                   className="text-3xl md:text-4xl font-libre-franklin font-bold text-henzai-terracota"
@@ -99,7 +99,7 @@ const HeroSection: React.FC = () => {
             </div>
 
             {/* Botões */}
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in animation-delay-500">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
                 onClick={() =>
@@ -135,9 +135,6 @@ const HeroSection: React.FC = () => {
           }
           .animate-blob { animation: blob 20s infinite; }
           .animation-delay-2000 { animation-delay: 2s; }
-          .animate-fade-in { animation: fadeIn 1.2s ease-in forwards; opacity: 0; }
-          .animate-fade-in-slow { animation: fadeIn 2s ease-in forwards; opacity: 0; }
-          @keyframes fadeIn { to { opacity: 1; } }
         `}
       </style>
     </section>
