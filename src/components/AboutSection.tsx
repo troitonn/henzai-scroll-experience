@@ -70,7 +70,7 @@ const AboutSection: React.FC = () => {
                 <img 
                   src={ceoPhoto} 
                   alt="CEO da Henzai" 
-                  className="w-full max-w-md mx-auto h-auto rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500"
+                  className="w-full max-w-xs mx-auto h-auto rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </div>
