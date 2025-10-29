@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import teamMeetingImage from '@/assets/corporate-meeting.jpg';
-import ceoPhoto from '@/assets/ceo-photo.png';
+import ceoPhoto from '@/assets/ceo-photo.jpg';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 // Hook para animar números
@@ -66,24 +66,24 @@ const AboutSection: React.FC = () => {
               </div>
               
               {/* CEO Image */}
-              <div className={`transition-all duration-700 ${titleVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <div className={`transition-all duration-700 ${titleVisible ? 'opacity-100 translate-x-0 animate-in' : 'opacity-0 translate-x-10'}`}>
                 <img 
                   src={ceoPhoto} 
                   alt="CEO da Henzai" 
-                  className="w-full h-auto rounded-3xl shadow-2xl"
+                  className="w-full h-auto rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500"
                 />
               </div>
             </div>
 
             {/* Destaques numéricos animados */}
             <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                <div className={`text-center transition-all duration-700 ${statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
+                <div className={`text-center transition-all duration-700 hover:scale-110 ${statsVisible ? 'opacity-100 scale-100 animate-in' : 'opacity-0 scale-75'}`}>
                   <div className="text-3xl font-libre-franklin font-bold text-henzai-terracota mb-2">
                     +{usinas.toLocaleString('pt-BR')}
                   </div>
                   <div className="font-gantari text-sm uppercase tracking-wider">Usinas Instaladas</div>
                 </div>
-                <div className={`text-center transition-all duration-700 delay-200 ${statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
+                <div className={`text-center transition-all duration-700 delay-200 hover:scale-110 ${statsVisible ? 'opacity-100 scale-100 animate-in' : 'opacity-0 scale-75'}`}>
                   <div className="text-3xl font-libre-franklin font-bold text-henzai-terracota mb-2">
                     {/* Mostra +R$ 1 Bi quando terminar */}
                     {economia < 1000000000 

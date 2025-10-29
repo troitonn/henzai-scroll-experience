@@ -73,7 +73,7 @@ const SolutionsSection: React.FC = () => {
       if (carouselRef.current) {
         carouselRef.current.scrollNext(); // vai para o próximo card
       }
-    }, 5000); // muda a cada 5 segundos
+    }, 30000); // muda a cada 30 segundos
 
     return () => clearInterval(interval);
   }, []);
@@ -82,10 +82,10 @@ const SolutionsSection: React.FC = () => {
     <section id="soluções" className="py-20 bg-gradient-to-br from-henzai-blue/5 to-henzai-blue/10">
       <div className="container mx-auto px-4">
         <div ref={titleRef} className="text-center mb-16">
-          <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0 animate-in' : 'opacity-0 translate-y-10'}`}>
             Benefícios dos Produtos e <span className="text-henzai-terracota">Serviços</span>
           </h2>
-          <p className={`font-gantari text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <p className={`font-gantari text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0 animate-in' : 'opacity-0 translate-y-10'}`}>
             Soluções energéticas estratégicas que transformam consumo em vantagem competitiva
           </p>
         </div>

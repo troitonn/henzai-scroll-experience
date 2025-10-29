@@ -20,7 +20,7 @@ const CTAFinalSection: React.FC = () => {
       if (carouselRef.current) {
         carouselRef.current.scrollNext();
       }
-    }, 15000); // muda a cada 15 segundos
+    }, 30000); // muda a cada 30 segundos
 
     return () => clearInterval(interval);
   }, []);
@@ -74,7 +74,7 @@ const CTAFinalSection: React.FC = () => {
         {/* CTA Principal */}
         <div className="max-w-4xl mx-auto text-center text-white">
           <div ref={titleRef}>
-            <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold mb-8 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold mb-8 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0 animate-in' : 'opacity-0 translate-y-10'}`}>
               Facilitamos o crescimento do seu negócio
               <br />
               através da{' '}

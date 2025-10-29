@@ -13,7 +13,7 @@ const DiferenciaisSection: React.FC = () => {
       if (carouselRef.current) {
         carouselRef.current.scrollNext();
       }
-    }, 15000);
+    }, 30000);
 
     return () => clearInterval(interval);
   }, []);
@@ -51,10 +51,10 @@ const DiferenciaisSection: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Título */}
         <div ref={titleRef} className="text-center mb-16">
-          <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0 animate-in' : 'opacity-0 translate-y-10'}`}>
             Diferenciais de <span className="text-henzai-terracota">Mercado</span>
           </h2>
-          <p className={`font-gantari text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <p className={`font-gantari text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0 animate-in' : 'opacity-0 translate-y-10'}`}>
             O que nos torna únicos na entrega de soluções energéticas estratégicas
           </p>
         </div>
