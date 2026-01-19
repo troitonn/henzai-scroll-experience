@@ -60,11 +60,11 @@ const Footer: React.FC = () => {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-henzai-terracota" />
-                  <span className="font-gantari">+55 00 0900-0900</span>
+                  <span className="font-gantari">+55 11 97961-9109</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-henzai-terracota" />
-                  <span className="font-gantari">henzaienergia.com.br</span>
+                  <span className="font-gantari">contato@henzaienergia.com.br</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-5 h-5 text-henzai-terracota" />
