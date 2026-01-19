@@ -259,7 +259,7 @@ ${formData.necessidade || 'Não informada'}
                     </div>
                     <div>
                       <div className="font-libre-franklin font-bold text-henzai-blue">WhatsApp</div>
-                      <div className="font-gantari text-henzai-black">+55 (11) 98166-6019</div>
+                      <div className="font-gantari text-henzai-black">+55 11 97961-9109</div>
                     </div>
                   </div>
 
@@ -287,7 +287,7 @@ ${formData.necessidade || 'Não informada'}
                 <div className="mt-8 pt-8 border-t border-henzai-off-white">
                   <Button
                     onClick={() => {
-                      const numeroWhatsApp = "5511981666019"; // ✅ número atualizado
+                      const numeroWhatsApp = "5511979619109"; // ✅ número atualizado
                       const mensagem = "Olá! Gostaria de saber mais sobre as soluções energéticas da Henzai.";
                       const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
                       window.open(urlWhatsApp, '_blank');
