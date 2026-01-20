@@ -22,6 +22,8 @@ const Header: React.FC = () => {
     'Contato'
   ];
 
+  const whatsappLink = 'https://wa.me/5511979619109?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista!';
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
@@ -60,15 +62,21 @@ const Header: React.FC = () => {
 
           {/* Botão Desktop */}
           <div className="hidden md:block">
-            <Button
-              className={`font-gantari font-medium px-6 py-3 rounded-full transition-all duration-300 ${
-                isScrolled
-                  ? 'bg-henzai-terracota text-white hover:bg-henzai-terracota/90'
-                  : 'bg-white/20 text-white border border-white/30 hover:bg-white/30'
-              }`}
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Falar com Especialista
-            </Button>
+              <Button
+                className={`font-gantari font-medium px-6 py-3 rounded-full transition-all duration-300 ${
+                  isScrolled
+                    ? 'bg-henzai-terracota text-white hover:bg-henzai-terracota/90'
+                    : 'bg-white/20 text-white border border-white/30 hover:bg-white/30'
+                }`}
+              >
+                Falar com Especialista
+              </Button>
+            </a>
           </div>
 
           {/* Botão Mobile */}
@@ -104,11 +112,17 @@ const Header: React.FC = () => {
               </a>
             ))}
 
-            <Button
-              className="w-full font-gantari font-medium px-6 py-3 rounded-full transition-all duration-300 bg-henzai-terracota text-white hover:bg-henzai-terracota/90"
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Falar com Especialista
-            </Button>
+              <Button
+                className="w-full font-gantari font-medium px-6 py-3 rounded-full transition-all duration-300 bg-henzai-terracota text-white hover:bg-henzai-terracota/90"
+              >
+                Falar com Especialista
+              </Button>
+            </a>
           </div>
         )}
       </div>
