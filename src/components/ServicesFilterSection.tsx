@@ -1,48 +1,9 @@
 import React, { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Zap, Building2, Thermometer, Car, Fuel, Wind } from "lucide-react";
+import { Car, Fuel, Thermometer, Building2 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import eletropostosImg from "@/assets/eletropostos-henzai.png";
 
 type Category = "Todos" | "Mobilidade Elétrica" | "Hub Condomínios" | "Climatização";
-
-interface ServiceCard {
-  title: string;
-  description: string;
-  category: Category;
-  icon: React.ReactNode;
-}
-
-const services: ServiceCard[] = [
-  {
-    title: "Carregamento em Condomínios",
-    description:
-      "Soluções compactas, consultoria técnica de infraestrutura e viabilidade financeira para retorno de investimento (Eletroposto).",
-    category: "Mobilidade Elétrica",
-    icon: <Car className="w-10 h-10" />,
-  },
-  {
-    title: "Eletropostos em Postos de Gasolina",
-    description:
-      "Infraestrutura de alta performance para carregamento rápido e gestão de frotas.",
-    category: "Mobilidade Elétrica",
-    icon: <Fuel className="w-10 h-10" />,
-  },
-  {
-    title: "Climatização Estratégica",
-    description:
-      "Consultoria para sistemas de Ar-condicionado, gestão ativa de equipamentos e manutenção especializada para redução de custos energéticos.",
-    category: "Climatização",
-    icon: <Thermometer className="w-10 h-10" />,
-  },
-  {
-    title: "Hub de Soluções 360º",
-    description:
-      "Gestão completa de infraestrutura elétrica e soluções integradas para condomínios.",
-    category: "Hub Condomínios",
-    icon: <Building2 className="w-10 h-10" />,
-  },
-];
 
 const categories: Category[] = ["Todos", "Mobilidade Elétrica", "Hub Condomínios", "Climatização"];
 
@@ -50,18 +11,21 @@ const ServicesFilterSection: React.FC = () => {
   const [active, setActive] = useState<Category>("Todos");
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
 
-  const filtered = active === "Todos" ? services : services.filter((s) => s.category === active);
+  const showMobilidade = active === "Todos" || active === "Mobilidade Elétrica";
+  const showClimatizacao = active === "Todos" || active === "Climatização";
+  const showHub = active === "Todos" || active === "Hub Condomínios";
 
   return (
-    <section id="novos-servicos" className="py-20 bg-background">
+    <section id="novos-servicos" className="py-20 bg-card">
       <div className="container mx-auto px-4">
+        {/* Title */}
         <div ref={titleRef} className="text-center mb-12">
           <h2
-            className={`font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6 transition-all duration-700 ${
+            className={`font-libre-franklin text-4xl md:text-5xl font-bold text-foreground mb-6 transition-all duration-700 ${
               titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            Novos <span className="text-henzai-terracota">Serviços</span>
+            Nossos <span className="text-henzai-terracota">Serviços</span>
           </h2>
           <p
             className={`font-gantari text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-700 delay-200 ${
@@ -80,8 +44,8 @@ const ServicesFilterSection: React.FC = () => {
               onClick={() => setActive(cat)}
               className={`font-gantari font-medium px-6 py-2.5 rounded-full text-sm transition-all duration-300 border ${
                 active === cat
-                  ? "bg-henzai-blue text-white border-henzai-blue shadow-[var(--shadow-hover)]"
-                  : "bg-white text-henzai-blue border-henzai-blue/20 hover:border-henzai-blue/50 hover:shadow-[var(--shadow-card)]"
+                  ? "bg-henzai-terracota text-white border-henzai-terracota shadow-[var(--shadow-hover)]"
+                  : "bg-card text-foreground border-border hover:border-henzai-terracota/50 hover:shadow-[var(--shadow-card)]"
               }`}
             >
               {cat}
@@ -89,33 +53,90 @@ const ServicesFilterSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {filtered.map((service, i) => (
-            <Card
-              key={service.title}
-              className="group overflow-hidden border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-500 transform hover:-translate-y-1 bg-white/90 backdrop-blur-sm"
-              style={{ animationDelay: `${i * 100}ms` }}
-            >
-              <CardHeader className="pb-4">
-                <div className="p-3 bg-henzai-blue/5 rounded-2xl w-fit mb-3 text-henzai-blue group-hover:text-henzai-terracota transition-colors duration-300">
-                  {service.icon}
+        {/* Mobilidade Elétrica — 2 columns */}
+        {showMobilidade && (
+          <div className="mb-12 animate-fade-in">
+            <h3 className="font-libre-franklin text-2xl font-bold text-foreground mb-6">
+              Mobilidade <span className="text-henzai-terracota">Elétrica</span>
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Condomínios */}
+              <div className="group rounded-2xl overflow-hidden bg-card border border-border shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-500 hover:-translate-y-1">
+                <div className="p-8">
+                  <div className="p-3 bg-henzai-terracota/10 rounded-2xl w-fit mb-4">
+                    <Car className="w-8 h-8 text-henzai-terracota" />
+                  </div>
+                  <h4 className="font-libre-franklin text-xl font-bold text-foreground mb-3">
+                    Eletromobilidade em Condomínios
+                  </h4>
+                  <p className="font-gantari text-muted-foreground leading-relaxed">
+                    Consultoria completa desde a infraestrutura elétrica até a gestão financeira (ROI) do eletroposto. Carregadores compactos e inteligentes.
+                  </p>
                 </div>
-                <CardTitle className="font-libre-franklin text-xl text-henzai-blue">
-                  {service.title}
-                </CardTitle>
-                <CardDescription className="font-gantari text-muted-foreground leading-relaxed">
-                  {service.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <span className="inline-block font-gantari text-xs font-medium px-3 py-1 rounded-full bg-henzai-terracota/10 text-henzai-terracota">
-                  {service.category}
-                </span>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+              </div>
+
+              {/* Postos de Gasolina */}
+              <div className="group rounded-2xl overflow-hidden bg-card border border-border shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-500 hover:-translate-y-1">
+                <img
+                  src={eletropostosImg}
+                  alt="Eletropostos Henzai de alta performance"
+                  className="w-full h-52 object-cover"
+                  loading="lazy"
+                />
+                <div className="p-8">
+                  <div className="p-3 bg-henzai-terracota/10 rounded-2xl w-fit mb-4">
+                    <Fuel className="w-8 h-8 text-henzai-terracota" />
+                  </div>
+                  <h4 className="font-libre-franklin text-xl font-bold text-foreground mb-3">
+                    Eletropostos de Alta Performance
+                  </h4>
+                  <p className="font-gantari text-muted-foreground leading-relaxed">
+                    Implementação de hubs de carregamento rápido em postos de gasolina, com infraestrutura de alta performance e gestão de frotas.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Climatização */}
+        {showClimatizacao && (
+          <div className="mb-12 animate-fade-in">
+            <h3 className="font-libre-franklin text-2xl font-bold text-foreground mb-6">
+              Climatização <span className="text-henzai-terracota">Estratégica</span>
+            </h3>
+            <div className="max-w-3xl">
+              <div className="group rounded-2xl overflow-hidden bg-card border border-border shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-500 hover:-translate-y-1 p-8">
+                <div className="p-3 bg-henzai-terracota/10 rounded-2xl w-fit mb-4">
+                  <Thermometer className="w-8 h-8 text-henzai-terracota" />
+                </div>
+                <h4 className="font-libre-franklin text-xl font-bold text-foreground mb-3">
+                  Gestão de Ativos & Climatização Estratégica
+                </h4>
+                <p className="font-gantari text-muted-foreground leading-relaxed">
+                  Consultoria para instalação e manutenção preventiva Hitachi, focada em redução de custos operacionais e eficiência energética.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Hub Condomínios — Full width */}
+        {showHub && (
+          <div className="animate-fade-in">
+            <div className="group rounded-2xl overflow-hidden bg-gradient-to-r from-henzai-terracota/5 to-henzai-terracota/10 border border-henzai-terracota/20 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-500 hover:-translate-y-1 p-10">
+              <div className="p-3 bg-henzai-terracota/10 rounded-2xl w-fit mb-4">
+                <Building2 className="w-8 h-8 text-henzai-terracota" />
+              </div>
+              <h4 className="font-libre-franklin text-2xl font-bold text-foreground mb-3">
+                Hub Henzai: Infraestrutura Elétrica 360º
+              </h4>
+              <p className="font-gantari text-lg text-muted-foreground leading-relaxed max-w-3xl">
+                O único ponto de contato para todas as necessidades elétricas do condomínio. Gestão completa de infraestrutura elétrica e soluções integradas.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
