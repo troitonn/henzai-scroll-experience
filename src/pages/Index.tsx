@@ -1,10 +1,12 @@
 import React from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
+import ServicesFilterSection from '@/components/ServicesFilterSection';
 import AboutSection from '@/components/AboutSection';
 import SolutionsSection from '@/components/SolutionsSection';
 import DiferenciaisSection from '@/components/DiferenciaisSection';
 import HowItWorksSection from '@/components/HowItWorksSection';
+import HybridSystemSection from '@/components/HybridSystemSection';
 import ClientsSection from '@/components/ClientsSection';
 import CTAFinalSection from '@/components/CTAFinalSection';
 import PartnershipSection from '@/components/PartnershipSection';
@@ -16,10 +18,12 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
+      <ServicesFilterSection />
       <AboutSection />
       <SolutionsSection />
       <DiferenciaisSection />
       <HowItWorksSection />
+      <HybridSystemSection />
       <ClientsSection />
       <CTAFinalSection />
       <PartnershipSection />
