@@ -46,7 +46,7 @@ const HybridSystemSection: React.FC = () => {
               <div className="aspect-video">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  src="" //Video do yt
                   title="Sistema Híbrido & Eólico"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
