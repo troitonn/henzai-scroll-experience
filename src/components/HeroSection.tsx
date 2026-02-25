@@ -35,13 +35,15 @@ const HeroSection: React.FC = () => {
 
       {/* Fundo */}
       <div className="absolute inset-0 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/lovable-uploads/istockphoto-1453859222-612x612.jpg')`
-          }}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/videos/hero-bg.mp4"
         />
-        <div className="absolute inset-0 bg-[#264563]/50 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-[#264563]/60"></div>
         <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-[#264563]/40 rounded-full filter blur-3xl animate-blob"></div>
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#264563]/30 rounded-full filter blur-2xl animate-blob animation-delay-2000"></div>
       </div>
