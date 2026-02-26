@@ -1,6 +1,6 @@
 import React from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import solarDroneImg from "@/assets/solar-panels-drone.png";
+import solarDroneImg from "@/assets/solar-project-aerial.png";
 
 const ProjectsSection: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();

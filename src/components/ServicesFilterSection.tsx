@@ -124,7 +124,7 @@ const ServicesFilterSection: React.FC = () => {
         {/* Hub Condomínios — Full width */}
         {showHub && (
           <div className="animate-fade-in">
-            <div className="group rounded-2xl overflow-hidden bg-gradient-to-r from-henzai-terracota/5 to-henzai-terracota/10 border border-henzai-terracota/20 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-500 hover:-translate-y-1 p-10">
+            <div className="group rounded-2xl overflow-hidden bg-gradient-to-r from-henzai-terracota/5 to-henzai-terracota/10 border-2 border-henzai-terracota/40 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-500 hover:-translate-y-1 p-10">
               <div className="p-3 bg-henzai-terracota/10 rounded-2xl w-fit mb-4">
                 <Building2 className="w-8 h-8 text-henzai-terracota" />
               </div>
