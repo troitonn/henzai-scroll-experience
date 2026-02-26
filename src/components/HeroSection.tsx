@@ -43,7 +43,7 @@ const HeroSection: React.FC = () => {
           className="absolute inset-0 w-full h-full object-cover"
           src="/videos/hero-bg.mp4"
         />
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/15"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
@@ -105,7 +105,7 @@ const HeroSection: React.FC = () => {
                 onClick={() =>
                   document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })
                 }
-                className="bg-henzai-terracota/30 hover:bg-henzai-terracota/45 text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-[1px]"
+                className="bg-henzai-terracota hover:bg-henzai-terracota/90 text-white font-gantari font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-lg"
               >
                 Quero minha simulação gratuita
               </Button>
@@ -116,7 +116,7 @@ const HeroSection: React.FC = () => {
                 onClick={() =>
                   document.getElementById('soluções')?.scrollIntoView({ behavior: 'smooth' })
                 }
-                className="border-2 border-[#264563] text-[#264563] hover:bg-[#264563]/10 font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 backdrop-blur-[1px] glass-button hover:scale-105"
+                className="border-2 border-white/80 text-white hover:bg-white/15 font-gantari font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
               >
                 Ver Soluções
               </Button>
