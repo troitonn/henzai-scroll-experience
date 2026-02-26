@@ -116,7 +116,7 @@ const HeroSection: React.FC = () => {
                 onClick={() =>
                   document.getElementById('soluções')?.scrollIntoView({ behavior: 'smooth' })
                 }
-                className="border-2 border-white/80 text-white hover:bg-white/15 font-gantari font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+                className="border-2 border-white text-white bg-white/20 hover:bg-white/30 font-gantari font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 backdrop-blur-md shadow-lg"
               >
                 Ver Soluções
               </Button>
