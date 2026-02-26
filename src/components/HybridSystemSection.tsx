@@ -1,6 +1,7 @@
 import React from "react";
 import { Wind, Zap, Battery } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import henzaiBrandImg from "@/assets/henzai-brand-poster.png";
 
 const HybridSystemSection: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -40,19 +41,15 @@ const HybridSystemSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right – Video */}
+          {/* Right – Image */}
           <div className="relative">
-            <div className="rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.2)] bg-white/10">
-              <div className="aspect-video">
-                <iframe
-                  className="w-full h-full"
-                  src="" //Video do yt
-                  title="Sistema Híbrido & Eólico"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
+            <div className="rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.2)]">
+              <img
+                src={henzaiBrandImg}
+                alt="Henzai Energia – Energia que acelera e conscientiza negócios"
+                className="w-full h-auto object-cover"
+                loading="lazy"
+              />
             </div>
             <div className="absolute -z-10 -bottom-4 -right-4 w-full h-full rounded-2xl bg-white/10" />
           </div>

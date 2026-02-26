@@ -23,13 +23,19 @@ const ProjectsSection: React.FC = () => {
             </p>
           </div>
 
-          <div className="relative rounded-2xl overflow-hidden shadow-[var(--shadow-hover)]">
+          <div className="relative rounded-2xl overflow-hidden shadow-[var(--shadow-hover)] border border-henzai-terracota/30">
             <img
               src={solarDroneImg}
               alt="Projeto de usina solar Henzai – vista aérea"
               className="w-full h-[400px] md:h-[500px] object-cover"
               loading="lazy"
             />
+            {/* Marca d'água */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+              <span className="font-libre-franklin text-white/10 text-6xl md:text-8xl font-bold tracking-widest uppercase rotate-[-25deg]">
+                Henzai Energia
+              </span>
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
               <h3 className="font-libre-franklin text-2xl md:text-3xl font-bold text-white mb-3">
