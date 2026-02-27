@@ -82,7 +82,13 @@ const HeroSection: React.FC = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0F2D3A] to-[#1B4B6A]">
 
       {/* Fundo */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden bg-[hsl(var(--henzai-blue))]">
+        <img
+          src="/lovable-uploads/hero-energy-bg.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <video
           ref={videoRef}
           autoPlay
@@ -94,8 +100,6 @@ const HeroSection: React.FC = () => {
           x5-playsinline="true"
           x5-video-player-type="h5"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectFit: 'cover', minWidth: '100%', minHeight: '100%' }}
-          poster="/lovable-uploads/hero-energy-bg.png"
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
