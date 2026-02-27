@@ -24,11 +24,41 @@ const useCountUp = (end: number, duration: number) => {
 };
 
 const HeroSection: React.FC = () => {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
   // Usinas: de 0 a 3000
   const usinas = useCountUp(3000, 2000);
 
   // Economia: de 0 até 1.000.000.000
   const economia = useCountUp(1000000000, 3000);
+
+  // Força autoplay em dispositivos móveis
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const tryPlay = () => {
+      video.muted = true;
+      video.play().catch(() => {});
+    };
+
+    tryPlay();
+
+    // Fallback: tenta novamente ao interagir com a página
+    const handleInteraction = () => {
+      tryPlay();
+      document.removeEventListener('touchstart', handleInteraction);
+      document.removeEventListener('scroll', handleInteraction);
+    };
+
+    document.addEventListener('touchstart', handleInteraction, { once: true });
+    document.addEventListener('scroll', handleInteraction, { once: true });
+
+    return () => {
+      document.removeEventListener('touchstart', handleInteraction);
+      document.removeEventListener('scroll', handleInteraction);
+    };
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0F2D3A] to-[#1B4B6A]">
@@ -36,10 +66,15 @@ const HeroSection: React.FC = () => {
       {/* Fundo */}
       <div className="absolute inset-0 overflow-hidden">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
+          webkit-playsinline="true"
+          x5-playsinline="true"
+          x5-video-player-type="h5"
           className="absolute inset-0 w-full h-full object-cover"
           src="/videos/hero-bg.mp4"
         />
