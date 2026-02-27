@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel";
 import { TrendingUp, Sun, Battery, BarChart3, Wrench } from "lucide-react";
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const SolutionsSection: React.FC = () => {
+  const [api, setApi] = useState<CarouselApi>();
   const solutions = [
     {
       title: "Sistema Híbrido de Energia",
@@ -64,19 +65,15 @@ const SolutionsSection: React.FC = () => {
     }
   ];
 
-  // autoplay simples
-  const carouselRef = useRef<any>(null);
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
 
   useEffect(() => {
+    if (!api) return;
     const interval = setInterval(() => {
-      if (carouselRef.current) {
-        carouselRef.current.scrollNext(); // vai para o próximo card
-      }
-    }, 30000); // muda a cada 30 segundos
-
+      api.scrollNext();
+    }, 30000);
     return () => clearInterval(interval);
-  }, []);
+  }, [api]);
 
   return (
     <section id="soluções" className="py-20 bg-gradient-to-br from-henzai-blue/5 to-henzai-blue/10">
@@ -91,7 +88,7 @@ const SolutionsSection: React.FC = () => {
         </div>
 
         <div className="max-w-5xl mx-auto mb-12">
-          <Carousel ref={carouselRef} className="w-full">
+          <Carousel setApi={setApi} className="w-full">
             <CarouselContent className="-ml-4">
               {solutions.map((solution, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/2">

@@ -1,22 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import { CheckCircle, Users, Shield, Wrench, TrendingUp } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const DiferenciaisSection: React.FC = () => {
-  const carouselRef = useRef<any>(null);
+  const [api, setApi] = useState<CarouselApi>();
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
 
   useEffect(() => {
+    if (!api) return;
     const interval = setInterval(() => {
-      if (carouselRef.current) {
-        carouselRef.current.scrollNext();
-      }
+      api.scrollNext();
     }, 30000);
-
     return () => clearInterval(interval);
-  }, []);
+  }, [api]);
 
   const diferenciais = [
     {
@@ -60,7 +58,7 @@ const DiferenciaisSection: React.FC = () => {
         </div>
 
         {/* Carrossel */}
-        <Carousel ref={carouselRef} className="max-w-5xl mx-auto">
+        <Carousel setApi={setApi} className="max-w-5xl mx-auto">
           <CarouselContent>
             {diferenciais.map((diferencial, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
