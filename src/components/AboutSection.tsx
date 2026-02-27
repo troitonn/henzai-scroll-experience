@@ -66,11 +66,12 @@ const AboutSection: React.FC = () => {
               </div>
               
               {/* CEO Image */}
-              <div className={`transition-all duration-700 ${titleVisible ? 'opacity-100 translate-x-0 animate-in' : 'opacity-0 translate-x-10'}`}>
+              <div className={`transition-all duration-700 overflow-hidden rounded-3xl shadow-2xl max-w-xs mx-auto ${titleVisible ? 'opacity-100 translate-x-0 animate-in' : 'opacity-0 translate-x-10'}`}>
                 <img 
                   src={ceoPhoto} 
                   alt="CEO da Henzai" 
-                  className="w-full max-w-xs mx-auto h-auto rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto scale-105 hover:scale-110 transition-transform duration-500"
+                  style={{ marginBottom: '-20px' }}
                 />
               </div>
             </div>
