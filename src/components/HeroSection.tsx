@@ -32,31 +32,49 @@ const HeroSection: React.FC = () => {
   // Economia: de 0 até 1.000.000.000
   const economia = useCountUp(1000000000, 3000);
 
-  // Força autoplay em dispositivos móveis
+  // Força autoplay em todos os dispositivos (desktop + mobile)
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
+    // Garante que o vídeo esteja mutado (necessário para autoplay em todos os browsers)
+    video.muted = true;
+    video.setAttribute('muted', '');
+
     const tryPlay = () => {
-      video.muted = true;
-      video.play().catch(() => {});
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Se falhar, tenta novamente após pequeno delay
+          setTimeout(() => {
+            video.muted = true;
+            video.play().catch(() => {});
+          }, 500);
+        });
+      }
     };
 
-    tryPlay();
-
-    // Fallback: tenta novamente ao interagir com a página
-    const handleInteraction = () => {
+    // Tenta imediatamente
+    if (video.readyState >= 2) {
       tryPlay();
-      document.removeEventListener('touchstart', handleInteraction);
-      document.removeEventListener('scroll', handleInteraction);
+    } else {
+      video.addEventListener('canplay', tryPlay, { once: true });
+    }
+
+    // Fallback: tenta ao interagir com a página (mobile)
+    const handleInteraction = () => {
+      if (video.paused) tryPlay();
     };
 
     document.addEventListener('touchstart', handleInteraction, { once: true });
+    document.addEventListener('click', handleInteraction, { once: true });
     document.addEventListener('scroll', handleInteraction, { once: true });
 
     return () => {
       document.removeEventListener('touchstart', handleInteraction);
+      document.removeEventListener('click', handleInteraction);
       document.removeEventListener('scroll', handleInteraction);
+      video.removeEventListener('canplay', tryPlay);
     };
   }, []);
 
@@ -76,8 +94,11 @@ const HeroSection: React.FC = () => {
           x5-playsinline="true"
           x5-video-player-type="h5"
           className="absolute inset-0 w-full h-full object-cover"
-          src="/videos/hero-bg.mp4"
-        />
+          style={{ objectFit: 'cover', minWidth: '100%', minHeight: '100%' }}
+          poster="/lovable-uploads/hero-energy-bg.png"
+        >
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-black/15"></div>
       </div>
 
