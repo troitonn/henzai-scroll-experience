@@ -1,6 +1,6 @@
 import React from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import solarDroneImg from "@/assets/solar-project-aerial.png";
+import solarAerialImg from "@/assets/solar-panels-aerial.png";
 
 const ProjectsSection: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -16,7 +16,7 @@ const ProjectsSection: React.FC = () => {
         >
           <div className="text-center mb-12">
             <h2 className="font-libre-franklin text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Projetos já<span className="text-henzai-terracota">Concretizados</span>
+              Projetos já <span className="text-henzai-terracota">Concretizados</span>
             </h2>
             <p className="font-gantari text-xl text-muted-foreground max-w-3xl mx-auto">
               Autoridade técnica comprovada em campo
@@ -25,8 +25,8 @@ const ProjectsSection: React.FC = () => {
 
           <div className="relative rounded-2xl overflow-hidden shadow-[var(--shadow-hover)] border border-henzai-terracota/30">
             <img
-              src={solarDroneImg}
-              alt="Projeto de usina solar Henzai – vista aérea"
+              src={solarAerialImg}
+              alt="Projeto de usina solar Henzai – vista aérea de painéis solares"
               className="w-full h-[400px] md:h-[500px] object-cover"
               loading="lazy"
             />
