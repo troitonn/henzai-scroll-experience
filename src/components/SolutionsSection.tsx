@@ -83,7 +83,7 @@ const SolutionsSection: React.FC = () => {
             Benefícios dos Produtos e <span className="text-henzai-terracota">Serviços</span>
           </h2>
           <p className={`font-gantari text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0 animate-in' : 'opacity-0 translate-y-10'}`}>
-            Soluções energéticas estratégicas que transformam consumo em vantagem competitiva
+            Nossas Soluções estratégicas que reduzem custos, aumentam eficiência e fortalecem o crescimento da sua empresa.
           </p>
         </div>
 
