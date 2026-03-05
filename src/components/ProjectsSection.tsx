@@ -16,7 +16,7 @@ const ProjectsSection: React.FC = () => {
         >
           <div className="text-center mb-12">
             <h2 className="font-libre-franklin text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Projetos em <span className="text-henzai-terracota">Execução</span>
+              Projetos <span className="text-henzai-terracota">Finalizados</span>
             </h2>
             <p className="font-gantari text-xl text-muted-foreground max-w-3xl mx-auto">
               Autoridade técnica comprovada em campo
