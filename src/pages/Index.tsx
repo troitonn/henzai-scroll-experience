@@ -4,12 +4,12 @@ import HeroSection from '@/components/HeroSection';
 
 // Lazy load seções abaixo do fold para otimizar carregamento
 const SolutionsSection = lazy(() => import('@/components/SolutionsSection'));
-const ServicesFilterSection = lazy(() => import('@/components/ServicesFilterSection'));
 const HowItWorksSection = lazy(() => import('@/components/HowItWorksSection'));
 const ProjectsSection = lazy(() => import('@/components/ProjectsSection'));
 const HybridSystemSection = lazy(() => import('@/components/HybridSystemSection'));
 const DiferenciaisSection = lazy(() => import('@/components/DiferenciaisSection'));
 const AboutSection = lazy(() => import('@/components/AboutSection'));
+const TestimonialsSection = lazy(() => import('@/components/TestimonialsSection'));
 const ClientsSection = lazy(() => import('@/components/ClientsSection'));
 const PartnershipSection = lazy(() => import('@/components/PartnershipSection'));
 const ContactSection = lazy(() => import('@/components/ContactSection'));
@@ -24,12 +24,12 @@ const Index = () => {
       <HeroSection />
       <Suspense fallback={<SectionFallback />}>
         <SolutionsSection />
-        <ServicesFilterSection />
         <HowItWorksSection />
         <ProjectsSection />
         <HybridSystemSection />
         <DiferenciaisSection />
         <AboutSection />
+        <TestimonialsSection />
         <ClientsSection />
         <PartnershipSection />
         <ContactSection />

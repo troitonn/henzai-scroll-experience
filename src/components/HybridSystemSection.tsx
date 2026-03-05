@@ -20,12 +20,20 @@ const HybridSystemSection: React.FC = () => {
             <h2 className="font-libre-franklin text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
               Sua vida não para quando a luz cai.
             </h2>
-            <p className="font-gantari text-lg text-white/90 mb-8 leading-relaxed">
-              Sistema Híbrido: Solar + Eólico + Baterias com transição instantânea.
-              A segurança de nunca ficar no escuro.
+            <p className="font-gantari text-lg text-white/90 mb-4 leading-relaxed">
+              Somos um HUB de soluções de eficiência energética e estratégia empresarial, criado para empresários que buscam reduzir custos, aumentar competitividade e transformar energia em vantagem estratégica para o negócio.
+            </p>
+            <p className="font-gantari text-lg text-white/90 mb-4 leading-relaxed">
+              Conectamos tecnologia, inteligência de mercado e soluções inovadoras em um único ecossistema, permitindo que sua empresa otimize o consumo energético, gere economia real e tome decisões mais estratégicas sobre investimentos e crescimento.
+            </p>
+            <p className="font-gantari text-lg text-white/90 mb-4 leading-relaxed">
+              Nosso compromisso é entregar eficiência, previsibilidade e performance, para que você foque no que realmente importa: expandir seu negócio com mais rentabilidade e segurança.
+            </p>
+            <p className="font-libre-franklin text-xl font-bold text-white mt-6">
+              Transforme energia em estratégia. Reduza custos. Aumente resultados.
             </p>
 
-            <div className="space-y-5">
+            <div className="space-y-5 mt-8">
               {[
                 { icon: <Zap className="w-5 h-5" />, text: "Transição instantânea entre fontes de energia" },
                 { icon: <Wind className="w-5 h-5" />, text: "Geração eólica complementar para máxima eficiência" },
