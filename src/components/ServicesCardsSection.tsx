@@ -1,39 +1,48 @@
 import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Battery, Wrench, Building2 } from "lucide-react";
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { Car, Building2, Thermometer } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import evChargingImg from "@/assets/ev-charging-condominium.jpg";
+import hubImg from "@/assets/hub-condominios.jpg";
+import climatizacaoImg from "@/assets/climatizacao-empresarial.jpg";
 
-const SolutionsSection: React.FC = () => {
+const services = [
+  {
+    title: "Mobilidade Elétrica",
+    description:
+      "Eletropostos para condomínios e postos de combustível — do projeto elétrico à gestão financeira do investimento. Seu espaço pronto para a frota do futuro.",
+    icon: <Car className="w-10 h-10 text-henzai-terracota" />,
+    image: evChargingImg,
+    cta: "Ver detalhes",
+    anchor: "mobilidade",
+  },
+  {
+    title: "Hub para Condomínios",
+    description:
+      "Infraestrutura elétrica, modernização de sistemas e integração de tecnologias energéticas em um único parceiro. Menos fornecedores, mais controle.",
+    icon: <Building2 className="w-10 h-10 text-henzai-terracota" />,
+    image: hubImg,
+    cta: "Ver detalhes",
+    anchor: "hub-condominios",
+  },
+  {
+    title: "Climatização Empresarial",
+    description:
+      "Dimensionamento, instalação e manutenção de sistemas de climatização com foco em redução real do consumo. Performance térmica sem desperdício.",
+    icon: <Thermometer className="w-10 h-10 text-henzai-terracota" />,
+    image: climatizacaoImg,
+    cta: "Ver detalhes",
+    anchor: "climatizacao",
+  },
+];
+
+const ServicesCardsSection: React.FC = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
 
-  const solutions = [
-    {
-      title: "Cabines Primárias",
-      description: "Projeto, construção e manutenção de cabines de média tensão para indústrias e grandes consumidores. Redução de até 30% na tarifa com migração para alta tensão.",
-      icon: <Battery className="w-10 h-10 text-henzai-terracota" />,
-      image: "/lovable-uploads/cabine-primaria-1.jpg",
-      cta: "Solicitar diagnóstico",
-    },
-    {
-      title: "Manutenção e Monitoramento",
-      description: "Monitoramento 24h com telemetria e equipe própria para manutenção preventiva e corretiva. Tempo médio de resposta: 4 horas em São Paulo e região.",
-      icon: <Wrench className="w-10 h-10 text-henzai-terracota" />,
-      image: "/lovable-uploads/cb09bdbe-0580-4286-8074-013d36f8af7e.png",
-      cta: "Conhecer planos",
-    },
-    {
-      title: "Hub de Infraestrutura Energética 360°",
-      description: "Mobilidade elétrica, climatização, solar e infraestrutura em um único contrato. Gestão centralizada que elimina a complexidade de lidar com múltiplos fornecedores.",
-      icon: <Building2 className="w-10 h-10 text-henzai-terracota" />,
-      image: "/lovable-uploads/digital-energy-solution.png",
-      cta: "Falar com consultor",
-    },
-  ];
-
   return (
-    <section id="soluções" className="py-20 bg-gradient-to-br from-henzai-blue/5 to-henzai-blue/10">
+    <section id="servicos" className="py-20 bg-card scroll-mt-28">
       <div className="container mx-auto px-4">
         <div ref={titleRef} className="text-center mb-16">
           <h2
@@ -41,14 +50,14 @@ const SolutionsSection: React.FC = () => {
               titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            Produtos e <span className="text-henzai-terracota">Serviços</span>
+            Nossos <span className="text-henzai-terracota">Serviços</span>
           </h2>
           <p
             className={`font-gantari text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-700 delay-200 ${
               titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            Cada real economizado em energia volta para o caixa da sua empresa. Veja como fazemos isso acontecer.
+            Três frentes de atuação para empresas que tratam energia como decisão estratégica — não como conta a pagar.
           </p>
         </div>
 
@@ -56,7 +65,7 @@ const SolutionsSection: React.FC = () => {
           ref={gridRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
         >
-          {solutions.map((solution, index) => (
+          {services.map((s, index) => (
             <Card
               key={index}
               className={`group overflow-hidden border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-500 transform hover:-translate-y-1 h-full bg-card/90 backdrop-blur-sm ${
@@ -66,33 +75,35 @@ const SolutionsSection: React.FC = () => {
             >
               <div className="relative h-56 overflow-hidden">
                 <img
-                  src={solution.image}
-                  alt={solution.title}
+                  src={s.image}
+                  alt={s.title}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-henzai-blue/80 to-transparent" />
                 <div className="absolute top-4 left-4 p-3 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
-                  {solution.icon}
+                  {s.icon}
                 </div>
               </div>
 
               <CardHeader className="pb-3">
                 <CardTitle className="font-libre-franklin text-xl text-henzai-blue">
-                  {solution.title}
+                  {s.title}
                 </CardTitle>
               </CardHeader>
 
               <CardContent className="pt-0 flex flex-col flex-1">
                 <CardDescription className="font-gantari text-muted-foreground mb-6 leading-relaxed">
-                  {solution.description}
+                  {s.description}
                 </CardDescription>
                 <Button
                   variant="outline"
-                  onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() =>
+                    document.getElementById(s.anchor)?.scrollIntoView({ behavior: "smooth" })
+                  }
                   className="w-full font-gantari border-henzai-terracota text-henzai-terracota hover:bg-henzai-terracota hover:text-white transition-colors duration-300 mt-auto"
                 >
-                  {solution.cta}
+                  {s.cta}
                 </Button>
               </CardContent>
             </Card>
@@ -103,4 +114,4 @@ const SolutionsSection: React.FC = () => {
   );
 };
 
-export default SolutionsSection;
+export default ServicesCardsSection;
