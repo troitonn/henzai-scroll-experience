@@ -99,16 +99,12 @@ const Header: React.FC = () => {
           <div className="md:hidden mt-4 p-6 rounded-2xl bg-gray-100 border border-gray-200 space-y-4">
             {menuItems.map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase().replace(' ', '-')}`}
-                className={`block font-gantari text-lg transition-colors duration-300 ${
-                  isScrolled
-                    ? 'text-henzai-blue/90 hover:text-henzai-terracota'
-                    : 'text-white/90 hover:text-white'
-                }`}
+                key={item.label}
+                href={item.href}
+                className="block font-gantari text-lg transition-colors duration-300 text-henzai-blue/90 hover:text-henzai-terracota"
                 onClick={() => setMobileOpen(false)}
               >
-                {item}
+                {item.label}
               </a>
             ))}
 
