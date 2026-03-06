@@ -16,10 +16,10 @@ const Header: React.FC = () => {
   }, []);
 
   const menuItems = [
-    'Soluções',
-    'Como Funciona',
-    'Sobre',
-    'Contato'
+    { label: 'Serviços', href: '#mobilidade' },
+    { label: 'Como Funciona', href: '#como-funciona' },
+    { label: 'Sobre', href: '#sobre' },
+    { label: 'Contato', href: '#contato' },
   ];
 
   const whatsappLink = 'https://wa.me/5511979619109?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista!';
@@ -46,15 +46,15 @@ const Header: React.FC = () => {
           <nav className="hidden md:flex items-center space-x-10">
             {menuItems.map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase().replace(' ', '-')}`}
+                key={item.label}
+                href={item.href}
                 className={`relative font-gantari font-medium transition-all duration-300 group ${
                   isScrolled
                     ? 'text-henzai-blue/90 hover:text-henzai-terracota'
                     : 'text-white/90 hover:text-white'
                 }`}
               >
-                {item}
+                {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-henzai-terracota transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
@@ -99,16 +99,12 @@ const Header: React.FC = () => {
           <div className="md:hidden mt-4 p-6 rounded-2xl bg-gray-100 border border-gray-200 space-y-4">
             {menuItems.map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase().replace(' ', '-')}`}
-                className={`block font-gantari text-lg transition-colors duration-300 ${
-                  isScrolled
-                    ? 'text-henzai-blue/90 hover:text-henzai-terracota'
-                    : 'text-white/90 hover:text-white'
-                }`}
+                key={item.label}
+                href={item.href}
+                className="block font-gantari text-lg transition-colors duration-300 text-henzai-blue/90 hover:text-henzai-terracota"
                 onClick={() => setMobileOpen(false)}
               >
-                {item}
+                {item.label}
               </a>
             ))}
 

@@ -2,8 +2,12 @@ import React, { lazy, Suspense } from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 
-// Lazy load seções abaixo do fold para otimizar carregamento
 const SolutionsSection = lazy(() => import('@/components/SolutionsSection'));
+const ServicesNavigation = lazy(() => import('@/components/ServicesNavigation'));
+const MobilidadeSection = lazy(() => import('@/components/MobilidadeSection'));
+const HubCondominiosSection = lazy(() => import('@/components/HubCondominiosSection'));
+const ClimatizacaoSection = lazy(() => import('@/components/ClimatizacaoSection'));
+const EnergiaHibridaSection = lazy(() => import('@/components/EnergiaHibridaSection'));
 const HowItWorksSection = lazy(() => import('@/components/HowItWorksSection'));
 const ProjectsSection = lazy(() => import('@/components/ProjectsSection'));
 const HybridSystemSection = lazy(() => import('@/components/HybridSystemSection'));
@@ -24,6 +28,11 @@ const Index = () => {
       <HeroSection />
       <Suspense fallback={<SectionFallback />}>
         <SolutionsSection />
+        <ServicesNavigation />
+        <MobilidadeSection />
+        <HubCondominiosSection />
+        <ClimatizacaoSection />
+        <EnergiaHibridaSection />
         <HowItWorksSection />
         <ProjectsSection />
         <HybridSystemSection />
