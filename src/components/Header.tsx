@@ -46,15 +46,15 @@ const Header: React.FC = () => {
           <nav className="hidden md:flex items-center space-x-10">
             {menuItems.map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase().replace(' ', '-')}`}
+                key={item.label}
+                href={item.href}
                 className={`relative font-gantari font-medium transition-all duration-300 group ${
                   isScrolled
                     ? 'text-henzai-blue/90 hover:text-henzai-terracota'
                     : 'text-white/90 hover:text-white'
                 }`}
               >
-                {item}
+                {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-henzai-terracota transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
