@@ -6,27 +6,27 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const testimonials = [
   {
-    name: "Carlos Mendes",
-    role: "Diretor de Operações – Oggi Sorvetes",
-    text: "A Henzai transformou nossa gestão energética. Reduzimos custos em mais de 35% e ganhamos previsibilidade no orçamento. O atendimento técnico é excepcional.",
+    name: "Luciana",
+    role: "Franqueada – OGGI Sorvetes",
+    text: "Recebi projeção mensal e anual antes de fechar. Hoje economizo 80% na conta de luz e já comprei uma segunda franquia com o dinheiro que sobrou.",
     rating: 5,
   },
   {
-    name: "Fernanda Almeida",
-    role: "Gerente Administrativo – Armando Bessa",
-    text: "Profissionalismo e competência técnica de ponta. A consultoria no Mercado Livre de Energia nos trouxe economia real e segurança contratual.",
+    name: "Alberto",
+    role: "Proprietário – Posto Shell",
+    text: "Me mostraram na planilha quanto eu ia economizar e como esse dinheiro voltaria para o posto. Resultado: economia real todos os meses, sem surpresas.",
     rating: 5,
   },
   {
-    name: "Roberto Silva",
-    role: "Proprietário – Rede de Postos",
-    text: "A implementação dos eletropostos foi impecável. A Henzai cuidou de tudo, desde o projeto elétrico até a gestão financeira. Resultados acima do esperado.",
+    name: "Eraldo",
+    role: "Proprietário – Vó Nena Cocadas",
+    text: "A Mariana acompanhou do projeto ao pós-venda. Hoje a fábrica economiza e tenho previsibilidade financeira para os próximos 5 anos.",
     rating: 5,
   },
   {
-    name: "Ana Paula Costa",
-    role: "Síndica – Condomínio Residencial",
-    text: "O Hub 360° simplificou toda a infraestrutura elétrica do condomínio. Um único parceiro para todas as necessidades. Recomendo sem hesitar.",
+    name: "Armando Bessa",
+    role: "Proprietário – Studio Bessa",
+    text: "Não foi só instalar painéis — foi ter um plano de retorno desenhado para o meu tipo de negócio. Economia mensal comprovada.",
     rating: 5,
   },
 ];
@@ -43,14 +43,14 @@ const TestimonialsSection: React.FC = () => {
               titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            O que nossos <span className="text-henzai-terracota">clientes dizem</span>
+            Quem fez as contas <span className="text-henzai-terracota">com a gente</span>
           </h2>
           <p
             className={`font-gantari text-lg text-muted-foreground max-w-2xl mx-auto transition-all duration-700 delay-200 ${
               titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            Resultados reais de empresas que transformaram sua gestão energética
+            Empresários que trocaram conta de luz alta por capital de giro.
           </p>
         </div>
 
@@ -59,7 +59,7 @@ const TestimonialsSection: React.FC = () => {
             <CarouselContent className="-ml-4">
               {testimonials.map((t, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2">
-                  <Card className="h-full border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-300 bg-white/90 backdrop-blur-sm">
+                  <Card className="h-full border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-300 bg-card/90 backdrop-blur-sm">
                     <CardContent className="p-8 flex flex-col h-full">
                       <Quote className="w-8 h-8 text-henzai-terracota/30 mb-4" />
                       <p className="font-gantari text-muted-foreground leading-relaxed mb-6 flex-1 italic">

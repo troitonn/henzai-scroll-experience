@@ -15,29 +15,28 @@ const HybridSystemSection: React.FC = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          {/* Left – Text */}
           <div>
             <h2 className="font-libre-franklin text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-              Sua vida não para quando a luz cai.
+              Sua operação não pode depender da concessionária.
             </h2>
             <p className="font-gantari text-lg text-white/90 mb-4 leading-relaxed">
-              Somos um HUB de soluções de eficiência energética e estratégia empresarial, criado para empresários que buscam reduzir custos, aumentar competitividade e transformar energia em vantagem estratégica para o negócio.
+              Somos um hub de eficiência energética criado para empresários que querem parar de pagar caro por energia e começar a investir o que economizam no próprio negócio.
             </p>
             <p className="font-gantari text-lg text-white/90 mb-4 leading-relaxed">
-              Conectamos tecnologia, inteligência de mercado e soluções inovadoras em um único ecossistema, permitindo que sua empresa otimize o consumo energético, gere economia real e tome decisões mais estratégicas sobre investimentos e crescimento.
+              Conectamos tecnologia, inteligência de mercado e soluções sob medida em um único ecossistema — para que sua empresa reduza custos com previsibilidade e tome decisões financeiras melhores.
             </p>
             <p className="font-gantari text-lg text-white/90 mb-4 leading-relaxed">
-              Nosso compromisso é entregar eficiência, previsibilidade e performance, para que você foque no que realmente importa: expandir seu negócio com mais rentabilidade e segurança.
+              Nosso compromisso: entregar economia mensurável, com números claros e acompanhamento real. Sem promessas vagas.
             </p>
             <p className="font-libre-franklin text-xl font-bold text-white mt-6">
-              Transforme energia em estratégia. Reduza custos. Aumente resultados.
+              Menos conta de luz. Mais capital para crescer.
             </p>
 
             <div className="space-y-5 mt-8">
               {[
-                { icon: <Zap className="w-5 h-5" />, text: "Transição instantânea entre fontes de energia" },
-                { icon: <Wind className="w-5 h-5" />, text: "Geração eólica complementar para máxima eficiência" },
-                { icon: <Battery className="w-5 h-5" />, text: "Baterias inteligentes com autonomia estendida" },
+                { icon: <Zap className="w-5 h-5" />, text: "Troca automática entre fontes — zero interrupção" },
+                { icon: <Wind className="w-5 h-5" />, text: "Geração eólica complementar para reduzir dependência da rede" },
+                { icon: <Battery className="w-5 h-5" />, text: "Baterias com autonomia para manter sua operação em blackouts" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-4">
                   <div className="p-2.5 rounded-xl bg-white/20 text-white flex-shrink-0">
@@ -49,12 +48,11 @@ const HybridSystemSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right – Image */}
           <div className="relative">
             <div className="rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.2)]">
               <img
                 src={henzaiBrandImg}
-                alt="Henzai Energia – Energia que acelera e conscientiza negócios"
+                alt="Henzai Energia – sistema híbrido de energia"
                 className="w-full h-auto object-cover"
                 loading="lazy"
               />
