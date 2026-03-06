@@ -16,10 +16,10 @@ const Header: React.FC = () => {
   }, []);
 
   const menuItems = [
-    'Soluções',
-    'Como Funciona',
-    'Sobre',
-    'Contato'
+    { label: 'Serviços', href: '#mobilidade' },
+    { label: 'Como Funciona', href: '#como-funciona' },
+    { label: 'Sobre', href: '#sobre' },
+    { label: 'Contato', href: '#contato' },
   ];
 
   const whatsappLink = 'https://wa.me/5511979619109?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista!';
