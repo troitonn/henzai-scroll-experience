@@ -27,7 +27,6 @@ const Index = () => {
       <DiferenciaisSection />
       <AboutSection />
       <ClientsSection />
-      <CTAFinalSection />
       <PartnershipSection />
       <ContactSection />
       <Footer />
