@@ -68,7 +68,7 @@ const HowItWorksSection: React.FC = () => {
     {
       number: 4,
       title: "Monitoramento e manutenção contínuos",
-      description: "Acompanhamento permanente da performance com manutenção preventiva e suporte técnico especializado.",
+      description: "Acompanhamento permanente da performance com manutenção preventiva e suporte técnico.",
       icon: <BarChart className="w-8 h-8" />
     }
   ];
