@@ -16,13 +16,11 @@ const Header: React.FC = () => {
   }, []);
 
   const menuItems = [
-    { label: 'Serviços', href: '#mobilidade' },
-    { label: 'Como Funciona', href: '#como-funciona' },
-    { label: 'Sobre', href: '#sobre' },
-    { label: 'Contato', href: '#contato' },
+    'Soluções',
+    'Como Funciona',
+    'Sobre',
+    'Contato'
   ];
-
-  const whatsappLink = 'https://wa.me/5511979619109?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista!';
 
   return (
     <header
@@ -46,15 +44,15 @@ const Header: React.FC = () => {
           <nav className="hidden md:flex items-center space-x-10">
             {menuItems.map((item) => (
               <a
-                key={item.label}
-                href={item.href}
+                key={item}
+                href={`#${item.toLowerCase().replace(' ', '-')}`}
                 className={`relative font-gantari font-medium transition-all duration-300 group ${
                   isScrolled
                     ? 'text-henzai-blue/90 hover:text-henzai-terracota'
                     : 'text-white/90 hover:text-white'
                 }`}
               >
-                {item.label}
+                {item}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-henzai-terracota transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
@@ -62,21 +60,15 @@ const Header: React.FC = () => {
 
           {/* Botão Desktop */}
           <div className="hidden md:block">
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Button
+              className={`font-gantari font-medium px-6 py-3 rounded-full transition-all duration-300 ${
+                isScrolled
+                  ? 'bg-henzai-terracota text-white hover:bg-henzai-terracota/90'
+                  : 'bg-white/20 text-white border border-white/30 hover:bg-white/30'
+              }`}
             >
-              <Button
-                className={`font-gantari font-medium px-6 py-3 rounded-full transition-all duration-300 ${
-                  isScrolled
-                    ? 'bg-henzai-terracota text-white hover:bg-henzai-terracota/90'
-                    : 'bg-white/20 text-white border border-white/30 hover:bg-white/30'
-                }`}
-              >
-                Falar com Especialista
-              </Button>
-            </a>
+              Falar com Especialista
+            </Button>
           </div>
 
           {/* Botão Mobile */}
@@ -99,26 +91,24 @@ const Header: React.FC = () => {
           <div className="md:hidden mt-4 p-6 rounded-2xl bg-gray-100 border border-gray-200 space-y-4">
             {menuItems.map((item) => (
               <a
-                key={item.label}
-                href={item.href}
-                className="block font-gantari text-lg transition-colors duration-300 text-henzai-blue/90 hover:text-henzai-terracota"
+                key={item}
+                href={`#${item.toLowerCase().replace(' ', '-')}`}
+                className={`block font-gantari text-lg transition-colors duration-300 ${
+                  isScrolled
+                    ? 'text-henzai-blue/90 hover:text-henzai-terracota'
+                    : 'text-white/90 hover:text-white'
+                }`}
                 onClick={() => setMobileOpen(false)}
               >
-                {item.label}
+                {item}
               </a>
             ))}
 
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Button
+              className="w-full font-gantari font-medium px-6 py-3 rounded-full transition-all duration-300 bg-henzai-terracota text-white hover:bg-henzai-terracota/90"
             >
-              <Button
-                className="w-full font-gantari font-medium px-6 py-3 rounded-full transition-all duration-300 bg-henzai-terracota text-white hover:bg-henzai-terracota/90"
-              >
-                Falar com Especialista
-              </Button>
-            </a>
+              Falar com Especialista
+            </Button>
           </div>
         )}
       </div>

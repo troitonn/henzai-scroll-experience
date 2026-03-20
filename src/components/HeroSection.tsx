@@ -6,7 +6,7 @@ const useCountUp = (end: number, duration: number) => {
 
   useEffect(() => {
     let start = 0;
-    const increment = end / (duration / 16);
+    const increment = end / (duration / 16); // ~60fps
     const interval = setInterval(() => {
       start += increment;
       if (start >= end) {
@@ -24,97 +24,50 @@ const useCountUp = (end: number, duration: number) => {
 };
 
 const HeroSection: React.FC = () => {
-  const videoRef = React.useRef<HTMLVideoElement>(null);
-
+  // Usinas: de 0 a 3000
   const usinas = useCountUp(3000, 2000);
+
+  // Economia: de 0 até 1.000.000.000
   const economia = useCountUp(1000000000, 3000);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    video.muted = true;
-    video.setAttribute('muted', '');
-
-    const tryPlay = () => {
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          setTimeout(() => {
-            video.muted = true;
-            video.play().catch(() => {});
-          }, 500);
-        });
-      }
-    };
-
-    if (video.readyState >= 2) {
-      tryPlay();
-    } else {
-      video.addEventListener('canplay', tryPlay, { once: true });
-    }
-
-    const handleInteraction = () => {
-      if (video.paused) tryPlay();
-    };
-
-    document.addEventListener('touchstart', handleInteraction, { once: true });
-    document.addEventListener('click', handleInteraction, { once: true });
-    document.addEventListener('scroll', handleInteraction, { once: true });
-
-    return () => {
-      document.removeEventListener('touchstart', handleInteraction);
-      document.removeEventListener('click', handleInteraction);
-      document.removeEventListener('scroll', handleInteraction);
-      video.removeEventListener('canplay', tryPlay);
-    };
-  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0F2D3A] to-[#1B4B6A]">
-      <div className="absolute inset-0 overflow-hidden bg-[hsl(var(--henzai-blue))]">
-        <img
-          src="/lovable-uploads/hero-energy-bg.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
+
+      {/* Fundo */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fade-in-slow"
+          style={{
+            backgroundImage: `url('/lovable-uploads/istockphoto-1453859222-612x612.jpg')`
+          }}
         />
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          webkit-playsinline="true"
-          x5-playsinline="true"
-          x5-video-player-type="h5"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-black/15"></div>
+        <div className="absolute inset-0 bg-[#264563]/50 backdrop-blur-sm"></div>
+        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-[#264563]/40 rounded-full filter blur-3xl animate-blob"></div>
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#264563]/30 rounded-full filter blur-2xl animate-blob animation-delay-2000"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
         <div className="max-w-4xl">
           <div className="text-white space-y-8">
+
+            {/* Título */}
             <h1
-              className="text-5xl md:text-7xl font-libre-franklin font-bold leading-tight"
+              className="text-5xl md:text-7xl font-libre-franklin font-bold leading-tight animate-fade-in"
               style={{ textShadow: '2px 2px 8px #274563' }}
             >
               Energia não é custo.<br />
-              <span className="text-henzai-terracota">É capital de giro.</span>
+              <span className="text-henzai-terracota">É estratégia.</span>
             </h1>
 
             <p
-              className="text-xl md:text-2xl font-gantari text-henzai-off-white max-w-3xl"
+              className="text-xl md:text-2xl font-gantari text-henzai-off-white animate-fade-in animation-delay-300 max-w-3xl"
               style={{ textShadow: '1px 1px 6px #274563' }}
             >
-              Reduzimos sua conta de energia em até 35% e devolvemos esse dinheiro para onde ele faz diferença: no crescimento do seu negócio.
+              Transformamos economia de energia em capital que acelera negócios.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
+            {/* Destaques numéricos animados */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 animate-fade-in animation-delay-200">
               <div className="text-center">
                 <div
                   className="text-3xl md:text-4xl font-libre-franklin font-bold text-henzai-terracota"
@@ -134,25 +87,27 @@ const HeroSection: React.FC = () => {
                   className="text-3xl md:text-4xl font-libre-franklin font-bold text-henzai-terracota"
                   style={{ textShadow: '2px 2px 8px #274563' }}
                 >
+                  {/* Mostra +R$ 1 Bi quando chega no fim */}
                   {economia < 1000000000
                     ? `+R$ ${economia.toLocaleString('pt-BR')}`
                     : '+R$ 1 Bi'}
                 </div>
                 <div className="font-gantari text-sm uppercase tracking-wider text-henzai-off-white">
-                  Economizados por Clientes
+                  em Economia
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* Botões */}
+            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in animation-delay-500">
               <Button
                 size="lg"
                 onClick={() =>
                   document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })
                 }
-                className="bg-henzai-terracota hover:bg-henzai-terracota/90 text-white font-gantari font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-lg"
+                className="bg-henzai-terracota/30 hover:bg-henzai-terracota/45 text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-[1px]"
               >
-                Simular minha economia
+                Quero minha simulação gratuita
               </Button>
 
               <Button
@@ -161,14 +116,30 @@ const HeroSection: React.FC = () => {
                 onClick={() =>
                   document.getElementById('soluções')?.scrollIntoView({ behavior: 'smooth' })
                 }
-                className="border-2 border-white text-white bg-white/20 hover:bg-white/30 font-gantari font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 backdrop-blur-md shadow-lg"
+                className="border-2 border-[#264563] text-[#264563] hover:bg-[#264563]/10 font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 backdrop-blur-[1px] glass-button hover:scale-105"
               >
-                Como funciona
+                Ver Soluções
               </Button>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Animações */}
+      <style>
+        {`
+          @keyframes blob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+          }
+          .animate-blob { animation: blob 20s infinite; }
+          .animation-delay-2000 { animation-delay: 2s; }
+          .animate-fade-in { animation: fadeIn 1.2s ease-in forwards; opacity: 0; }
+          .animate-fade-in-slow { animation: fadeIn 2s ease-in forwards; opacity: 0; }
+          @keyframes fadeIn { to { opacity: 1; } }
+        `}
+      </style>
     </section>
   );
 };

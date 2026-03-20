@@ -20,16 +20,16 @@ const CTAFinalSection: React.FC = () => {
       if (carouselRef.current) {
         carouselRef.current.scrollNext();
       }
-    }, 30000);
+    }, 15000); // muda a cada 15 segundos
 
     return () => clearInterval(interval);
   }, []);
 
   const benefits = [
-    { icon: <DollarSign className="w-6 h-6" />, text: '– Conta de luz' },
-    { icon: <TrendingUp className="w-6 h-6" />, text: '+ Margem líquida' },
-    { icon: <BarChart className="w-6 h-6" />, text: '+ Capital disponível' },
-    { icon: <Leaf className="w-6 h-6" />, text: '+ Crédito ESG' },
+    { icon: <DollarSign className="w-6 h-6" />, text: 'Economia' },
+    { icon: <TrendingUp className="w-6 h-6" />, text: '+ Crescimento' },
+    { icon: <BarChart className="w-6 h-6" />, text: '+ Margem' },
+    { icon: <Leaf className="w-6 h-6" />, text: '+ Sustentabilidade' },
   ];
 
   const testimonials = [
@@ -37,45 +37,48 @@ const CTAFinalSection: React.FC = () => {
       name: 'Luciana',
       company: 'Franqueada OGGI Sorvetes',
       quote:
-        'Recebi um planejamento financeiro claro, com projeção mensal e anual. Hoje economizo 80% na conta de luz e já comprei uma segunda franquia com o dinheiro que sobrou.',
+        'O diferencial foi o atendimento consultivo da Diretora Mariana e sua equipe, foi um dos diferenciais para escolher a Henzai Energia! Recebi um planejamento financeiro claro, com projeção mensal e anual, e hoje economizo cerca 80% na conta de luz! Já expandi meu negócio, comprei mais uma Franquia com a previsibilidade financeira anual que a placas solares está me proporcionando! Melhor escolha! Mais liberdade para meus negócios!',
     },
     {
       name: 'Alberto',
       company: 'Posto Shell',
       quote:
-        'A equipe mostrou exatamente quanto eu iria economizar e como essa receita voltaria para o posto. Não foi promessa — foi planilha com números reais.',
+        'O atendimento foi próximo e transparente. A equipe me mostrou exatamente quanto eu iria economizar e como essa receita voltaria para o posto. Resultado? Economia real todos os meses.',
     },
     {
       name: 'Eraldo',
       company: 'Vó Nena, Fábrica de Cocadas',
       quote:
-        'A Mariana acompanhou cada detalhe do projeto ao pós-venda. Hoje a fábrica economiza e tenho previsibilidade financeira para os próximos 5 anos.',
+        'A Mariana acompanhou cada detalhe, do projeto ao pós-venda. Me senti seguro com a consultoria dela em tempo real. Hoje a fábrica economiza e já tenho previsibilidade para os próximos anos.',
     },
     {
-      name: 'Armando Bessa',
+      name: 'Armado Bessa',
       company: 'Studio Bessa',
       quote:
-        'Não foi só instalar painel solar — foi ter um plano de retorno desenhado para o meu negócio. Economia real, com acompanhamento mensal.',
+        'Não foi só instalar energia solar, foi ter um plano de retorno financeiro desenhado para o meu negócio. A Henzai Energia trouxe economia, confiança e sustentabilidade para o Studio Bessa.',
     },
     {
       name: 'Flávio',
       company: 'Good Chickens Restaurante',
       quote:
-        'O pós-venda fez toda a diferença. Não me venderam e sumiram. Reduzi custos e sei exatamente quando recupero o investimento.',
+        'O atendimento diferenciado da Mariana e Engenharia fez toda a diferença. Ela cuidou do pós-venda e garantiu que tudo fosse entregue como combinado. Hoje reduzi custos e tenho tranquilidade com a previsibilidade do meu investimento.',
     },
   ];
 
   return (
     <section className="py-20 relative overflow-hidden bg-[#20405f]">
+      {/* Background */}
       <div className="absolute inset-0 bg-[url('/lovable-uploads/hero-energy-bg.png')] bg-cover bg-center opacity-20"></div>
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* CTA Principal */}
         <div className="max-w-4xl mx-auto text-center text-white">
           <div ref={titleRef}>
-            <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold mb-8 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0 animate-in' : 'opacity-0 translate-y-10'}`}>
-              Sua conta de luz está financiando
+            <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold mb-8 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              Facilitamos o crescimento do seu negócio
               <br />
-              <span className="text-henzai-terracota">o crescimento dos outros.</span>
+              através da{' '}
+              <span className="text-henzai-terracota">economia de energia!</span>
             </h2>
           </div>
 
@@ -102,13 +105,14 @@ const CTAFinalSection: React.FC = () => {
             className={`bg-henzai-terracota hover:bg-henzai-terracota/90 text-white font-gantari font-semibold px-12 py-6 rounded-full text-xl transition-all duration-700 hover:scale-105 glass-button backdrop-blur-md ${benefitsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}
             style={{ transitionDelay: '400ms' }}
           >
-            Quero minha proposta personalizada
+            Solicitar proposta personalizada
           </Button>
         </div>
 
+        {/* Depoimentos */}
         <div className="mt-20 max-w-6xl mx-auto text-white">
           <h3 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Quem já fez as contas com a gente
+            O que nossos clientes dizem
           </h3>
 
           <Carousel ref={carouselRef} className="w-full">
@@ -119,6 +123,7 @@ const CTAFinalSection: React.FC = () => {
                   className="md:basis-1/2 lg:basis-1/3 flex"
                 >
                   <div className="bg-[#20405f]/90 p-6 rounded-xl shadow-lg flex flex-col justify-between w-full h-full">
+                    {/* 5 estrelas */}
                     <div className="flex gap-1 text-yellow-400 mb-3">
                       {[...Array(5)].map((_, i) => (
                         <Star
@@ -140,6 +145,7 @@ const CTAFinalSection: React.FC = () => {
               ))}
             </CarouselContent>
 
+            {/* Botões de navegação */}
             <CarouselPrevious className="text-white" />
             <CarouselNext className="text-white" />
           </Carousel>

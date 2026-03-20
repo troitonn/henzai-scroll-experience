@@ -14,28 +14,30 @@ const PartnershipSection: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left Column */}
             <div ref={leftRef} className={`transition-all duration-700 ${leftVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               <h2 className="font-libre-franklin text-3xl md:text-4xl font-bold mb-6">
-                Não vendemos equipamentos.
-                <span className="text-henzai-terracota"> Entregamos resultados financeiros.</span>
+                Na Henzai, cada projeto é conduzido com
+                <span className="text-henzai-terracota"> visão de negócio, clareza e compromisso.</span>
               </h2>
               <p className="font-gantari text-lg mb-8 text-white/90">
-                Cada projeto começa com uma pergunta: quanto você pode economizar? A partir daí, desenhamos a solução — não o contrário.
+                Atuamos como parceiros estratégicos para gerar impacto real em cada decisão.
               </p>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <h3 className="font-libre-franklin text-2xl font-bold mb-4">
-                  Pronto para ver os números
-                  <span className="text-henzai-terracota"> do seu negócio?</span>
+                  Fale com a Henzai e descubra como transformar energia em
+                  <span className="text-henzai-terracota"> vantagem competitiva</span>
                 </h3>
                 <p className="font-gantari text-xl font-semibold text-henzai-terracota mb-6">
-                  Simulação gratuita em até 48h
+                  Compromisso em acelerar negócios
                 </p>
               </div>
             </div>
 
+            {/* Right Column - Contact Info */}
             <div ref={rightRef} className={`bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 transition-all duration-700 delay-200 ${rightVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               <h3 className="font-libre-franklin text-2xl font-bold mb-8 text-center">
-                Canais de contato
+                Entre em contato e saiba mais
               </h3>
               
               <div className="space-y-6">
@@ -91,7 +93,7 @@ const PartnershipSection: React.FC = () => {
                              whitespace-normal leading-snug text-center 
                              tracking-wide shadow-lg"
                 >
-                  Quero minha simulação
+                  Reduza custos!
                 </Button>
             </div>
           </div>
