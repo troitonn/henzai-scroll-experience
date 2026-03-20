@@ -85,7 +85,7 @@ const HowItWorksSection: React.FC = () => {
           </p>
         </div>
 
-        <div ref={stepsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
+        <div ref={stepsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {steps.map((step, index) => (
             <div 
               key={index} 
