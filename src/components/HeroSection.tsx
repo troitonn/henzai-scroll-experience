@@ -82,8 +82,8 @@ const HeroSection: React.FC = () => {
           <source src="/hero-bg.mp4" type="video/mp4" />
         </video>
 
-        {/* overlay melhorado */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60"></div>
+        {/* Overlay MAIS FORTE (resolve contraste) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
       </div>
 
       {/* Conteúdo */}
@@ -131,7 +131,7 @@ const HeroSection: React.FC = () => {
               </div>
             </div>
 
-            {/* BOTÕES AJUSTADOS */}
+            {/* BOTÕES */}
             <div className="flex flex-col sm:flex-row gap-6 animate-fade-in animation-delay-500">
 
               {/* CTA Principal */}
@@ -158,18 +158,18 @@ const HeroSection: React.FC = () => {
                 Quero minha simulação gratuita
               </Button>
 
-              {/* Secundário */}
+              {/* CTA Secundário CORRIGIDO */}
               <Button
-                variant="outline"
                 size="lg"
                 onClick={() =>
                   document.getElementById('soluções')?.scrollIntoView({ behavior: 'smooth' })
                 }
                 className="
-                  border border-white/40
+                  bg-black/40
+                  border border-white/30
                   text-white
-                  hover:bg-white/10
-                  hover:border-white/70
+                  hover:bg-black/60
+                  hover:border-white/60
                   font-medium
                   px-10 py-5
                   rounded-full
