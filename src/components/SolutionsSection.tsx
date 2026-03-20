@@ -2,8 +2,11 @@ import React, { useEffect, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { TrendingUp, Sun, Battery, BarChart3, Wrench } from "lucide-react";
+import { TrendingUp, Sun, Battery, BarChart3, Wrench, Car, Fuel, Thermometer } from "lucide-react";
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import evChargerCondo from '@/assets/ev-charger-condo.jpg';
+import evChargerGas from '@/assets/ev-charger-gasstation.jpg';
+import climatizacao from '@/assets/climatizacao-empresarial.jpg';
 
 const SolutionsSection: React.FC = () => {
   const solutions = [
@@ -61,19 +64,51 @@ const SolutionsSection: React.FC = () => {
       ],
       icon: <Wrench className="w-12 h-12 text-henzai-terracota" />,
       image: "/lovable-uploads/cb09bdbe-0580-4286-8074-013d36f8af7e.png"
+    },
+    {
+      title: "Carregadores para Condomínios",
+      description: "Soluções compactas de recarga para veículos elétricos em condomínios, da consultoria à instalação.",
+      benefits: [
+        "Consultoria de infraestrutura e financeira",
+        "Consultoria técnica e instalação completa",
+        "Investimento em eletroposto com retorno garantido"
+      ],
+      icon: <Car className="w-12 h-12 text-henzai-terracota" />,
+      image: evChargerCondo
+    },
+    {
+      title: "Eletroposto em Postos de Gasolina",
+      description: "Transforme seu posto de combustível em um hub de mobilidade elétrica com eletropostos de alta performance.",
+      benefits: [
+        "Nova fonte de receita para o posto",
+        "Infraestrutura completa de recarga rápida",
+        "Posicionamento estratégico no mercado EV"
+      ],
+      icon: <Fuel className="w-12 h-12 text-henzai-terracota" />,
+      image: evChargerGas
+    },
+    {
+      title: "Climatização Empresarial",
+      description: "Gestão estratégica de ar-condicionado corporativo com tecnologia Hitachi para máxima eficiência.",
+      benefits: [
+        "Consultoria estratégica de implantação",
+        "Gestão do equipamento + manutenção preventiva",
+        "Tecnologia Hitachi de alta performance"
+      ],
+      icon: <Thermometer className="w-12 h-12 text-henzai-terracota" />,
+      image: climatizacao
     }
   ];
 
-  // autoplay simples
   const carouselRef = useRef<any>(null);
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (carouselRef.current) {
-        carouselRef.current.scrollNext(); // vai para o próximo card
+        carouselRef.current.scrollNext();
       }
-    }, 5000); // muda a cada 5 segundos
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
