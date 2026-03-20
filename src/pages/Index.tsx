@@ -19,13 +19,16 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
+
+      {/* SOBRE LOGO APÓS HERO */}
+      <AboutSection />
+
       <SolutionsSection />
       <HubCondominiosSection />
       <MobilidadeSection />
       <HowItWorksSection />
       <ProjectsSection />
       <DiferenciaisSection />
-      <AboutSection />
       <ClientsSection />
       <PartnershipSection />
       <ContactSection />
