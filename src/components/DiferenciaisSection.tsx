@@ -47,7 +47,7 @@ const DiferenciaisSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-henzai-blue/5 to-henzai-blue/10">
+    <section className="py-20" style={{ backgroundColor: '#fafafa' }}>
       <div className="container mx-auto px-4">
         {/* Título */}
         <div ref={titleRef} className="text-center mb-16">
@@ -66,7 +66,8 @@ const DiferenciaisSection: React.FC = () => {
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <Card
                   className="border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] 
-                  transition-all duration-300 transform hover:-translate-y-2 bg-white/90 backdrop-blur-sm"
+                  transition-all duration-300 transform hover:-translate-y-2"
+                  style={{ backgroundColor: '#fafafa' }}
                 >
                   <CardContent className="p-8 text-center">
                     <div className="mb-6 flex justify-center">
