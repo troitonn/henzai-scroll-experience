@@ -63,7 +63,7 @@ const PartnershipSection: React.FC = () => {
                   </div>
                   <div>
                     <p className="font-gantari text-sm text-white/70">Telefone</p>
-                    <p className="font-gantari font-semibold">(11) 98166-6019</p>
+                    <p className="font-gantari font-semibold">+55 11 97961-9109</p>
                   </div>
                 </a>
 
