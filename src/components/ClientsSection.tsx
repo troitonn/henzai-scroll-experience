@@ -39,14 +39,15 @@ const ClientsSection: React.FC = () => {
           {clients.map((client, index) => (
             <div
               key={index}
-              // Removido bg, blur e rounded. Adicionado p-2 e gap maior no grid para respiro.
-              className={`flex items-center justify-center p-2 transition-all duration-500 transform hover:-translate-y-1 ${gridVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}
+              // Removido o p-2 para os logos fluírem melhor
+              className={`flex items-center justify-center transition-all duration-500 transform hover:-translate-y-1 ${gridVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <img
                 src={client.logo}
                 alt={`Logo ${client.name}`}
-                className="max-h-12 w-auto object-contain transition-all duration-300 hover:scale-110 filter grayscale hover:grayscale-0" // Adicionado filtro opcional de grayscale para uniformidade
+                // Aumentado max-h de 12 para 16 e removidas as classes de grayscale.
+                className="max-h-16 w-auto object-contain transition-all duration-300 hover:scale-110"
               />
             </div>
           ))}
