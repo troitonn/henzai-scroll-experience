@@ -56,7 +56,7 @@ const AboutSection: React.FC = () => {
               </h2>
               
               <p className="font-gantari text-xl leading-relaxed text-henzai-off-white max-w-xl">
-                A Henzai nasceu da convicção de que energia não deve ser tratada apenas como despesa técnica — 
+                A Henzai nasceu da convicção de que energia não deve ser tratada apenas como despesa técnica
                 ela é estratégia de crescimento. Conectamos empresas às melhores soluções energéticas com 
                 visão de negócio, clareza e compromisso.
               </p>
