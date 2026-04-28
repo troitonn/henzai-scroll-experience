@@ -4,7 +4,6 @@ import teamMeetingImage from '@/assets/corporate-meeting.jpg';
 import ceoPhoto from '@/assets/ceo-photo.png';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-// Hook para animar números
 const useCountUp = (end: number, duration: number, trigger: boolean) => {
   const [count, setCount] = useState(0);
 
@@ -39,7 +38,6 @@ const AboutSection: React.FC = () => {
 
   return (
     <section id="sobre" className="py-24 relative overflow-hidden">
-
       {/* Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
@@ -51,7 +49,6 @@ const AboutSection: React.FC = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
-
           {/* Card principal */}
           <div className="
             text-white 
@@ -62,11 +59,10 @@ const AboutSection: React.FC = () => {
             border border-white/10 
             shadow-[0_20px_80px_rgba(0,0,0,0.4)]
           ">
-
-            {/* Topo */}
+            {/* Topo - Grid Ajustado */}
             <div 
               ref={titleRef} 
-              className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12"
+              className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 items-center mb-12"
             >
               <div>
                 <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold leading-tight transition-all duration-700 ${
@@ -77,27 +73,28 @@ const AboutSection: React.FC = () => {
                 </h2>
               </div>
 
-             {/* Imagem refinada - Ajustada para não esticar */}
-<div className={`flex justify-center lg:justify-end transition-all duration-700 ${
-  titleVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-}`}>
-  <div className="relative max-w-sm xl:max-w-md w-full"> {/* Container para controlar o tamanho */}
-    <img 
-      src={ceoPhoto} 
-      alt="CEO da Henzai" 
-      className="
-        w-full h-auto 
-        rounded-3xl 
-        shadow-2xl 
-        border border-white/10 
-        ring-1 ring-white/5
-        object-cover
-      "
-    />
-    {/* Elemento decorativo opcional para preencher o espaço se desejar */}
-    <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-henzai-terracota/20 -z-10 rounded-full blur-2xl"></div>
-  </div>
-</div>
+              {/* Imagem com tamanho controlado */}
+              <div className={`flex justify-center lg:justify-end transition-all duration-700 ${
+                titleVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+              }`}>
+                <div className="relative max-w-[320px] md:max-w-[400px] w-full">
+                  <img 
+                    src={ceoPhoto} 
+                    alt="CEO da Henzai" 
+                    className="
+                      w-full h-auto 
+                      rounded-3xl 
+                      shadow-2xl 
+                      border border-white/10 
+                      ring-1 ring-white/5
+                      object-cover
+                    "
+                  />
+                  {/* Glow decorativo suave */}
+                  <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-henzai-terracota/20 -z-10 rounded-full blur-3xl"></div>
+                </div>
+              </div>
+            </div>
 
             {/* Texto */}
             <div ref={textRef}>
@@ -151,7 +148,6 @@ const AboutSection: React.FC = () => {
               </p>
             </div>
 
-            {/* CTA (MANTIDO como você pediu) */}
             <Button 
               variant="secondary"
               size="lg"
