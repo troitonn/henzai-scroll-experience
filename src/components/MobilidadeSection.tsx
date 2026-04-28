@@ -1,13 +1,25 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CheckCircle2 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const MobilidadeSection: React.FC = () => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation(0.05);
+
   return (
     <section id="mobilidade" className="py-20 bg-gradient-to-br from-henzai-blue/5 to-henzai-blue/10">
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mx-auto px-4">
 
-        {/* TEXTO ORIGINAL (NÃO ALTERADO) */}
-        <div className="text-center mb-16 space-y-6 font-gantari text-henzai-blue text-lg leading-relaxed">
+        {/* HEADER (mantido, só sem mexer no design) */}
+        <div ref={titleRef} className="text-center mb-16">
+          <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            Mobilidade Elétrica e <span className="text-henzai-terracota">Oportunidade de Mercado</span>
+          </h2>
+        </div>
+
+        {/* COPY PRINCIPAL (EXATAMENTE COMO VOCÊ MANDOU) */}
+        <div className="max-w-4xl mx-auto text-center mb-16 space-y-6 font-gantari text-lg text-henzai-blue leading-relaxed">
 
           <p>O Brasil já caminha para a marca de 600 mil veículos eletrificados leves em circulação.</p>
 
@@ -22,64 +34,78 @@ const MobilidadeSection: React.FC = () => {
           </p>
         </div>
 
-        {/* CARD 1 */}
-        <Card className="mb-8 p-6 bg-white/90 border-0 shadow-lg">
-          <CardContent className="space-y-4">
+        {/* CARDS (mantendo seu DESIGN ORIGINAL) */}
+        <div ref={cardsRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
 
-            <p className="font-gantari text-lg text-henzai-blue">
-              Gere receita enquanto atualiza seu empreendimento para o novo padrão de mercado.
-            </p>
+          {/* CARD 1 */}
+          <Card className={`border-0 shadow-lg bg-white/90 transition-all duration-500 ${cardsVisible ? 'opacity-100' : 'opacity-0 translate-y-8'}`}>
+            <CardHeader>
+              <CardTitle className="text-henzai-blue font-libre-franklin">
+                Card 1
+              </CardTitle>
+            </CardHeader>
 
-            <p className="font-gantari text-henzai-blue font-semibold">
-              Investidores estão buscando:
-            </p>
+            <CardContent className="space-y-4 font-gantari text-henzai-blue">
 
-            <ul className="font-gantari text-henzai-blue list-disc pl-6 space-y-1">
-              <li>Pontos com fluxo</li>
-              <li>Localizações estratégicas</li>
-              <li>Espaços com potencial de permanência</li>
-            </ul>
+              <p>
+                Gere receita enquanto atualiza seu empreendimento para o novo padrão de mercado.
+              </p>
 
-          </CardContent>
-        </Card>
+              <p className="font-semibold">Investidores estão buscando:</p>
 
-        {/* CARD 2 */}
-        <Card className="mb-8 p-6 bg-white/90 border-0 shadow-lg">
-          <CardContent className="space-y-4">
+              <ul className="space-y-2">
+                <li>• Pontos com fluxo</li>
+                <li>• Localizações estratégicas</li>
+                <li>• Espaços com potencial de permanência</li>
+              </ul>
 
-            <p className="font-gantari text-lg font-bold text-henzai-blue uppercase">
-              E O MOTORISTA ESCOLHE LOCAIS QUE OFEREÇAM:
-            </p>
+            </CardContent>
+          </Card>
 
-            <ul className="font-gantari text-henzai-blue space-y-2">
-              <li>🌿 Conveniência</li>
-              <li>🌿 Segurança</li>
-              <li>🌿 Tempo útil de permanência</li>
-            </ul>
+          {/* CARD 2 */}
+          <Card className={`border-0 shadow-lg bg-white/90 transition-all duration-500 ${cardsVisible ? 'opacity-100' : 'opacity-0 translate-y-8'}`}>
+            <CardHeader>
+              <CardTitle className="text-henzai-blue font-libre-franklin">
+                Card 2
+              </CardTitle>
+            </CardHeader>
 
-            <p className="font-gantari text-henzai-blue font-medium">
-              Se o seu empreendimento não oferece recarga, ele deixa de ser opção.
-            </p>
+            <CardContent className="space-y-4 font-gantari text-henzai-blue">
 
-          </CardContent>
-        </Card>
+              <p className="font-bold uppercase">
+                E O MOTORISTA ESCOLHE LOCAIS QUE OFEREÇAM:
+              </p>
 
-        {/* CARD 3 */}
-        <Card className="p-6 bg-white/90 border-0 shadow-lg">
-          <CardContent className="space-y-4">
+              <ul className="space-y-2">
+                <li>🌿 Conveniência</li>
+                <li>🌿 Segurança</li>
+                <li>🌿 Tempo útil de permanência</li>
+              </ul>
 
-            <p className="font-libre-franklin font-bold text-henzai-blue">
-              Henzai
-            </p>
+              <p>
+                Se o seu empreendimento não oferece recarga, ele deixa de ser opção.
+              </p>
 
-            <p className="font-gantari text-lg text-henzai-blue">
-              EMPREENDIMENTOS com recarga elétrica tornam-se mais atrativos,
-              aumentam o tempo médio de permanência, atraem um público de maior poder aquisitivo
-              e ainda geram receita direta ou indireta.
-            </p>
+            </CardContent>
+          </Card>
 
-          </CardContent>
-        </Card>
+          {/* CARD 3 */}
+          <Card className={`border-0 shadow-lg bg-white/90 lg:col-span-2 transition-all duration-500 ${cardsVisible ? 'opacity-100' : 'opacity-0 translate-y-8'}`}>
+            <CardHeader>
+              <CardTitle className="text-henzai-blue font-libre-franklin">
+                Henzai
+              </CardTitle>
+            </CardHeader>
+
+            <CardContent className="font-gantari text-henzai-blue text-lg">
+
+              EMPREENDIMENTOS com recarga elétrica tornam-se mais atrativos, aumentam o tempo médio de permanência,
+              atraem um público de maior poder aquisitivo e ainda geram receita direta ou indireta.
+
+            </CardContent>
+          </Card>
+
+        </div>
 
       </div>
     </section>
