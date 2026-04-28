@@ -15,9 +15,9 @@ const ClientsSection: React.FC = () => {
 
   const clients = [
     { name: 'Oggi Sorvetes', logo: oggiLogo },
-    { name: 'Academia Gaviões', logo: academiaLogo, isSpecial: true },
+    { name: 'Academia Gaviões', logo: academiaLogo },
     { name: 'Petrobras', logo: petrobrasLogo, isSpecial: true },
-    { name: 'Armando Bessa', logo: bessaLogo, isSpecial: true },
+    { name: 'Armando Bessa', logo: bessaLogo },
     { name: 'Ipiranga', logo: ipirangaLogo},
     { name: 'Vó Nena', logo: voNenaLogo, isSpecial: true },
     { name: 'Shell', logo: shellLogo, isSpecial: true }, // Marcador para tamanho maior
