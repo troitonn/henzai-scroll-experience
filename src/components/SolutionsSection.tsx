@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { TrendingUp, Sun, Battery, BarChart3, Wrench, Car, Fuel, Thermometer } from "lucide-react";
+import { TrendingUp, Sun, Battery, BarChart3, Wrench, Car, Fuel, Thermometer, Users } from "lucide-react";
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import evChargerCondo from '@/assets/ev-charger-condo.jpg';
 import evChargerGas from '@/assets/ev-charger-gasstation.jpg';
@@ -45,7 +45,7 @@ const SolutionsSection: React.FC = () => {
     },
     {
       title: "Cabines Primárias",
-      description: "Entradas Exclusivas e Projetos Elétricos, Infraestrutura elétrica segura e atualizada, com alto desempenho, normas atendidas e confiabilidade em alta tensão.",
+      description: "Infraestrutura elétrica segura e atualizada, com alto desempenho e confiabilidade em alta tensão.",
       benefits: [
         "Infraestrutura elétrica segura e atualizada",
         "Alto desempenho com normas atendidas",
@@ -67,33 +67,62 @@ const SolutionsSection: React.FC = () => {
     },
     {
       title: "Carregadores para Condomínios",
-      description: "Soluções compactas de recarga para veículos elétricos em condomínios, da consultoria à instalação.",
+      description: "Soluções completas de recarga para veículos elétricos em condomínios.",
       benefits: [
         "Consultoria de infraestrutura e financeira",
-        "Consultoria técnica e instalação completa",
-        "Investimento em eletroposto com retorno garantido"
+        "Instalação completa e escalável",
+        "Investimento com retorno garantido"
       ],
       icon: <Car className="w-12 h-12 text-henzai-terracota" />,
       image: evChargerCondo
     },
+
+    /* 🔥 NOVO */
+    {
+      title: "Instalação de Carregadores Elétricos",
+      description: "Projetos completos de instalação de carregadores para empresas, estacionamentos e residências.",
+      benefits: [
+        "Projeto técnico e homologação completa",
+        "Instalação rápida e segura",
+        "Preparado para expansão futura"
+      ],
+      icon: <Car className="w-12 h-12 text-henzai-terracota" />,
+      image: "/lovable-uploads/ev-charger-installation.jpg"
+    },
+
     {
       title: "Eletroposto em Postos de Gasolina",
-      description: "Transforme seu posto de combustível em um hub de mobilidade elétrica com eletropostos de alta performance.",
+      description: "Transforme seu posto de combustível em um hub de mobilidade elétrica de alta performance.",
       benefits: [
         "Nova fonte de receita para o posto",
-        "Infraestrutura completa de recarga rápida",
+        "Infraestrutura de recarga rápida",
         "Posicionamento estratégico no mercado EV"
       ],
       icon: <Fuel className="w-12 h-12 text-henzai-terracota" />,
       image: evChargerGas
     },
+
+    /* 🔥 NOVO HUB INVESTIDORES */
+    {
+      title: "Hub de Investidores & Eletropostos",
+      description: "Conectamos investidores e donos de terrenos para criação de eletropostos estratégicos com alto potencial de retorno.",
+      benefits: [
+        "Conexão entre investidores e proprietários de terrenos",
+        "Estruturação completa do projeto do zero",
+        "Modelos de investimento com alta rentabilidade",
+        "Expansão de rede de eletropostos em escala"
+      ],
+      icon: <Users className="w-12 h-12 text-henzai-terracota" />,
+      image: "/lovable-uploads/ev-investor-hub.jpg"
+    },
+
     {
       title: "Climatização Empresarial",
-      description: "Gestão estratégica de ar-condicionado corporativo com tecnologia Hitachi para máxima eficiência.",
+      description: "Gestão estratégica de ar-condicionado corporativo com tecnologia de alta performance.",
       benefits: [
         "Consultoria estratégica de implantação",
-        "Gestão do equipamento + manutenção preventiva",
-        "Tecnologia Hitachi de alta performance"
+        "Gestão e manutenção preventiva",
+        "Eficiência energética otimizada"
       ],
       icon: <Thermometer className="w-12 h-12 text-henzai-terracota" />,
       image: climatizacao
@@ -116,12 +145,14 @@ const SolutionsSection: React.FC = () => {
   return (
     <section id="soluções" className="py-20 bg-gradient-to-br from-henzai-blue/5 to-henzai-blue/10">
       <div className="container mx-auto px-4">
+
         <div ref={titleRef} className="text-center mb-16">
-          <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
             Benefícios dos Produtos e <span className="text-henzai-terracota">Serviços</span>
           </h2>
-          <p className={`font-gantari text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Soluções energéticas estratégicas que transformam consumo em vantagem competitiva
+
+          <p className={`font-gantari text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
+            Hub de soluções estratégicas e eficientes para o seu negócio
           </p>
         </div>
 
@@ -131,6 +162,7 @@ const SolutionsSection: React.FC = () => {
               {solutions.map((solution, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/2">
                   <Card className="group overflow-hidden border-0 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-300 transform hover:-translate-y-1 h-full bg-white/90 backdrop-blur-sm">
+
                     <div className="relative h-64 overflow-hidden">
                       <img
                         src={solution.image}
@@ -138,55 +170,50 @@ const SolutionsSection: React.FC = () => {
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-henzai-blue/80 to-transparent"></div>
+
                       <div className="absolute top-4 left-4 p-3 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
                         {solution.icon}
                       </div>
                     </div>
 
-                    <CardHeader className="pb-4">
+                    <CardHeader>
                       <CardTitle className="font-libre-franklin text-xl text-henzai-blue">
                         {solution.title}
                       </CardTitle>
-                      <CardDescription className="font-gantari text-muted-foreground">
+                      <CardDescription className="font-gantari">
                         {solution.description}
                       </CardDescription>
                     </CardHeader>
 
-                    <CardContent className="pt-0">
+                    <CardContent>
                       <ul className="space-y-2 mb-6">
-                        {solution.benefits.map((benefit, benefitIndex) => (
-                          <li key={benefitIndex} className="font-gantari text-sm text-muted-foreground flex items-center">
-                            <TrendingUp className="w-4 h-4 text-henzai-terracota mr-2 flex-shrink-0" />
-                            {benefit}
+                        {solution.benefits.map((b, i) => (
+                          <li key={i} className="text-sm text-muted-foreground flex items-center">
+                            <TrendingUp className="w-4 h-4 text-henzai-terracota mr-2" />
+                            {b}
                           </li>
                         ))}
                       </ul>
+
                       <Button
+                        className="w-full border-henzai-terracota text-henzai-terracota hover:bg-henzai-terracota hover:text-white"
                         variant="outline"
                         onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="w-full font-gantari border-henzai-terracota text-henzai-terracota hover:bg-henzai-terracota hover:text-white transition-colors duration-300"
                       >
                         Saber Mais
                       </Button>
                     </CardContent>
+
                   </Card>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex -left-12 border-henzai-blue text-henzai-blue hover:bg-henzai-blue hover:text-white" />
-            <CarouselNext className="hidden md:flex -right-12 border-henzai-blue text-henzai-blue hover:bg-henzai-blue hover:text-white" />
+
+            <CarouselPrevious className="hidden md:flex -left-12" />
+            <CarouselNext className="hidden md:flex -right-12" />
           </Carousel>
         </div>
 
-        <div className="text-center">
-          <Button
-            size="lg"
-            onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-henzai-blue/90 hover:bg-henzai-blue text-white font-gantari font-medium px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105 glass-button backdrop-blur-md"
-          >
-            Ver Todas as Soluções
-          </Button>
-        </div>
       </div>
     </section>
   );
