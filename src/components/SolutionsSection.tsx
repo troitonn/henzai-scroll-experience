@@ -66,8 +66,8 @@ const SolutionsSection: React.FC = () => {
       image: "/lovable-uploads/cb09bdbe-0580-4286-8074-013d36f8af7e.png"
     },
     {
-      title: "Carregadores para Condomínios",
-      description: "Soluções completas de recarga para veículos elétricos em condomínios.",
+      title: "Carregadores para carros eletricos",
+      description: "Soluções completas de recarga para veículos elétricos para sua empresa.",
       benefits: [
         "Consultoria de infraestrutura e financeira",
         "Instalação completa e escalável",
@@ -105,9 +105,9 @@ const SolutionsSection: React.FC = () => {
     /* 🔥 NOVO HUB INVESTIDORES */
     {
       title: "Hub de Investidores & Eletropostos",
-      description: "Conectamos investidores e donos de terrenos para criação de eletropostos estratégicos com alto potencial de retorno.",
+      description: "Conectamos investidores e empresarios para criação de eletropostos estratégicos com alto potencial de retorno.",
       benefits: [
-        "Conexão entre investidores e proprietários de terrenos",
+        "Conexão entre investidores",
         "Estruturação completa do projeto do zero",
         "Modelos de investimento com alta rentabilidade",
         "Expansão de rede de eletropostos em escala"
