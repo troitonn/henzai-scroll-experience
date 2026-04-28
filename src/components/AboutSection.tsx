@@ -77,23 +77,27 @@ const AboutSection: React.FC = () => {
                 </h2>
               </div>
 
-              {/* Imagem refinada */}
-              <div className={`transition-all duration-700 ${
-                titleVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-              }`}>
-                <img 
-                  src={ceoPhoto} 
-                  alt="CEO da Henzai" 
-                  className="
-                    w-full h-auto 
-                    rounded-3xl 
-                    shadow-2xl 
-                    border border-white/10 
-                    ring-1 ring-white/5
-                  "
-                />
-              </div>
-            </div>
+             {/* Imagem refinada - Ajustada para não esticar */}
+<div className={`flex justify-center lg:justify-end transition-all duration-700 ${
+  titleVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+}`}>
+  <div className="relative max-w-sm xl:max-w-md w-full"> {/* Container para controlar o tamanho */}
+    <img 
+      src={ceoPhoto} 
+      alt="CEO da Henzai" 
+      className="
+        w-full h-auto 
+        rounded-3xl 
+        shadow-2xl 
+        border border-white/10 
+        ring-1 ring-white/5
+        object-cover
+      "
+    />
+    {/* Elemento decorativo opcional para preencher o espaço se desejar */}
+    <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-henzai-terracota/20 -z-10 rounded-full blur-2xl"></div>
+  </div>
+</div>
 
             {/* Texto */}
             <div ref={textRef}>
