@@ -85,7 +85,7 @@ const MobilidadeSection: React.FC = () => {
               </p>
 
               <p className="font-gantari text-henzai-blue text-lg">
-                EMPREENDIMENTOS com recarga elétrica tornam-se mais atrativos, aumentam o tempo médio de permanência, atraem um público de maior poder aquisitivo e ainda geram receita direta ou indireta.
+                Empreendimentos com recarga elétrica tornam-se mais atrativos, aumentam o tempo médio de permanência, atraem um público de maior poder aquisitivo e ainda geram receita direta ou indireta.
               </p>
             </CardContent>
           </Card>
