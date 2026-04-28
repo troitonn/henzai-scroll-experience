@@ -37,10 +37,10 @@ const ProjectsSection: React.FC = () => {
             Portfólio
           </span>
           <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Conheça Nossos <span className="text-henzai-terracota">Projetos Realizados</span>
+            Conheça alguns de Nossos <span className="text-henzai-terracota">Projetos Realizados</span>
           </h2>
           <p className={`font-gantari text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Resultados reais que comprovam nossa expertise em soluções energéticas
+            Seleção de projetos que demonstram nossa atuação em diferentes soluções energéticas e cenários de aplicação
           </p>
         </div>
 
