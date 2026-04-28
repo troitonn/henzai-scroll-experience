@@ -65,7 +65,7 @@ const SolutionsSection: React.FC = () => {
       icon: <Wrench className="w-12 h-12 text-henzai-terracota" />,
       image: "/lovable-uploads/cb09bdbe-0580-4286-8074-013d36f8af7e.png"
     },
-    {
+   /* {
       title: "Carregadores para carros eletricos",
       description: "Soluções completas de recarga para veículos elétricos para sua empresa.",
       benefits: [
@@ -78,6 +78,7 @@ const SolutionsSection: React.FC = () => {
     },
 
     /* 🔥 NOVO */
+    
     {
       title: "Instalação de Carregadores Elétricos",
       description: "Projetos completos de instalação de carregadores para empresas, estacionamentos e residências.",
@@ -87,7 +88,7 @@ const SolutionsSection: React.FC = () => {
         "Preparado para expansão futura"
       ],
       icon: <Car className="w-12 h-12 text-henzai-terracota" />,
-      image: "/lovable-uploads/ev-charger-installation.jpg"
+      image: evChargerCondo
     },
 
     {
