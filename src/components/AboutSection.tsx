@@ -4,12 +4,10 @@ import teamMeetingImage from '@/assets/corporate-meeting.jpg';
 import ceoPhoto from '@/assets/ceo-photo.png';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
-// Hook para animar números (mantido original)
 const useCountUp = (end: number, duration: number, trigger: boolean) => {
   const [count, setCount] = useState(0);
-
   useEffect(() => {
-    if (!trigger) return; 
+    if (!trigger) return;
     let start = 0;
     const increment = end / (duration / 16);
     const interval = setInterval(() => {
@@ -21,16 +19,13 @@ const useCountUp = (end: number, duration: number, trigger: boolean) => {
         setCount(Math.floor(start));
       }
     }, 16);
-
     return () => clearInterval(interval);
   }, [end, duration, trigger]);
-
   return count;
 };
 
 const AboutSection: React.FC = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
-  const { ref: textRef, isVisible: textVisible } = useScrollAnimation();
   const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation();
   const { ref: quoteRef, isVisible: quoteVisible } = useScrollAnimation();
 
@@ -39,127 +34,86 @@ const AboutSection: React.FC = () => {
 
   return (
     <section id="sobre" className="py-24 relative overflow-hidden">
-      {/* Background (mantido original) */}
+      {/* Background Principal */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(29, 53, 87, 0.95) 0%, rgba(29, 53, 87, 0.85) 100%), url(${teamMeetingImage})`,
+          backgroundImage: `linear-gradient(135deg, rgba(29, 53, 87, 0.98) 0%, rgba(29, 53, 87, 0.90) 100%), url(${teamMeetingImage})`,
           backgroundAttachment: 'fixed'
         }}
       />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-10 text-white">
         <div className="max-w-7xl mx-auto">
-          {/* Card principal (mantido original) */}
-          <div className="
-            text-white 
-            backdrop-blur-2xl 
-            bg-white/[0.08] 
-            rounded-3xl 
-            p-10 md:p-14 
-            border border-white/10 
-            shadow-[0_20px_80px_rgba(0,0,0,0.4)]
-          ">
-            {/* Topo - GRID AJUSTADO para controlar a imagem */}
-            <div 
-              ref={titleRef} 
-              // AJUSTE: lg:grid-cols-2 -> lg:grid-cols-[1fr_auto] (para a imagem não ocupar 50% da tela)
-              className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 items-center mb-12"
-            >
-              <div>
-                <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold leading-tight transition-all duration-700 ${
-                  titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}>
-                  Mais que energia. <br />
-                  <span className="text-henzai-terracota">Uma decisão estratégica.</span>
-                </h2>
-              </div>
-
-              {/* Container da Imagem AJUSTADO */}
-              <div className={`flex justify-center lg:justify-end transition-all duration-700 ${
-                titleVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-              }`}>
-                {/* AJUSTE: Adicionado max-w e w-full para limitar o tamanho e manter a nítidez */}
-                <div className="relative max-w-[320px] md:max-w-[400px] w-full">
-                  <img 
-                    src={ceoPhoto} 
-                    alt="CEO da Henzai" 
-                    className="
-                      w-full h-auto 
-                      rounded-3xl 
-                      shadow-2xl 
-                      border border-white/10 
-                      ring-1 ring-white/5
-                      object-cover
-                    "
-                  />
-                  {/* Glow decorativo suave (mantido) */}
-                  <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-henzai-terracota/20 -z-10 rounded-full blur-3xl"></div>
-                </div>
-              </div>
-            </div>
-
-            {/* Texto (mantido original) */}
-            <div ref={textRef}>
-              <p className={`font-gantari text-xl leading-relaxed mb-12 text-henzai-off-white max-w-3xl transition-all duration-700 ${
-                textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}>
-                A Henzai nasceu da convicção de que energia não deve ser tratada apenas como despesa técnica — ela é estratégia de crescimento.
-                Conectamos empresas às melhores soluções energéticas com visão de negócio, clareza e compromisso.
+          
+          {/* Seção Principal: Título + Texto à esquerda, Imagem à direita */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
+            
+            <div ref={titleRef} className={`transition-all duration-1000 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h2 className="font-libre-franklin text-4xl md:text-6xl font-bold leading-tight mb-8">
+                Mais que energia.<br />
+                <span className="text-henzai-terracota">Uma decisão estratégica.</span>
+              </h2>
+              
+              <p className="font-gantari text-xl leading-relaxed text-henzai-off-white max-w-xl">
+                A Henzai nasceu da convicção de que energia não deve ser tratada apenas como despesa técnica — 
+                ela é estratégia de crescimento. Conectamos empresas às melhores soluções energéticas com 
+                visão de negócio, clareza e compromisso.
               </p>
             </div>
 
-            {/* Métricas (mantido original) */}
-            <div 
-              ref={statsRef} 
-              className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-14"
-            >
-              <div className={`text-center transition-all duration-700 ${
-                statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-              }`}>
-                <div className="text-4xl font-bold text-henzai-terracota mb-2">
+            {/* Imagem menor e sem card de fundo */}
+            <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${titleVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <div className="relative max-w-[280px] md:max-w-[350px]">
+                <img 
+                  src={ceoPhoto} 
+                  alt="CEO da Henzai" 
+                  className="w-full h-auto rounded-2xl shadow-2xl object-cover"
+                />
+                {/* Apenas um glow sutil atrás da foto, sem bordas ou cards cortando */}
+                <div className="absolute -inset-4 bg-henzai-terracota/10 blur-3xl -z-10 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Métricas e Quote integrados no fluxo */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            
+            {/* Bloco de Métricas */}
+            <div ref={statsRef} className="grid grid-cols-2 gap-8 bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
+              <div className={`text-left transition-all duration-700 ${statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                <div className="text-4xl font-bold text-henzai-terracota mb-1">
                   +{usinas.toLocaleString('pt-BR')}
                 </div>
-                <div className="text-sm uppercase tracking-widest text-white/70">
-                  Usinas Instaladas
-                </div>
+                <div className="text-xs uppercase tracking-widest text-white/60">Usinas Instaladas</div>
               </div>
 
-              <div className={`text-center transition-all duration-700 delay-200 ${
-                statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-              }`}>
-                <div className="text-4xl font-bold text-henzai-terracota mb-2">
-                  {economia < 1000000000 
-                    ? `+R$ ${economia.toLocaleString('pt-BR')}`
-                    : '+R$ 1 Bi'}
+              <div className={`text-left transition-all duration-700 delay-200 ${statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                <div className="text-4xl font-bold text-henzai-terracota mb-1">
+                  {economia < 1000000000 ? `+R$ ${economia.toLocaleString('pt-BR')}` : '+R$ 1 Bi'}
                 </div>
-                <div className="text-sm uppercase tracking-widest text-white/70">
-                  em Economia
-                </div>
+                <div className="text-xs uppercase tracking-widest text-white/60">em Economia</div>
               </div>
             </div>
 
-            {/* Quote (mantido original) */}
-            <div 
-              ref={quoteRef} 
-              className={`bg-white/[0.06] backdrop-blur-md rounded-2xl p-8 mb-10 border border-white/10 transition-all duration-700 ${
-                quoteVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-            >
-              <p className="text-lg italic leading-relaxed text-white/90">
-                "Combinamos visão estratégica, responsabilidade técnica e presença constante para transformar consumo em vantagem, despesa em capital e futuro em oportunidade."
-              </p>
+            {/* Quote e CTA */}
+            <div ref={quoteRef} className={`transition-all duration-1000 ${quoteVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="border-l-4 border-henzai-terracota pl-6 mb-8">
+                <p className="text-lg italic leading-relaxed text-white/80">
+                  "Combinamos visão estratégica, responsabilidade técnica e presença constante para transformar 
+                  consumo em vantagem, despesa em capital e futuro em oportunidade."
+                </p>
+              </div>
+              
+              <Button 
+                variant="secondary"
+                size="lg"
+                className="font-gantari font-semibold text-lg px-10 py-6 rounded-full hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Conheça Nossa História
+              </Button>
             </div>
-
-            {/* CTA (mantido original) */}
-            <Button 
-              variant="secondary"
-              size="lg"
-              className="font-gantari font-semibold text-lg px-8 py-4 rounded-full hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Conheça Nossa História
-            </Button>
 
           </div>
         </div>
