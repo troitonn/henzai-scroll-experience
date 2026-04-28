@@ -31,7 +31,7 @@ const HubCondominiosSection: React.FC = () => {
     },
     {
       icon: <Wrench className="w-8 h-8" />,
-      title: "Manutenção Preventiva",
+      title: "Manutenção Preventiva e Monitaramento Constante",
       description: "Monitoramento contínuo e manutenção programada de toda infraestrutura."
     },
     {
@@ -49,7 +49,7 @@ const HubCondominiosSection: React.FC = () => {
             Soluções integradas
           </span>
           <h2 className={`font-libre-franklin text-4xl md:text-5xl font-bold text-henzai-blue mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Hub de soluções estratégicas e eficientes para seu<span className="text-henzai-terracota">negócio</span>
+            Hub de soluções estratégicas e eficientes para seu<span className="text-henzai-terracota"> negócio</span>
           </h2>
           <p className={`font-gantari text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Todas as soluções energéticas você precisa em um só lugar
