@@ -4,6 +4,7 @@ import teamMeetingImage from '@/assets/corporate-meeting.jpg';
 import ceoPhoto from '@/assets/ceo-photo.png';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
+// Hook para animar números (mantido original)
 const useCountUp = (end: number, duration: number, trigger: boolean) => {
   const [count, setCount] = useState(0);
 
@@ -38,7 +39,7 @@ const AboutSection: React.FC = () => {
 
   return (
     <section id="sobre" className="py-24 relative overflow-hidden">
-      {/* Background */}
+      {/* Background (mantido original) */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -49,7 +50,7 @@ const AboutSection: React.FC = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
-          {/* Card principal */}
+          {/* Card principal (mantido original) */}
           <div className="
             text-white 
             backdrop-blur-2xl 
@@ -59,9 +60,10 @@ const AboutSection: React.FC = () => {
             border border-white/10 
             shadow-[0_20px_80px_rgba(0,0,0,0.4)]
           ">
-            {/* Topo - Grid Ajustado */}
+            {/* Topo - GRID AJUSTADO para controlar a imagem */}
             <div 
               ref={titleRef} 
+              // AJUSTE: lg:grid-cols-2 -> lg:grid-cols-[1fr_auto] (para a imagem não ocupar 50% da tela)
               className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 items-center mb-12"
             >
               <div>
@@ -73,10 +75,11 @@ const AboutSection: React.FC = () => {
                 </h2>
               </div>
 
-              {/* Imagem com tamanho controlado */}
+              {/* Container da Imagem AJUSTADO */}
               <div className={`flex justify-center lg:justify-end transition-all duration-700 ${
                 titleVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
               }`}>
+                {/* AJUSTE: Adicionado max-w e w-full para limitar o tamanho e manter a nítidez */}
                 <div className="relative max-w-[320px] md:max-w-[400px] w-full">
                   <img 
                     src={ceoPhoto} 
@@ -90,13 +93,13 @@ const AboutSection: React.FC = () => {
                       object-cover
                     "
                   />
-                  {/* Glow decorativo suave */}
+                  {/* Glow decorativo suave (mantido) */}
                   <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-henzai-terracota/20 -z-10 rounded-full blur-3xl"></div>
                 </div>
               </div>
             </div>
 
-            {/* Texto */}
+            {/* Texto (mantido original) */}
             <div ref={textRef}>
               <p className={`font-gantari text-xl leading-relaxed mb-12 text-henzai-off-white max-w-3xl transition-all duration-700 ${
                 textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -106,7 +109,7 @@ const AboutSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Métricas */}
+            {/* Métricas (mantido original) */}
             <div 
               ref={statsRef} 
               className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-14"
@@ -136,7 +139,7 @@ const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Quote */}
+            {/* Quote (mantido original) */}
             <div 
               ref={quoteRef} 
               className={`bg-white/[0.06] backdrop-blur-md rounded-2xl p-8 mb-10 border border-white/10 transition-all duration-700 ${
@@ -148,6 +151,7 @@ const AboutSection: React.FC = () => {
               </p>
             </div>
 
+            {/* CTA (mantido original) */}
             <Button 
               variant="secondary"
               size="lg"
