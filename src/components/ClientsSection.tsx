@@ -10,49 +10,50 @@ import caixaLogo from '@/assets/clients/caixa.png';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const ClientsSection: React.FC = () => {
-  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
-  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
 
-  const clients = [
-    { name: 'Oggi Sorvetes', logo: oggiLogo },
-    { name: 'Academia Gaviões', logo: academiaLogo },
-    { name: 'Petrobras', logo: petrobrasLogo },
-    { name: 'Armando Bessa', logo: bessaLogo },
-    { name: 'Ipiranga', logo: ipirangaLogo },
-    { name: 'Vó Nena', logo: voNenaLogo },
-    { name: 'Shell', logo: shellLogo },
-    { name: 'Caixa', logo: caixaLogo },
-  ];
+  const clients = [
+    { name: 'Oggi Sorvetes', logo: oggiLogo },
+    { name: 'Academia Gaviões', logo: academiaLogo },
+    { name: 'Petrobras', logo: petrobrasLogo },
+    { name: 'Armando Bessa', logo: bessaLogo },
+    { name: 'Ipiranga', logo: ipirangaLogo },
+    { name: 'Vó Nena', logo: voNenaLogo },
+    { name: 'Shell', logo: shellLogo },
+    { name: 'Caixa', logo: caixaLogo },
+  ];
 
-  return (
-    <section className="py-20 bg-gradient-to-br from-white to-henzai-blue/5">
-      <div className="container mx-auto px-4">
-        <div ref={titleRef} className="text-center mb-12">
-          <h2 className={`font-libre-franklin text-3xl md:text-4xl font-bold text-henzai-blue mb-4 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Conheça algumas das empresas que alavancaram
-            <br />
-            <span className="text-henzai-terracota">resultados conosco</span>
-          </h2>
-        </div>
+  return (
+    <section className="py-20 bg-gradient-to-br from-white to-henzai-blue/5">
+      <div className="container mx-auto px-4">
+        <div ref={titleRef} className="text-center mb-12">
+          <h2 className={`font-libre-franklin text-3xl md:text-4xl font-bold text-henzai-blue mb-4 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            Conheça algumas das empresas que alavancaram
+            <br />
+            <span className="text-henzai-terracota">resultados conosco</span>
+          </h2>
+        </div>
 
-        <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center max-w-6xl mx-auto">
-          {clients.map((client, index) => (
-            <div
-              key={index}
-              className={`flex items-center justify-center p-6 bg-henzai-blue/15 backdrop-blur-sm rounded-xl hover:shadow-lg transition-all duration-500 transform hover:-translate-y-1 ${gridVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <img
-                src={client.logo}
-                alt={`Logo ${client.name}`}
-                className="max-h-16 w-auto object-contain transition-all duration-300 hover:scale-110"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+        <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 items-center max-w-6xl mx-auto">
+          {clients.map((client, index) => (
+            <div
+              key={index}
+              // Removido bg, blur e rounded. Adicionado p-2 e gap maior no grid para respiro.
+              className={`flex items-center justify-center p-2 transition-all duration-500 transform hover:-translate-y-1 ${gridVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <img
+                src={client.logo}
+                alt={`Logo ${client.name}`}
+                className="max-h-12 w-auto object-contain transition-all duration-300 hover:scale-110 filter grayscale hover:grayscale-0" // Adicionado filtro opcional de grayscale para uniformidade
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default ClientsSection;
