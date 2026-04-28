@@ -1,6 +1,6 @@
 import React from 'react';
 import HenzaiLogo from './HenzaiLogo';
-import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -36,36 +36,35 @@ const Footer: React.FC = () => {
   ];
 
   const socialLinks = [
-    { icon: <Facebook className="w-5 h-5" />, href: "#", label: "Facebook" },
     { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" },
-    { icon: <Linkedin className="w-5 h-5" />, href: "#", label: "LinkedIn" },
-    { icon: <Twitter className="w-5 h-5" />, href: "#", label: "Twitter" }
+    { icon: <Linkedin className="w-5 h-5" />, href: "#", label: "LinkedIn" }
   ];
 
   return (
     <footer className="bg-[#20405f] text-white">
       <div className="container mx-auto px-4">
-        {/* Seção principal do footer */}
         <div className="py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-            {/* Informações da empresa */}
+
             <div>
               <HenzaiLogo variant="white" size="lg" className="mb-6" />
+
               <p className="font-gantari text-henzai-off-white text-lg mb-8 max-w-md leading-relaxed">
-                Transformamos economia de energia em capital que acelera negócios. 
+                Transformamos economia de energia em capital que acelera negócios.
                 A inteligência que conecta energia, capital e crescimento.
               </p>
 
-              {/* Informações de contato */}
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-henzai-terracota" />
-                  <span className="font-gantari">+55 00 0900-0900</span>
+                  <span className="font-gantari">+55 11 97961-9109</span>
                 </div>
+
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-henzai-terracota" />
                   <span className="font-gantari">henzaienergia.com.br</span>
                 </div>
+
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-5 h-5 text-henzai-terracota" />
                   <span className="font-gantari">São Paulo, SP - Brasil</span>
@@ -73,13 +72,13 @@ const Footer: React.FC = () => {
               </div>
             </div>
 
-            {/* Links do footer */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {footerLinks.map((section, index) => (
                 <div key={index}>
                   <h3 className="font-libre-franklin text-lg font-semibold mb-4 text-henzai-terracota">
                     {section.title}
                   </h3>
+
                   <ul className="space-y-2">
                     {section.links.map((link, linkIndex) => (
                       <li key={linkIndex}>
@@ -95,22 +94,20 @@ const Footer: React.FC = () => {
                 </div>
               ))}
             </div>
+
           </div>
         </div>
 
-        {/* Seção inferior */}
         <div className="py-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            {/* Copyright */}
-            <div className="text-center md:text-left">
-              <p className="font-gantari text-henzai-off-white">
-                © {currentYear} Henzai Energia. Todos os direitos reservados.
-              </p>
-            </div>
 
-            {/* Redes sociais */}
+            <p className="font-gantari text-henzai-off-white">
+              © {currentYear} Henzai Energia. Todos os direitos reservados.
+            </p>
+
             <div className="flex items-center space-x-4">
               <span className="font-gantari text-henzai-off-white mr-4">Siga-nos:</span>
+
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
@@ -122,8 +119,10 @@ const Footer: React.FC = () => {
                 </a>
               ))}
             </div>
+
           </div>
         </div>
+
       </div>
     </footer>
   );
