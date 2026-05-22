@@ -7,6 +7,7 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import evChargerCondo from '@/assets/ev-charger-condo.jpg';
 import evChargerGas from '@/assets/ev-charger-gasstation.jpg';
 import climatizacao from '@/assets/climatizacao-empresarial.jpg';
+import evMarketTrend from "@/assets/ev-market-trend.jpg";
 
 const SolutionsSection: React.FC = () => {
   const solutions = [
@@ -21,7 +22,7 @@ const SolutionsSection: React.FC = () => {
         "Investimento com retorno garantido"
       ],
       icon: <Car className="w-12 h-12 text-henzai-terracota" />,
-      image: evChargerCondo
+      image: evMarketTrend
     },
     {
       title: "Energia Fotovoltaica",
