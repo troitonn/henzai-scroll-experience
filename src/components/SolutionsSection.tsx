@@ -33,13 +33,13 @@ const SolutionsSection: React.FC = () => {
   const solutions = [
 
     {
-      title: "Eletromobilidade para Carros Elétricos",
-      description: "Projetos completos de instalação de carregadores para empresas, estacionamentos e residências.",
+      title: "Infraestrutura para Mobilidade Elétrica",
+      description: "Transforme estacionamentos e empreendimentos em pontos estratégicos de recarga para veículos elétricos, conectando conveniência, valorização e geração de receita.",
       benefits: [
-        "Projeto técnico e homologação completa",
-        "Consultoria de infraestrutura e financeira",
-        "Instalação completa e escalável",
-        "Alto potencial de retorno do investimento"
+        "Consultoria técnica e financeira",
+        "Implantação turnkey de infraestrutura EV",
+        "Gestão inteligente de carregadores",
+        "Modelos de monetização da recarga",
       ],
       icon: <Car className="w-12 h-12 text-henzai-terracota" />,
       image: evMarketTrend
