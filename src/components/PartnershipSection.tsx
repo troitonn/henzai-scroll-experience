@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, Globe } from 'lucide-react';
+import { Instagram } from "lucide-react";
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const PartnershipSection: React.FC = () => {
@@ -68,17 +69,17 @@ const PartnershipSection: React.FC = () => {
                 </a>
 
                 <a
-                  href="https://henzaienergia.com.br"
+                  href="https://www.instagram.com/henzaienergia/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-all duration-300 group"
                 >
                   <div className="bg-henzai-terracota p-3 rounded-lg group-hover:scale-110 transition-transform">
-                    <Globe className="w-6 h-6" />
+                    <Instagram className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="font-gantari text-sm text-white/70">Website</p>
-                    <p className="font-gantari font-semibold">henzaienergia.com.br</p>
+                    <p className="font-gantari text-sm text-white/70">Instagram</p>
+                    <p className="font-gantari font-semibold">Henzaienergia</p>
                   </div>
                 </a>
               </div>
