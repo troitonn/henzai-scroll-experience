@@ -40,7 +40,7 @@ const CTAFinalSection: React.FC = () => {
         'O diferencial foi o atendimento consultivo da Diretora Mariana e sua equipe, foi um dos diferenciais para escolher a Henzai Energia! Recebi um planejamento financeiro claro, com projeção mensal e anual, e hoje economizo cerca 80% na conta de luz! Já expandi meu negócio, comprei mais uma Franquia com a previsibilidade financeira anual que a placas solares está me proporcionando! Melhor escolha! Mais liberdade para meus negócios!',
     },
     {
-      name: 'Alberto',
+      name: 'Roberto',
       company: 'Posto Shell',
       quote:
         'O atendimento foi próximo e transparente. A equipe me mostrou exatamente quanto eu iria economizar e como essa receita voltaria para o posto. Resultado? Economia real todos os meses.',
