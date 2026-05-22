@@ -68,7 +68,18 @@ const SolutionsSection: React.FC = () => {
       icon: <Battery className="w-12 h-12 text-henzai-terracota" />,
       image: "/lovable-uploads/digital-energy-solution.png"
     },
-
+    {
+      title: "Hub de Investidores & Eletropostos",
+      description: "Conectamos investidores e empresários para criação de eletropostos estratégicos com alto potencial de retorno.",
+      benefits: [
+        "Conexão entre investidores",
+        "Estruturação completa do projeto do zero",
+        "Modelos de investimento com alta rentabilidade",
+        "Expansão de rede de eletropostos em escala"
+      ],
+      icon: <Users className="w-12 h-12 text-henzai-terracota" />,
+      image: "/lovable-uploads/ev-investor-hub.jpg"
+    },
     {
       title: "Cabines Primárias",
       description: "Infraestrutura elétrica segura e atualizada, com alto desempenho e confiabilidade em alta tensão.",
@@ -94,18 +105,6 @@ const SolutionsSection: React.FC = () => {
     },
 
     {
-      title: "Carregadores para Carros Elétricos",
-      description: "Soluções completas de recarga para veículos elétricos para sua empresa.",
-      benefits: [
-        "Consultoria de infraestrutura e financeira",
-        "Instalação completa e escalável",
-        "Alto potencial de retorno do investimento"
-      ],
-      icon: <Car className="w-12 h-12 text-henzai-terracota" />,
-      image: evChargerCondo
-    },
-
-    {
       title: "Infraestrutura para Eletropostos",
       description: "Transforme seu posto de combustível em um hub de mobilidade elétrica de alta performance.",
       benefits: [
@@ -115,19 +114,6 @@ const SolutionsSection: React.FC = () => {
       ],
       icon: <BatteryCharging className="w-12 h-12 text-henzai-terracota" />,
       image: evChargerGas
-    },
-
-    {
-      title: "Hub de Investidores & Eletropostos",
-      description: "Conectamos investidores e empresários para criação de eletropostos estratégicos com alto potencial de retorno.",
-      benefits: [
-        "Conexão entre investidores",
-        "Estruturação completa do projeto do zero",
-        "Modelos de investimento com alta rentabilidade",
-        "Expansão de rede de eletropostos em escala"
-      ],
-      icon: <Users className="w-12 h-12 text-henzai-terracota" />,
-      image: "/lovable-uploads/ev-investor-hub.jpg"
     },
 
     {
