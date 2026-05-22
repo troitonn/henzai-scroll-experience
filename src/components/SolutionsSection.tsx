@@ -10,16 +10,18 @@ import climatizacao from '@/assets/climatizacao-empresarial.jpg';
 
 const SolutionsSection: React.FC = () => {
   const solutions = [
-    {
-      title: "Sistema Híbrido de Energia",
-      description: "Integra energia solar, baterias e rede/gerador, sempre priorizando a fonte mais econômica.",
+
+        {
+      title: "Eletromobilidade para Carros Elétricos",
+      description: "Projetos completos de instalação de carregadores para empresas, estacionamentos e residências.",
       benefits: [
-        "Operação contínua, mesmo em apagões",
-        "Redução de picos e custos",
-        "Payback acelerado e maior segurança energética"
+        "Projeto técnico e homologação completa",
+        "Consultoria de infraestrutura e financeira",
+        "Instalação completa e escalável",
+        "Investimento com retorno garantido"
       ],
-      icon: <Battery className="w-12 h-12 text-henzai-terracota" />,
-      image: "/lovable-uploads/digital-energy-solution.png"
+      icon: <Car className="w-12 h-12 text-henzai-terracota" />,
+      image: evChargerCondo
     },
     {
       title: "Energia Fotovoltaica",
@@ -33,15 +35,15 @@ const SolutionsSection: React.FC = () => {
       image: "/lovable-uploads/solar-park-regulatory.png"
     },
     {
-      title: "Mercado Livre de Energia",
-      description: "Consultoria completa para análise regulatória, negociação e gestão de contratos.",
+      title: "Sistema Híbrido de Energia",
+      description: "Integra energia solar, baterias e rede/gerador, sempre priorizando a fonte mais econômica.",
       benefits: [
-        "Redução média de 40% nos custos",
-        "Consultoria completa para análise regulatória",
-        "Negociação e gestão de contratos"
+        "Operação contínua, mesmo em apagões",
+        "Redução de picos e custos",
+        "Payback acelerado e maior segurança energética"
       ],
-      icon: <BarChart3 className="w-12 h-12 text-henzai-terracota" />,
-      image: "/lovable-uploads/energy-consulting.png"
+      icon: <Battery className="w-12 h-12 text-henzai-terracota" />,
+      image: "/lovable-uploads/digital-energy-solution.png"
     },
     {
       title: "Cabines Primárias",
@@ -78,21 +80,8 @@ const SolutionsSection: React.FC = () => {
     },
 
     /* 🔥 NOVO */
-    
     {
-      title: "Instalação de Carregadores Elétricos",
-      description: "Projetos completos de instalação de carregadores para empresas, estacionamentos e residências.",
-      benefits: [
-        "Projeto técnico e homologação completa",
-        "Instalação rápida e segura",
-        "Preparado para expansão futura"
-      ],
-      icon: <Car className="w-12 h-12 text-henzai-terracota" />,
-      image: evChargerCondo
-    },
-
-    {
-      title: "Eletroposto em Postos de Gasolina",
+      title: "Infraestrutura para Eletropostos",
       description: "Transforme seu posto de combustível em um hub de mobilidade elétrica de alta performance.",
       benefits: [
         "Nova fonte de receita para o posto",
@@ -125,6 +114,17 @@ const SolutionsSection: React.FC = () => {
         "Gestão e manutenção preventiva",
         "Eficiência energética otimizada"
       ],
+      {
+      title: "Mercado Livre de Energia",
+      description: "Consultoria completa para análise regulatória, negociação e gestão de contratos.",
+      benefits: [
+        "Redução média de 40% nos custos",
+        "Consultoria completa para análise regulatória",
+        "Negociação e gestão de contratos"
+      ],
+      icon: <BarChart3 className="w-12 h-12 text-henzai-terracota" />,
+      image: "/lovable-uploads/energy-consulting.png"
+    },
       icon: <Thermometer className="w-12 h-12 text-henzai-terracota" />,
       image: climatizacao
     }
