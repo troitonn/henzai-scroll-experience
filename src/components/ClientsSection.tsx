@@ -15,7 +15,7 @@ const ClientsSection: React.FC = () => {
 
   const clients = [
     { name: 'Oggi Sorvetes', logo: oggiLogo, isSpecial: true  },
-    { name: 'Academia Gaviões', logo: sodieLogo },
+    { name: 'Academia Gaviões', logo: sodieLogo, isSpecial: true },
     { name: 'Petrobras', logo: petrobrasLogo, isSpecial: true },
     { name: 'Armando Bessa', logo: bessaLogo },
     { name: 'Ipiranga', logo: ipirangaLogo},
