@@ -19,10 +19,10 @@ const PartnershipSection: React.FC = () => {
             <div ref={leftRef} className={`transition-all duration-700 ${leftVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               <h2 className="font-libre-franklin text-3xl md:text-4xl font-bold mb-6">
                 Na Henzai, cada projeto é conduzido com
-                <span className="text-henzai-terracota"> visão de negócio, clareza e compromisso.</span>
+                <span className="text-henzai-terracota"> visão de negócio, estratégia, clareza e compromisso.</span>
               </h2>
               <p className="font-gantari text-lg mb-8 text-white/90">
-                Atuamos como parceiros estratégicos para gerar impacto real em cada decisão.
+                Atuamos como uma integradora estratégica para gerar impacto real em cada decisão.
               </p>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <h3 className="font-libre-franklin text-2xl font-bold mb-4">
@@ -51,7 +51,7 @@ const PartnershipSection: React.FC = () => {
                   </div>
                   <div>
                     <p className="font-gantari text-sm text-white/70">Email</p>
-                    <p className="font-gantari font-semibold">henzaienergia@gmail.com</p>
+                    <p className="font-gantari font-semibold">contato@henzaienergia.com.br</p>
                   </div>
                 </a>
 
