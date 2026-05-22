@@ -36,8 +36,8 @@ const Footer: React.FC = () => {
   ];
 
   const socialLinks = [
-    { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" },
-    { icon: <Linkedin className="w-5 h-5" />, href: "#", label: "LinkedIn" }
+    { icon: <Instagram className="w-5 h-5" />, href: "https://www.instagram.com/henzaienergia/", label: "Instagram" },
+    { icon: <Linkedin className="w-5 h-5" />, href: "https://www.linkedin.com/company/henzai-energia/", label: "LinkedIn" }
   ];
 
   return (
@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
 
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-henzai-terracota" />
-                  <span className="font-gantari">henzaienergia.com.br</span>
+                  <span className="font-gantari">contato@henzaienergia.com.br</span>
                 </div>
 
                 <div className="flex items-center space-x-3">
