@@ -76,26 +76,22 @@ const AboutSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Imagem integrada ao layout, sem efeito de card/quadrado */}
-            <div
-              className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
-                titleVisible
-                  ? 'opacity-100 translate-x-0'
-                  : 'opacity-0 translate-x-10'
-              }`}
-            >
-              <div className="relative w-full max-w-[320px] md:max-w-[390px] lg:max-w-[430px]">
-                <img
-                  src={ceoPhoto}
-                  alt="Especialista da Henzai"
-                  className="relative z-10 w-full h-auto object-contain select-none pointer-events-none drop-shadow-[0_24px_50px_rgba(0,0,0,0.35)]"
-                />
-
-                {/* Glow sutil atrás da imagem para integrar com o fundo */}
-                <div className="absolute inset-x-8 bottom-8 h-40 bg-henzai-terracota/20 blur-3xl rounded-full -z-10" />
-              </div>
-            </div>
-          </div>
+            {/* Imagem integrada ao layout */}
+<div
+  className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
+    titleVisible
+      ? 'opacity-100 translate-x-0'
+      : 'opacity-0 translate-x-10'
+  }`}
+>
+  <div className="relative w-full max-w-[300px] md:max-w-[360px] lg:max-w-[400px]">
+    <img
+      src={ceoPhoto}
+      alt="Especialista da Henzai"
+      className="relative z-10 w-full h-auto object-contain select-none pointer-events-none"
+    />
+  </div>
+</div>
 
           {/* Métricas e Quote integrados no fluxo */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
