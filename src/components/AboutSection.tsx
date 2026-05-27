@@ -39,8 +39,8 @@ const AboutSection: React.FC = () => {
   const economia = useCountUp(1000000000, 3000, statsVisible);
 
   return (
-    <section id="sobre" className="relative overflow-hidden bg-[#1D3557] py-24">
-      {/* Background principal da seção */}
+    <section id="sobre" className="py-24 relative overflow-hidden bg-[#1D3557]">
+      {/* Background Principal */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -49,22 +49,20 @@ const AboutSection: React.FC = () => {
         }}
       />
 
-      {/* Camada azul para uniformizar o fundo */}
-      <div className="absolute inset-0 bg-[#1D3557]/25" />
+      <div className="absolute inset-0 bg-[#1D3557]/10" />
 
-      <div className="container relative z-10 mx-auto px-6 text-white">
-        <div className="mx-auto max-w-7xl">
-          {/* Seção Principal */}
-          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+      <div className="container mx-auto px-6 relative z-10 text-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
             <div
               ref={titleRef}
               className={`transition-all duration-1000 ${
                 titleVisible
-                  ? 'translate-y-0 opacity-100'
-                  : 'translate-y-10 opacity-0'
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-10'
               }`}
             >
-              <h2 className="mb-8 font-libre-franklin text-4xl font-bold leading-tight md:text-6xl">
+              <h2 className="font-libre-franklin text-4xl md:text-6xl font-bold leading-tight mb-8">
                 Mais que energia.
                 <br />
                 <span className="text-henzai-terracota">
@@ -72,69 +70,44 @@ const AboutSection: React.FC = () => {
                 </span>
               </h2>
 
-              <p className="max-w-xl font-gantari text-xl leading-relaxed text-henzai-off-white">
+              <p className="font-gantari text-xl leading-relaxed text-henzai-off-white max-w-xl">
                 A Henzai nasceu da convicção de que energia não deve ser tratada apenas como despesa técnica
                 ela é estratégia de crescimento. Conectamos empresas às melhores soluções energéticas com
                 visão de negócio, clareza e compromisso.
               </p>
             </div>
 
-            {/* Imagem tratada como composição visual, sem card/quadrado aparente */}
+            {/* Imagem sem card, sem borda, sem fundo branco */}
             <div
-              className={`flex justify-center transition-all delay-300 duration-1000 lg:justify-end ${
+              className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
                 titleVisible
-                  ? 'translate-x-0 opacity-100'
-                  : 'translate-x-10 opacity-0'
+                  ? 'opacity-100 translate-x-0'
+                  : 'opacity-0 translate-x-10'
               }`}
             >
-              <div className="relative w-full max-w-[360px] md:max-w-[430px] lg:max-w-[500px]">
-                {/* Mancha de cor atrás para integrar com a seção */}
-                <div className="absolute inset-0 rounded-full bg-henzai-terracota/10 blur-3xl" />
-
-                {/* Camada azul atrás da imagem */}
-                <div className="absolute inset-0 rounded-[3rem] bg-[#1D3557]" />
-
+              <div className="relative w-full max-w-[300px] md:max-w-[360px] lg:max-w-[400px]">
                 <img
                   src={ceoPhoto}
                   alt="Especialista da Henzai"
-                  className="relative z-10 block w-full select-none object-contain drop-shadow-[0_28px_60px_rgba(0,0,0,0.35)]"
-                  style={{
-                    WebkitMaskImage:
-                      'radial-gradient(ellipse 78% 78% at 50% 50%, black 58%, rgba(0,0,0,0.85) 70%, transparent 100%)',
-                    maskImage:
-                      'radial-gradient(ellipse 78% 78% at 50% 50%, black 58%, rgba(0,0,0,0.85) 70%, transparent 100%)',
-                  }}
-                  draggable={false}
-                />
-
-                {/* Overlay azul leve para igualar o tom da foto com o fundo */}
-                <div
-                  className="pointer-events-none absolute inset-0 z-20 rounded-[3rem] bg-[#1D3557]/10"
-                  style={{
-                    WebkitMaskImage:
-                      'radial-gradient(ellipse 78% 78% at 50% 50%, black 58%, rgba(0,0,0,0.85) 70%, transparent 100%)',
-                    maskImage:
-                      'radial-gradient(ellipse 78% 78% at 50% 50%, black 58%, rgba(0,0,0,0.85) 70%, transparent 100%)',
-                  }}
+                  className="relative z-10 block w-full h-auto object-contain select-none pointer-events-none"
                 />
               </div>
             </div>
           </div>
 
-          {/* Métricas e Quote */}
-          <div className="mt-16 grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div
               ref={statsRef}
-              className="grid grid-cols-2 gap-8 rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm"
+              className="grid grid-cols-2 gap-8 bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10"
             >
               <div
                 className={`text-left transition-all duration-700 ${
                   statsVisible
-                    ? 'scale-100 opacity-100'
-                    : 'scale-95 opacity-0'
+                    ? 'opacity-100 scale-100'
+                    : 'opacity-0 scale-95'
                 }`}
               >
-                <div className="mb-1 text-4xl font-bold text-henzai-terracota">
+                <div className="text-4xl font-bold text-henzai-terracota mb-1">
                   +{usinas.toLocaleString('pt-BR')}
                 </div>
 
@@ -144,13 +117,13 @@ const AboutSection: React.FC = () => {
               </div>
 
               <div
-                className={`text-left transition-all delay-200 duration-700 ${
+                className={`text-left transition-all duration-700 delay-200 ${
                   statsVisible
-                    ? 'scale-100 opacity-100'
-                    : 'scale-95 opacity-0'
+                    ? 'opacity-100 scale-100'
+                    : 'opacity-0 scale-95'
                 }`}
               >
-                <div className="mb-1 text-4xl font-bold text-henzai-terracota">
+                <div className="text-4xl font-bold text-henzai-terracota mb-1">
                   {economia < 1000000000
                     ? `+R$ ${economia.toLocaleString('pt-BR')}`
                     : '+R$ 1 Bi'}
@@ -166,11 +139,11 @@ const AboutSection: React.FC = () => {
               ref={quoteRef}
               className={`transition-all duration-1000 ${
                 quoteVisible
-                  ? 'translate-y-0 opacity-100'
-                  : 'translate-y-10 opacity-0'
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-10'
               }`}
             >
-              <div className="mb-8 border-l-4 border-henzai-terracota pl-6">
+              <div className="border-l-4 border-henzai-terracota pl-6 mb-8">
                 <p className="text-lg italic leading-relaxed text-white/80">
                   "Combinamos visão estratégica, responsabilidade técnica e presença constante para transformar
                   consumo em vantagem, despesa em capital e futuro em oportunidade."
@@ -180,7 +153,7 @@ const AboutSection: React.FC = () => {
               <Button
                 variant="secondary"
                 size="lg"
-                className="rounded-full px-10 py-6 font-gantari text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                className="font-gantari font-semibold text-lg px-10 py-6 rounded-full hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                 onClick={() =>
                   document
                     .getElementById('contato')
