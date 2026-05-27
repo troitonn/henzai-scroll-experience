@@ -39,15 +39,18 @@ const AboutSection: React.FC = () => {
   const economia = useCountUp(1000000000, 3000, statsVisible);
 
   return (
-    <section id="sobre" className="py-24 relative overflow-hidden">
+    <section id="sobre" className="py-24 relative overflow-hidden bg-[#1D3557]">
       {/* Background Principal */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(29, 53, 87, 0.98) 0%, rgba(29, 53, 87, 0.90) 100%), url(${teamMeetingImage})`,
+          backgroundImage: `linear-gradient(135deg, rgba(29, 53, 87, 0.98) 0%, rgba(29, 53, 87, 0.92) 100%), url(${teamMeetingImage})`,
           backgroundAttachment: 'fixed',
         }}
       />
+
+      {/* Overlay extra para suavizar qualquer diferença visual */}
+      <div className="absolute inset-0 bg-[#1D3557]/20" />
 
       <div className="container mx-auto px-6 relative z-10 text-white">
         <div className="max-w-7xl mx-auto">
@@ -76,22 +79,26 @@ const AboutSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Imagem integrada ao layout */}
-<div
-  className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
-    titleVisible
-      ? 'opacity-100 translate-x-0'
-      : 'opacity-0 translate-x-10'
-  }`}
->
-  <div className="relative w-full max-w-[300px] md:max-w-[360px] lg:max-w-[400px]">
-    <img
-      src={ceoPhoto}
-      alt="Especialista da Henzai"
-      className="relative z-10 w-full h-auto object-contain select-none pointer-events-none"
-    />
-  </div>
-</div>
+            {/* Imagem integrada ao fundo, sem card branco/quadrado */}
+            <div
+              className={`flex justify-center lg:justify-end transition-all duration-1000 delay-300 ${
+                titleVisible
+                  ? 'opacity-100 translate-x-0'
+                  : 'opacity-0 translate-x-10'
+              }`}
+            >
+              <div className="relative w-full max-w-[300px] md:max-w-[360px] lg:max-w-[410px]">
+                {/* Glow suave atrás da imagem */}
+                <div className="absolute inset-x-8 bottom-6 h-40 bg-henzai-terracota/20 blur-3xl rounded-full -z-10" />
+
+                <img
+                  src={ceoPhoto}
+                  alt="Especialista da Henzai"
+                  className="relative z-10 w-full h-auto object-contain select-none pointer-events-none drop-shadow-[0_24px_55px_rgba(0,0,0,0.35)]"
+                />
+              </div>
+            </div>
+          </div>
 
           {/* Métricas e Quote integrados no fluxo */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
