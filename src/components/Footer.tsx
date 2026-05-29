@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
 
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-5 h-5 text-henzai-terracota" />
-                  <span className="font-gantari">Rua Werner Von Siemens, 111 - 9 andar - Lapa de Baixo, São Paulo - SP, 05069-010</span>
+                  <span className="font-gantari">Rua Werner Von Siemens, 111 - 9 andar - Lapa, São Paulo - SP, 05069-010</span>
                 </div>
               </div>
             </div>
